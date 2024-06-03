@@ -2,18 +2,17 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 import os
 from lib.database_connection import get_flask_database_connection
+from lib.staff_repository import *
 
 app = Flask(__name__)
-cors = CORS(app, origins='http://localhost:5173')
+cors = CORS(app, resources={r"/*": {"origins": "http://localhost:5173", "supports_credentials": True}})
 
-@app.route('/test', methods=['GET', 'POST'])
-def test():
+@app.route('/team', methods=['GET'])
+def all_staff():
     connection = get_flask_database_connection(app)
-    title = "Test title"
-    connection.execute('INSERT INTO test (title) VALUES (%s)', [title])
-    rows = connection.execute('SELECT * from test')
-    result = [{'id': row['id'], 'title': row['title']} for row in rows]
-    return jsonify(result)
+    staff_repository = StaffRepository(connection)
+    staff = staff_repository.all_staff()
+    return jsonify(staff)
 
 if __name__ == "__main__":
     app.run(debug=True, port=int(os.environ.get('PORT', 5001)))

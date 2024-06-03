@@ -1,0 +1,46 @@
+.navbar {
+    background-color: white !important;
+    color: #00215e;
+    position: fixed;
+    width: 100%;
+    top:0;
+    left:0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .navbar-content {
+    max-width: 1600px;
+    width: 100%;
+    padding: 0 16px; /* Optional padding for better spacing */
+    display: flex;
+    justify-content: space-between; /* Adjust this based on your content layout */
+    align-items: center;
+  }
+
+  .content {
+    margin-top: 100px; /* Pushes content below the NavBar */
+}
+  
+  img.LogoImage {
+    position: relative;
+    top: 4px;
+    height: 70px;
+    width: auto;
+  }
+
+  .nav-link.active {
+    position: relative;
+  }
+  
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    left: 20%;
+    width: 60%;
+    height: 1px; /* Adjust the thickness of the underline as needed */
+    background-color: #00215e; /* Color of the underline */
+  }
+
+  

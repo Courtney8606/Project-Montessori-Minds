@@ -1,0 +1,34 @@
+.container {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  /* Set styles for the columns */
+  .room-column {
+    padding: 0;
+  }
+  
+  /* Set styles for the large room image */
+  .room-image-large {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Set styles for the small room images */
+  .room-image-small {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .room-column {
+      width: 100%;
+    }
+  }

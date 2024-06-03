@@ -1,0 +1,43 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 12%;
+    margin-right: 12%;
+  }
+  
+  .card {
+    width: calc(25% - 90px); /* Adjust the card width here */
+    min-width: 250px;
+    margin-bottom: 40px;
+    border-radius: 10px; /* Add rounded corners */
+    overflow: hidden; /* Ensure content inside the card does not overflow rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add box shadow for a raised effect */
+  }
+  
+  @media screen and (max-width: 768px) {
+    .card {
+      width: calc(50% - 20px); /* Adjust the card width for smaller screens */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .card {
+      width: 100%; /* Make cards full width on smaller screens */
+    }
+  }
+
+  .team-button {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    padding: 5px;
+    height: 30px;
+    margin: 5px;
+    align-content: center;
+  }
+
+  .team-button:hover {
+    background-color: #a2dbf3;
+    color: black;
+  }

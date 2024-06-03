@@ -1,0 +1,130 @@
+/* Awards */
+
+.awards-row {
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  .awards-item {
+    display: table-cell;
+  }
+  .awards-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Values */
+  
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-bottom: 20px;
+  }
+  
+  .values-wrapper {
+    justify-self: center;
+    padding: 4%;
+    position: relative;
+  }
+  
+  .values-wrapper > h3 {
+    position: absolute;
+    visibility: hidden;
+    font-size: 1.5vw;
+  }
+  
+  .values-wrapper:hover {
+    filter: brightness(0.75);
+  }
+  
+  .values-wrapper:hover > h3 {
+    visibility: revert;
+    color: white;
+    top: 47%; /* not happy with this positioning but how can I get it centered?*/
+    left: 35%;
+    transform: scale(2);
+  }
+  
+  .values-wrapper:hover > h3 a:visited {
+    color: white;
+  }
+  
+  .values-image {
+    max-width: 100%;
+    border-radius: 2%;
+  }
+  
+  @media screen and (max-width: 900px) {
+    .values-grid {
+      grid-template-columns: 1fr;
+      padding-left: 0;
+      padding-right: 0;
+      justify-content: center;
+    }
+    .values-wrapper:hover > h3 {
+      font-size: 2.5vw;
+    }
+    .values-image {
+      min-width: 150px;
+    }
+  }
+  
+  /* Testimonials */
+  
+  .testimonials {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  
+  .testimonial-wrapper {
+    position: relative;
+  }
+  
+  .testimonial-wrapper > h4 {
+    position: absolute;
+    line-height: 1.2;
+    color: white;
+    font-style: italic;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+  }
+  
+  .testimonial-image {
+    max-width: 100%;
+    height: auto;
+    filter: brightness(0.65);
+  }
+  
+  @media screen and (max-width: 900px) {
+    .testimonials {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .testimonial-heading {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  /* Intro text */
+  
+  .intro {
+    text-align: center;
+    padding-top: 40px;
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .intro {
+      font-size: 3.5vw;
+    }
+  }
+  

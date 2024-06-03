@@ -1,14 +1,24 @@
 DROP TABLE IF EXISTS test;
 DROP SEQUENCE IF EXISTS test_id_seq;
 
+DROP TABLE IF EXISTS staff;
+DROP SEQUENCE IF EXISTS staff_id_seq;
+
 DROP TABLE IF EXISTS connections;
 DROP SEQUENCE IF EXISTS connections_id_seq;
+
+DROP TABLE IF EXISTS recording_requests;
+DROP SEQUENCE IF EXISTS recording_requests_id_seq;
+DROP TYPE IF EXISTS reader_status_type;
 
 DROP TABLE IF EXISTS recordings;
 DROP SEQUENCE IF EXISTS recordings_id_seq;
 
 DROP TABLE IF EXISTS users;
 DROP SEQUENCE IF EXISTS users_id_seq;
+
+DROP TABLE IF EXISTS permissions;
+DROP SEQUENCE IF EXISTS permissions_id_seq;
 
 DROP TYPE IF EXISTS user_role;
 DROP TYPE IF EXISTS status_type;
@@ -20,47 +30,21 @@ CREATE TABLE test (
     title VARCHAR( 100 ) NOT NULL
 );
 
-CREATE TYPE user_role AS ENUM ('child', 'parent');
-
-CREATE SEQUENCE IF NOT EXISTS users_id_seq;
-CREATE TABLE users (
+CREATE SEQUENCE IF NOT EXISTS staff_id_seq;
+CREATE TABLE staff (
     id SERIAL PRIMARY KEY,
-    username VARCHAR( 100 ) NOT NULL,
-    email VARCHAR( 100 ) NOT NULL,
-    password VARCHAR( 100 ) NOT NULL,
-    child VARCHAR( 100 ),
-    role user_role,
-    connections INTEGER[]
-);
-
-CREATE TYPE status_type AS ENUM ('pending', 'approved', 'rejected');
-
-CREATE SEQUENCE IF NOT EXISTS connections_id_seq;
-CREATE TABLE connections (
-    id SERIAL PRIMARY KEY,
-    parent_id INTEGER REFERENCES users(id),
-    reader_id INTEGER REFERENCES users(id),
-    status status_type
-);
-
-CREATE SEQUENCE IF NOT EXISTS recordings_id_seq;
-CREATE TABLE recordings (
-    id SERIAL PRIMARY KEY,
-    audio_file VARCHAR( 100 ) NOT NULL,
+    name VARCHAR( 100 ) NOT NULL,
+    image VARCHAR( 100 ) NOT NULL,
     title VARCHAR( 100 ) NOT NULL,
-    parent_id INTEGER REFERENCES users(id),
-    reader_id INTEGER REFERENCES users(id)
+    qualifications text[],
+    awards text[]
 );
 
-INSERT INTO users (username, email, password, role) VALUES ('mrs_dursley', 'dursley@gmail.com', 'hatemynephew123', 'parent');
-INSERT INTO users (username, email, password, role) VALUES ('montoya', 'montoya@gmail.com', 'preapre2die', 'parent');
-INSERT INTO users (username, email, password, role) VALUES ('remy', 'remy@gmail.com', 'kissthecook', 'parent');
-
-INSERT INTO connections (parent_id, reader_id, status) VALUES (1, 2, 'approved');
-INSERT INTO connections (parent_id, reader_id, status) VALUES (2, 3, 'approved');
-INSERT INTO connections (parent_id, reader_id, status) VALUES (1, 3, 'rejected');
-
-INSERT INTO recordings (audio_file, title, parent_id, reader_id) VALUES ('Test.mp3', 'The big surprise', 1, 2);
-INSERT INTO recordings (audio_file, title, parent_id, reader_id) VALUES ('Test2.mp3', 'Teddy bear picnic', 1, 2);
-INSERT INTO recordings (audio_file, title, parent_id, reader_id) VALUES ('Test3.mp3', 'A dragon for tea', 2, 3);
-INSERT INTO recordings (audio_file, title, parent_id, reader_id) VALUES ('Test4.mp3', 'Lions, tigers and bears, oh my!', 2, 3);
+INSERT INTO staff (name, image, title, qualifications, awards) VALUES ('Gill', 'Gill.webp', 'Admin & Nutrition Lead', ARRAY['Montessori Assistant Certificate', 'Food Hygiene & Safety Level 2'], ARRAY[]::text[]);
+INSERT INTO staff (name, image, title, qualifications, awards) VALUES ('Holly', 'Holly.webp', 'Deputy Manager', ARRAY['International Diploma in Montessori Pedagogy', 'Level 5 Early Years Practitioner'], ARRAY['Deputy Manager of the Year Award NMT 2023', 'Early Years Teacher of the Year Award AC 2023']);
+INSERT INTO staff (name, image, title, qualifications, awards) VALUES ('Lucy', 'Lucy.webp', 'Pedagogy Lead/ SENDco', ARRAY['Level 3 in Childcare, Education & Management', 'SEND Code of Practice'], ARRAY[]::text[]);
+INSERT INTO staff (name, image, title, qualifications, awards) VALUES ('Megan', 'Megan.webp', 'Room Lead', ARRAY['International Diploma in Montessori Pedagogy', 'Level 3 in Childcare & Education'], ARRAY['Room Leader of the Year Award NMT 2023', 'NDNA Awards Runner Up 2023', 'Nursery World Awards Finalist 2022']);
+INSERT INTO staff (name, image, title, qualifications, awards) VALUES ('Charlie', 'Charlie.webp', 'Admin & Nutrition Lead', ARRAY['Montessori Assistant Certificate', 'Food Hygiene & Safety Level 2'], ARRAY[]::text[]);
+INSERT INTO staff (name, image, title, qualifications, awards) VALUES ('Charlotte', 'Charlotte.webp', 'Deputy Manager', ARRAY['International Diploma in Montessori Pedagogy', 'Level 5 Early Years Practitioner'], ARRAY['Deputy Manager of the Year Award NMT 2023', 'Early Years Teacher of the Year Award AC 2023']);
+INSERT INTO staff (name, image, title, qualifications, awards) VALUES ('Maria', 'Maria.webp', 'Pedagogy Lead/ SENDco', ARRAY['Level 3 in Childcare, Education & Management', 'SEND Code of Practice'], ARRAY[]::text[]);
+INSERT INTO staff (name, image, title, qualifications, awards) VALUES ('Mollie', 'Mollie.webp', 'Room Lead', ARRAY['International Diploma in Montessori Pedagogy', 'Level 3 in Childcare & Education'], ARRAY['Room Leader of the Year Award NMT 2023', 'NDNA Awards Runner Up 2023', 'Nursery World Awards Finalist 2022']);
