@@ -32,7 +32,6 @@
     padding-right: 20px;
   }
 
-  /* Set styles for the small room images */
   .room-image-small-1 {
     width: 100%;
     height: auto;
@@ -41,7 +40,6 @@
     object-fit: cover;
   }
 
-   /* Set styles for the small room images */
    .room-image-small-2 {
     width: 100%;
     height: auto;
@@ -49,11 +47,70 @@
     max-height: 234px;
     object-fit: cover;
   }
+
+  .column-break {
+    display: none
+  }
   
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .room-column {
+  @media (max-width: 1000px) {
+    .room-image-small-1 {
       width: 100%;
+      height: auto;
+      max-width: 385px;
+      max-height: 289px;
+      min-height: 172px;
+      object-fit: cover;
+    }
+  
+     .room-image-small-2 {
+      width: 100%;
+      height: auto;
+      max-width: 385px;
+      max-height: 234px;
+      min-height: 148.5px;
+      object-fit: cover;
     }
   }
 
+  @media (max-width: 770px) {
+    .room-image-small-1 {
+      width: 100%;
+      min-width: 100%;
+      min-height: 70%;
+      height: auto;
+      object-fit: cover;
+    }
+  
+     .room-image-small-2 {
+      width: 100%;
+      min-width: 100%;
+      min-height: 70%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .room-image-large {
+      min-width: 100%;
+      min-height: 100%;
+    }
+
+    .column-break {
+      display:grid
+    }
+
+    .room-column {
+      padding: 1px;
+      width: 100%;
+    }
+    .rooms-row {
+      margin-bottom: 150px;
+    }
+
+    .room-heading {
+      padding: 15px;
+    }
+  
+    .room-text {
+      padding: 15px;
+    }
+  }

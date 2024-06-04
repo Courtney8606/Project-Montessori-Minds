@@ -11,9 +11,11 @@ export const Room = ({heading, text, picture1, picture2, picture3}) => {
             <p className="room-text">{text}
             </p>
           </div>
+          <div class="w-100 column-break"></div>
           <div className="col room-column">
             <img className="room-image-large" src={picture1} />
           </div>
+          <div class="w-100 column-break"></div>
           <div className="col room-column">
             <img className="room-image-small-1" src={picture2} />
             <img className="room-image-small-2" src={picture3} />

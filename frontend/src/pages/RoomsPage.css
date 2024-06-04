@@ -23,3 +23,16 @@
   .roomnav > li > a:hover {
     color: grey;
   }
+
+  .nav-link.active {
+    position: relative;
+  }
+  
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    left: 20%;
+    width: 60%;
+    height: 1px; /* Adjust the thickness of the underline as needed */
+    background-color: #00215e; /* Color of the underline */
+  }

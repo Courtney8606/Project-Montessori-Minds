@@ -26,6 +26,10 @@
     color: white;
   } 
 
+  .image {
+    position: absolute;
+  }
+
   .header-textsub {
     position: absolute;
     width: 100%;

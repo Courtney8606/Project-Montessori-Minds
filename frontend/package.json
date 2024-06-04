@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vis.gl/react-google-maps": "^1.0.2",
     "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
+    "google-map-react": "^2.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^2.0.5",
@@ -19,6 +21,8 @@
     "styled-components": "^6.1.11"
   },
   "devDependencies": {
+    "@iconify/icons-map": "^1.2.3",
+    "@iconify/react": "^5.0.1",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",
