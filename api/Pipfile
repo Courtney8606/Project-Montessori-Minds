@@ -9,6 +9,9 @@ flask-cors = "*"
 psycopg = "*"
 pytest = "*"
 pytest-xprocess = "*"
+python-dotenv = "*"
+flask-session = "*"
+bcrypt = "*"
 
 [dev-packages]
 

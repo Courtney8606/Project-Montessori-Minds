@@ -5,15 +5,14 @@ const MainButton = ({ text, style, onClick }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const defaultStyles = {
-    backgroundColor: '#8a2952',
-    borderColor: '#8a2952',
-    color: '#ffd9c0',
-    height: '30px',
-    width: '140px',
+    backgroundColor: '#a2dbf3',
+    borderColor: '#a2dbf3',
+    color: 'black',
+    height: '50px',
+    width: '150px',
     fontSize: '16px',
     border: '2px solid',
     borderRadius: '10px',
-    paddingTop: '50px',
     cursor: 'pointer',
     ...style,
   };
@@ -21,17 +20,17 @@ const MainButton = ({ text, style, onClick }) => {
   const hoverStyles = {
     backgroundColor: '#00215e',
     borderColor: '#00215e',
-    color: '#ffd9c0',
+    color: 'white',
     ...style,
   };
 
   return (
-    <div className="parent-view">
+    <div className="main-view">
       <button
-              role="submit-button"
-              onClick={onClick || (() => {})}
-              id="submit"
               type="submit"
+              role="submit-button"
+              id="submit"
+              onClick={onClick || (() => {})}
               style={isHovered ? { ...defaultStyles, ...hoverStyles } : defaultStyles}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}

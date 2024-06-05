@@ -11,6 +11,10 @@ import ContactPage from './pages/ContactPage';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import Footer from './components/Footer/Footer';
 import { HelmetProvider } from "react-helmet-async";
+import { LoginPage } from './pages/LoginPage';
+import { SignupPage} from './pages/SignupPage';
+import { EmployeeAccountPage } from './pages/EmployeeAccount';
+
 
 function App() {
 
@@ -27,6 +31,9 @@ function App() {
       <Route path="/food" element={<FoodPage />} />
       <Route path="/outdoor" element={<OutdoorPage />} />
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<SignupPage />} />
+      <Route path="/employeeaccount" element={<EmployeeAccountPage />} />
       </Routes>
       <Footer/>
       </HelmetProvider>
