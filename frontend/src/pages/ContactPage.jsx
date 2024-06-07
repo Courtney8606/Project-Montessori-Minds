@@ -1,16 +1,15 @@
-import React from 'react';
-import Map from '../components/Map/Map';
-import './ContactPage.css'
+import React from "react";
+import Map from "../components/Map/Map";
+import "./ContactPage.css";
 
 const ContactPage = () => {
   return (
     <div>
-
       <div className="container text-center contact-grid">
         <div className="row">
           <div className="col">
             <div>
-                <Map/>
+              <Map />
             </div>
           </div>
           <div className="col">
@@ -20,14 +19,14 @@ const ContactPage = () => {
             <p>You can contact us via -</p>
             <p>
               <a className="contact" href="mailto:montessori.minds@gmx.com">
-				        montessori.minds@gmx.com
-		          </a>
+                montessori.minds@gmx.com
+              </a>
             </p>
             <p>Phone: 01708 935695</p>
           </div>
         </div>
       </div>
-      </div>
+    </div>
   );
 };
 

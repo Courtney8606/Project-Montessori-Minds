@@ -6,7 +6,6 @@ import backgroundImage from "../assets/banner.jpg";
 import logoImage from "../assets/Logo.jpeg";
 import MainButton from "../components/Buttons/MainButton";
 
-
 export const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -23,7 +22,7 @@ export const LoginPage = () => {
       } else {
         const data = await response.json();
         localStorage.setItem("username", data["username"]);
-        navigate("/employeeaccount");
+        navigate("/staffmanagement");
       }
     } catch (err) {
       console.error("Error", err);
@@ -51,15 +50,9 @@ export const LoginPage = () => {
         }}
       >
         <form className="login-form" onSubmit={handleSubmit}>
-          <div>
-            <img
-              className="loginlogo"
-              role="logoImg"
-              alt="logo"
-              src={logoImage}
-            />
-          </div>
+          <div></div>
           <p>EMPLOYEE PORTAL</p>
+          <p>Please log in below</p>
           <label htmlFor="username">Username:</label>
           <input
             id="username"
@@ -81,10 +74,16 @@ export const LoginPage = () => {
           />
           <br></br>
           {errorMessage && <p className="error-message">{errorMessage}</p>}
-          <MainButton text="Log in"/>
+          <MainButton text="Log in" />
           <div>
             <hr />
-            <p>Don&apos;t have an account? <NavLink style={{ textDecoration: 'underline' }} to="/signup"> Sign up</NavLink></p>
+            <p>
+              Don&apos;t have an account?{" "}
+              <NavLink style={{ textDecoration: "underline" }} to="/signup">
+                {" "}
+                Sign up
+              </NavLink>
+            </p>
           </div>
         </form>
       </div>

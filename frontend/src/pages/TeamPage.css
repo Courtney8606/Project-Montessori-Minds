@@ -1,36 +1,36 @@
 .banner-team {
-    display: grid;
-    border-bottom: 0.25px solid grey;
-    grid-template-columns: repeat(auto-fit, minmax(min(25rem, 100%), 1fr));
-    max-width: 1600px;
-    margin-bottom: 40px;
-  }
-  
-  img.banner-image-team {
-    width: 100%;
-  }
-  
+  display: grid;
+  border-bottom: 0.25px solid grey;
+  grid-template-columns: repeat(auto-fit, minmax(min(25rem, 100%), 1fr));
+  max-width: 1600px;
+  margin-bottom: 40px;
+}
+
+img.banner-image-team {
+  width: 100%;
+}
+
+.banner-team-content {
+  text-align: center;
+  padding: 40px 30px 30px 30px;
+  font-size: 1.3vw;
+}
+
+@media screen and (min-width: 1600px) {
   .banner-team-content {
-    text-align: center;
-    padding: 40px 30px 30px 30px;
-    font-size: 1.3vw;
+    font-size: 20px;
   }
-  
-  @media screen and (min-width: 1600px) {
-    .banner-team-content {
-      font-size: 20px;
-    }
+}
+
+@media screen and (max-width: 900px) {
+  .banner-team {
+    grid-template-columns: 1fr;
   }
-  
-  @media screen and (max-width: 900px) {
-    .banner-team {
-      grid-template-columns: 1fr;
-    }
-    .banner-team-content {
-      font-size: 16px;
-    }
-    .team {
-      justify-items: center;
-      padding-bottom: 40px;
-    }
+  .banner-team-content {
+    font-size: 16px;
   }
+  .team {
+    justify-items: center;
+    padding-bottom: 40px;
+  }
+}

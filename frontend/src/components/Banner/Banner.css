@@ -1,62 +1,62 @@
-  .banner {
-    position: relative;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-  }
+.banner {
+  position: relative;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
 
-  .banner > .BannerImage {
-    width: 100%;
-    display: block;
-    height: auto;
-    max-height: 500px;
-    object-fit: cover;
-    position: relative;
-    min-height: 250px;
-  }
+.banner > .BannerImage {
+  width: 100%;
+  display: block;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  position: relative;
+  min-height: 250px;
+}
 
+.header-text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4vw;
+  color: white;
+}
+
+.image {
+  position: absolute;
+}
+
+.header-textsub {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3vw;
+  color: white;
+}
+
+@media screen and (min-width: 1601px) {
   .header-text {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 4vw;
-    color: white;
-  } 
-
-  .image {
-    position: absolute;
+    font-size: 56px;
   }
 
   .header-textsub {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 3vw;
-    color: white;
-  } 
+    font-size: 40px;
+  }
+}
 
-  @media screen and (min-width: 1601px) {
-    .header-text {
-      font-size: 56px; 
-    }
-    
-    .header-textsub {
-      font-size: 40px; 
-    }
+@media screen and (max-width: 800px) {
+  .header-text {
+    font-size: 6vw;
   }
 
-  @media screen and (max-width: 800px) {
-    .header-text {
-      font-size: 6vw; 
-    }
-    
-    .header-textsub {
-      font-size: 4vw; 
-    }
+  .header-textsub {
+    font-size: 4vw;
   }
+}

@@ -1,13 +1,11 @@
-import React from 'react';
+import React from "react";
 import "./TeamPage.css";
 import teamImage from "../assets/leonieholder.jpg";
-import { getAllStaff } from '../services/staff';
-import StaffList from '../components/StaffCard/StaffCard';
+import { getAllStaff } from "../services/staff";
+import StaffList from "../components/StaffCard/StaffCard";
 import { useState, useEffect } from "react";
 
-
 const TeamPage = () => {
-
   const [staff, setStaff] = useState([]);
 
   const getAllStaffTrigger = async () => {
@@ -20,7 +18,7 @@ const TeamPage = () => {
   };
 
   useEffect(() => {
-        getAllStaffTrigger();
+    getAllStaffTrigger();
   }, []);
 
   return (
@@ -31,20 +29,24 @@ const TeamPage = () => {
           <h3>Leonie</h3>
           <h3>Owner & Nursery Manager</h3>
           <p>
-          Safeguarding Lead<br />
-          International Diploma in Montessori Pedagogy<br />
-          Working towards Doctor of Education (EdD) (PhD)<br />
+            Safeguarding Lead
+            <br />
+            International Diploma in Montessori Pedagogy
+            <br />
+            Working towards Doctor of Education (EdD) (PhD)
+            <br />
           </p>
           <p>
-          Over 10 years managerial experience within the early years sector.
-          Leonie is an experienced Montessori Teacher and has supported
-          nurseries across various local authorities. Leonie holds an
-          International Diploma in Montessori Pedagogy in addition to a BSc and
-          Masters Degree and is currently completing her Doctorate in Education.
+            Over 10 years managerial experience within the early years sector.
+            Leonie is an experienced Montessori Teacher and has supported
+            nurseries across various local authorities. Leonie holds an
+            International Diploma in Montessori Pedagogy in addition to a BSc
+            and Masters Degree and is currently completing her Doctorate in
+            Education.
           </p>
         </div>
       </div>
-      <StaffList data={staff}/> 
+      <StaffList data={staff} />
     </div>
   );
 };

@@ -1,15 +1,13 @@
-import './Room.css'
+import "./Room.css";
 
-export const Room = ({heading, text, picture1, picture2, picture3}) => {
-
+export const Room = ({ heading, text, picture1, picture2, picture3 }) => {
   return (
     <div>
       <div className="container text-center">
         <div className="row rooms-row">
           <div className="col-5 room-column" id={heading}>
             <h3 className="room-heading">{heading}</h3>
-            <p className="room-text">{text}
-            </p>
+            <p className="room-text">{text}</p>
           </div>
           <div class="w-100 column-break"></div>
           <div className="col room-column">

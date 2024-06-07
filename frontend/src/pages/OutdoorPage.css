@@ -1,14 +1,14 @@
 .container {
-    margin-top: 50px;
-    margin-bottom: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .carousel-image {
-    max-height: 600px;
+  max-height: 600px;
 }
 
 .col {
-    text-align: center;
-    align-content: center;
-    min-width: 350px;
+  text-align: center;
+  align-content: center;
+  min-width: 350px;
 }

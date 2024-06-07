@@ -4,6 +4,9 @@ DROP SEQUENCE IF EXISTS staff_id_seq;
 DROP TABLE IF EXISTS users;
 DROP SEQUENCE IF EXISTS users_id_seq;
 
+DROP TABLE IF EXISTS images;
+DROP SEQUENCE IF EXISTS images_id_seq;
+
 CREATE SEQUENCE IF NOT EXISTS staff_id_seq;
 CREATE TABLE staff (
     id SERIAL PRIMARY KEY,
@@ -20,6 +23,12 @@ CREATE TABLE users (
     username VARCHAR( 100 ) NOT NULL,
     email VARCHAR( 100 ) NOT NULL,
     password BYTEA NOT NULL
+);
+
+CREATE SEQUENCE IF NOT EXISTS images_id_seq;
+CREATE TABLE images (
+    id SERIAL PRIMARY KEY,
+    imagetitle VARCHAR( 100 ) NOT NULL
 );
 
 INSERT INTO staff (name, image, title, qualifications, awards) VALUES ('Gill', 'Gill.webp', 'Admin & Nutrition Lead', ARRAY['Montessori Assistant Certificate', 'Food Hygiene & Safety Level 2'], ARRAY[]::text[]);

@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import "./Footer.css";
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import MainButton from "../Buttons/MainButton";
 import { logoutservice } from "../../services/authentification";
 
@@ -14,10 +14,9 @@ export const Footer = () => {
     navigate("/login");
   };
 
-  const showNavbar = ![
-    "/signup",
-    "/login",
-  ].includes(location.pathname);
+  const showNavbar = !["/signup", "/login", "/addstaffmember"].includes(
+    location.pathname
+  );
 
   if (!showNavbar) {
     return null;
@@ -39,23 +38,42 @@ export const Footer = () => {
       <footer className="footer">
         <div className="container text-center">
           <div className="row">
-            <div className="col-3">
-            </div>
-            
+            <div className="col-3"></div>
+
             <div className="col-6 socials">
-              <a className="social-icon" href="https://instagram.com/montessori_minds" target="_blank" rel="noopener noreferrer">
+              <a
+                className="social-icon"
+                href="https://instagram.com/montessori_minds"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <ion-icon name="logo-instagram"></ion-icon>
               </a>
 
-              <a className="social-icon" href="https://facebook.com/montessorimindsromford" target="_blank" rel="noopener noreferrer">
+              <a
+                className="social-icon"
+                href="https://facebook.com/montessorimindsromford"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <ion-icon name="logo-facebook"></ion-icon>
               </a>
 
-              <a className="social-icon" href="https://youtube.com/@montessoriminds2797" target="_blank" rel="noopener noreferrer">
+              <a
+                className="social-icon"
+                href="https://youtube.com/@montessoriminds2797"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <ion-icon name="logo-youtube"></ion-icon>
               </a>
 
-              <a className="social-icon" href="https://twitter.com/mmdaynursery" target="_blank" rel="noopener noreferrer">
+              <a
+                className="social-icon"
+                href="https://twitter.com/mmdaynursery"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <ion-icon name="logo-twitter"></ion-icon>
               </a>
               <p>62-64 Eastern Rd, Romford, Essex, RM1 3QA</p>
@@ -68,7 +86,7 @@ export const Footer = () => {
             <div className="col-3 employee-feature-list">
               <ul className="employee-features">
                 <li>
-                <NavLink to="login">
+                  <NavLink to="login">
                     <MainButton
                       text="Employee Portal"
                       style={{

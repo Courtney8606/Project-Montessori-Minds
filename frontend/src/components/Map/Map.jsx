@@ -1,23 +1,22 @@
 import React from "react";
-import { APIProvider, Map, AdvancedMarker, Pin, InfoWindow } from "@vis.gl/react-google-maps";
+import { APIProvider, Map, AdvancedMarker } from "@vis.gl/react-google-maps";
 import "./Map.css";
 
 const GoogleMap = () => {
+  const API_KEY = import.meta.env.VITE_API_KEY;
+  const MAP_ID = import.meta.env.VITE_MAP_ID;
 
-    const API_KEY= import.meta.env.VITE_API_KEY;
-    const MAP_ID= import.meta.env.VITE_MAP_ID;
+  const position = {
+    lat: 51.57686112641848,
+    lng: 0.18805078588758062,
+  };
 
-    const position = {
-        lat: 51.57686112641848,
-        lng: 0.18805078588758062
-        }
-    
   return (
     <APIProvider apiKey={API_KEY}>
-    <div className="map">
-      <Map zoom={15.6} center={position} mapId={MAP_ID}/>
-      <AdvancedMarker position={position}/>
-    </div>
+      <div className="map">
+        <Map zoom={15.6} center={position} mapId={MAP_ID} />
+        <AdvancedMarker position={position} />
+      </div>
     </APIProvider>
   );
 };

@@ -7,11 +7,12 @@ import {
   checkEmail,
 } from "../services/authentification";
 import backgroundImage from "../assets/banner.jpg";
-import logoImage from "../assets/Logo.jpeg";
 import MainButton from "../components/Buttons/MainButton";
 
 export const SignupPage = () => {
   const [email, setEmail] = useState("");
+  const [authorised, setAuthorised] = useState(false);
+  const [authCode, setAuthCode] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -27,6 +28,20 @@ export const SignupPage = () => {
       caps.test(password) &&
       number.test(password)
     );
+  };
+
+  const handleInputChange = (event) => {
+    setAuthCode(event.target.value);
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    const correctCode = "MONTESSORI";
+    if (authCode === correctCode) {
+      setAuthorised(true);
+    } else {
+      alert("Incorrect authorization code");
+    }
   };
 
   const handleSubmit = async (event) => {
@@ -74,153 +89,178 @@ export const SignupPage = () => {
     setUsername(event.target.value);
   };
 
-  return (
-    <div
-      className="signup-container"
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundColor: "rgba(255, 200, 255, 10)",
-      }
-    }
-    >
-      <form className="signup-form" onSubmit={handleSubmit}>
-        <div>
-          <img
-            className="signuplogo"
-            role="logoImg"
-            alt="logo"
-            src={logoImage}
-          />
-          <p>Enter details below to sign up</p>
-        </div>
-        <div>
-          <label aria-label="Email:" htmlFor="email">
-            Email:
-          </label>
+  if (authorised) {
+    return (
+      <div
+        className="signup-container"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundColor: "rgba(255, 200, 255, 10)",
+        }}
+      >
+        <form className="signup-form" onSubmit={handleSubmit}>
           <div>
-            <input
-              type="email"
-              id="email"
-              placeholder="Enter your email"
-              onChange={handleEmailChange}
-              value={email}
-              className="signup-input"
-            ></input>
+            <p>Enter details below to sign up</p>
           </div>
-        </div>
-        <div>
-          <label aria-label="Username:" htmlFor="username">
-            Username:
-          </label>
           <div>
-            <input
-              type="text"
-              id="username"
-              placeholder="Enter your username"
-              value={username}
-              onChange={handleUsernameChange}
-              className="signup-input"
-            ></input>
+            <label aria-label="Email:" htmlFor="email">
+              Email:
+            </label>
+            <div>
+              <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                onChange={handleEmailChange}
+                value={email}
+                className="signup-input"
+              ></input>
+            </div>
           </div>
-        </div>
-        <div>
-          <label aria-label="Password:" htmlFor="password">
-            Password:
-          </label>
           <div>
-            <input
-              type="password"
-              id="password"
-              placeholder="Enter your password"
-              value={password}
-              onChange={handlePasswordChange}
-              className="signup-input"
-            ></input>
+            <label aria-label="Username:" htmlFor="username">
+              Username:
+            </label>
+            <div>
+              <input
+                type="text"
+                id="username"
+                placeholder="Enter your username"
+                value={username}
+                onChange={handleUsernameChange}
+                className="signup-input"
+              ></input>
+            </div>
           </div>
-        </div>
-        <div>
-          <ul
-            style={{
-              listStyleType: "disc",
-              paddingTop: "10px",
-              marginBottom: "10px",
-              marginRight: "50px",
-            }}
-          >
+          <div>
+            <label aria-label="Password:" htmlFor="password">
+              Password:
+            </label>
+            <div>
+              <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                value={password}
+                onChange={handlePasswordChange}
+                className="signup-input"
+              ></input>
+            </div>
+          </div>
+          <div>
             <ul
               style={{
                 listStyleType: "disc",
-                paddingTop: "0",
-                marginBottom: "0",
+                paddingTop: "10px",
+                marginBottom: "10px",
+                marginRight: "50px",
               }}
             >
-              <h3
+              <ul
                 style={{
-                  fontSize: "12px",
-                  color:
-                    password.length > 12 &&
-                    special.test(password) &&
-                    caps.test(password)
-                      ? "green"
-                      : "red",
-                  textAlign: "left",
+                  listStyleType: "disc",
+                  paddingTop: "0",
+                  marginBottom: "0",
                 }}
               >
-                Password requirements:
-              </h3>
-              <li
-                style={{
-                  fontSize: "12px",
-                  color: password.length > 12 ? "green" : "red",
-                  textAlign: "left",
-                }}
-              >
-                Password length must be greater than 12.
-              </li>
-              <li
-                style={{
-                  fontSize: "12px",
-                  color: special.test(password) ? "green" : "red",
-                  textAlign: "left",
-                }}
-              >
-                Must contain special character.
-              </li>
-              <li
-                style={{
-                  fontSize: "12px",
-                  color: caps.test(password) ? "green" : "red",
-                  textAlign: "left",
-                }}
-              >
-                Must contain at least one capital letter.
-              </li>
-              <li
-                style={{
-                  fontSize: "12px",
-                  color: number.test(password) ? "green" : "red",
-                  textAlign: "left",
-                }}
-              >
-                Must contain at least one number.
-              </li>
+                <h3
+                  style={{
+                    fontSize: "12px",
+                    color:
+                      password.length > 12 &&
+                      special.test(password) &&
+                      caps.test(password)
+                        ? "green"
+                        : "red",
+                    textAlign: "left",
+                  }}
+                >
+                  Password requirements:
+                </h3>
+                <li
+                  style={{
+                    fontSize: "12px",
+                    color: password.length > 12 ? "green" : "red",
+                    textAlign: "left",
+                  }}
+                >
+                  Password length must be greater than 12.
+                </li>
+                <li
+                  style={{
+                    fontSize: "12px",
+                    color: special.test(password) ? "green" : "red",
+                    textAlign: "left",
+                  }}
+                >
+                  Must contain special character.
+                </li>
+                <li
+                  style={{
+                    fontSize: "12px",
+                    color: caps.test(password) ? "green" : "red",
+                    textAlign: "left",
+                  }}
+                >
+                  Must contain at least one capital letter.
+                </li>
+                <li
+                  style={{
+                    fontSize: "12px",
+                    color: number.test(password) ? "green" : "red",
+                    textAlign: "left",
+                  }}
+                >
+                  Must contain at least one number.
+                </li>
+              </ul>
             </ul>
-          </ul>
-        </div>
+          </div>
 
-        <div>
-        <MainButton text="Create Account"/>
-        </div>
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
-        <div>
-          <hr />
-          <p>Already have an account? <NavLink style={{ textDecoration: 'underline' }} to="/login">
-               Login
-              </NavLink></p>
-        </div>
-      </form>
-    </div>
-  );
+          <div>
+            <MainButton text="Create Account" />
+          </div>
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
+          <div>
+            <hr />
+            <p>
+              Already have an account?{" "}
+              <NavLink style={{ textDecoration: "underline" }} to="/login">
+                Login
+              </NavLink>
+            </p>
+          </div>
+        </form>
+      </div>
+    );
+  } else {
+    return (
+      <div
+        className="signup-container"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundColor: "rgba(255, 200, 255, 10)",
+        }}
+      >
+        <form className="signup-form" onSubmit={handleFormSubmit}>
+          <div>
+            <p>Please enter your authorization code to Sign Up:</p>
+          </div>
+          <label>
+            <input
+              className="signup-input"
+              type="text"
+              value={authCode}
+              onChange={handleInputChange}
+            />
+          </label>
+          <MainButton type="submit" text="Submit" />
+        </form>
+      </div>
+    );
+  }
 };

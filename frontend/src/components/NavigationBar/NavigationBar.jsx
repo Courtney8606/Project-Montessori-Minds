@@ -1,12 +1,11 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import { NavLink } from "react-router-dom";
 import "./NavigationBar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import logoImage from "../../assets/Logo.jpeg";
-import MainButton from '../Buttons/MainButton';
+import MainButton from "../Buttons/MainButton";
 
 const NavigationBar = () => {
-
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -32,96 +31,114 @@ const NavigationBar = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item">
+              <li className="nav-item">
                 <NavLink
                   to="/values"
-                  className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
                   aria-current="page"
                 >
-                  <MainButton text="Values"
-                  style={{
-                    backgroundColor: "transparent",
-                    border: "None",
-                    color: "#00215e",
-                  }}
+                  <MainButton
+                    text="Values"
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "None",
+                      color: "#00215e",
+                    }}
                   />
                 </NavLink>
-                </li>
-                <li className="nav-item">
+              </li>
+              <li className="nav-item">
                 <NavLink
                   to="/team"
-                  className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
                   aria-current="page"
                 >
-                  <MainButton text="Team"
-                  style={{
-                    backgroundColor: "transparent",
-                    border: "None",
-                    color: "#00215e",
-                  }}
+                  <MainButton
+                    text="Team"
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "None",
+                      color: "#00215e",
+                    }}
                   />
                 </NavLink>
-                </li>
-                <li className="nav-item">
+              </li>
+              <li className="nav-item">
                 <NavLink
                   to="/rooms"
-                  className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
                   aria-current="page"
                 >
-                  <MainButton text="Rooms"
-                  style={{
-                    backgroundColor: "transparent",
-                    border: "None",
-                    color: "#00215e",
-                  }}
+                  <MainButton
+                    text="Rooms"
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "None",
+                      color: "#00215e",
+                    }}
                   />
                 </NavLink>
-                </li>
-                <li className="nav-item">
+              </li>
+              <li className="nav-item">
                 <NavLink
                   to="/food"
-                  className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
                   aria-current="page"
                 >
-                  <MainButton text="Food"
-                  style={{
-                    backgroundColor: "transparent",
-                    border: "None",
-                    color: "#00215e",
-                  }}
+                  <MainButton
+                    text="Food"
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "None",
+                      color: "#00215e",
+                    }}
                   />
                 </NavLink>
-                </li>
-                <li className="nav-item">
+              </li>
+              <li className="nav-item">
                 <NavLink
                   to="/outdoor"
-                  className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
                   aria-current="page"
                 >
-                  <MainButton text="Outdoor"
-                  style={{
-                    backgroundColor: "transparent",
-                    border: "None",
-                    color: "#00215e",
-                  }}
+                  <MainButton
+                    text="Outdoor"
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "None",
+                      color: "#00215e",
+                    }}
                   />
                 </NavLink>
-                </li>
-                <li className="nav-item">
+              </li>
+              <li className="nav-item">
                 <NavLink
                   to="/contact"
-                  className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
                   aria-current="page"
                 >
-                  <MainButton text="Contact"
-                  style={{
-                    backgroundColor: "transparent",
-                    border: "None",
-                    color: "#00215e",
-                  }}
+                  <MainButton
+                    text="Contact"
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "None",
+                      color: "#00215e",
+                    }}
                   />
                 </NavLink>
-                </li>
+              </li>
             </ul>
           </div>
         </div>
@@ -131,4 +148,3 @@ const NavigationBar = () => {
 };
 
 export default NavigationBar;
-
