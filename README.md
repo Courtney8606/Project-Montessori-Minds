@@ -1,6 +1,6 @@
 I'm currently in the process of re-building my very first coding project - an updated website for a local nursery, Montessori Minds.
 
-This isn't your average website anymore - it's been built with Python (Flask) on the backend, Javascript (React) on the frontend, and PostgreSQL for database management. It's enhanced with a secure employee portal, to enable the nursery direct control over adding, updating and deleting staff members as required (delete and update functionality still to come).
+This isn't your average website anymore - it's been built with Python (Flask) on the backend, Javascript (React) on the frontend, and PostgreSQL for database management. It's enhanced with a secure employee portal, to enable the nursery direct control over adding, updating and deleting staff members as required.
 
 # Installation instructions
 
