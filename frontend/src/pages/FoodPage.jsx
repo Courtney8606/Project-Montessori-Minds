@@ -9,10 +9,12 @@ const FoodPage = () => {
   return (
     <div>
       <Banner
+        className="food-banner"
         bannerImage={foodBanner}
+        style={{ backgroundImage: `url(${foodBanner})` }}
         text1="Food & Nutrition"
         text2="Healthy & nutritious meals cooked from scratch daily"
-        image={subImage}
+        subImage={subImage}
       />
       <p className="food-intro">
         {" "}

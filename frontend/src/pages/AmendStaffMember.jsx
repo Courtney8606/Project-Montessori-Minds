@@ -1,22 +1,26 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./LoginPage.css";
-import { createStaff } from "../services/staff";
+import { updateStaff } from "../services/staff";
 import backgroundImage from "../assets/banner.jpg";
 import MainButton from "../components/Buttons/MainButton";
 
-export const AddStaffMemberPage = () => {
+export const AmendStaffMemberPage = () => {
+  const { staff_id } = useParams();
   const [name, setName] = useState("");
   const [file, setFile] = useState(null);
+  const [fileName, setFileName] = useState("");
   const [title, setTitle] = useState("");
   const [qualifications, setQualifications] = useState("");
   const [awards, setAwards] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [action, setAction] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    try {
+
+    if (action === "update") {
       const formData = new FormData();
       formData.append("name", name);
       formData.append("file", file);
@@ -24,16 +28,18 @@ export const AddStaffMemberPage = () => {
       formData.append("qualifications", `{${qualifications.split(",")}}`);
       formData.append("awards", `{${awards.split(",")}}`);
 
-      const response = await createStaff(formData);
-      if (
-        response.message != "You have successfully added a new staff member"
-      ) {
-        setErrorMessage("Error creating staff member!");
-      } else {
-        navigate("/staffmanagement");
+      try {
+        const response = await updateStaff(staff_id, formData);
+        if (
+          response[0].message != "You have successfully updated staff member"
+        ) {
+          setErrorMessage("Error updating staff member!");
+        } else {
+          navigate("/staffmanagement");
+        }
+      } catch (err) {
+        setErrorMessage("Unknown error: Please try again");
       }
-    } catch (err) {
-      setErrorMessage("Unknown error: Please try again");
     }
   };
 
@@ -42,7 +48,9 @@ export const AddStaffMemberPage = () => {
   };
 
   const handleFileChange = (event) => {
-    setFile(event.target.files[0]);
+    const selectedFile = event.target.files[0];
+    setFile(selectedFile);
+    setFileName(selectedFile.name);
   };
 
   const handleTitleChange = (event) => {
@@ -70,7 +78,7 @@ export const AddStaffMemberPage = () => {
         }}
       >
         <form className="login-form" onSubmit={handleSubmit}>
-          <p>Add new staff member details below</p>
+          <p>Update staff member details below</p>
           <label htmlFor="name">Name</label>
           <input
             id="name"
@@ -96,6 +104,8 @@ export const AddStaffMemberPage = () => {
             style={{ display: "none" }}
             onChange={handleFileChange}
           />
+          {/* Display selected file name */}
+          {fileName && <p>{fileName}</p>}
           <br></br>
           <label htmlFor="title">Title</label>
           <input
@@ -128,7 +138,10 @@ export const AddStaffMemberPage = () => {
           />
           {errorMessage && <p className="error-message">{errorMessage}</p>}
           <MainButton
-            text="Add"
+            id="updateButton"
+            text="Update"
+            type="submit"
+            onClick={() => setAction("update")}
             style={{
               marginTop: "20px",
             }}

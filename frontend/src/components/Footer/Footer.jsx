@@ -14,9 +14,11 @@ export const Footer = () => {
     navigate("/login");
   };
 
-  const showNavbar = !["/signup", "/login", "/addstaffmember"].includes(
-    location.pathname
-  );
+  const excludedPaths = ["/signup", "/login", "/addstaffmember"];
+
+  const showNavbar =
+    !excludedPaths.includes(location.pathname) &&
+    !location.pathname.startsWith("/amendstaffmember");
 
   if (!showNavbar) {
     return null;

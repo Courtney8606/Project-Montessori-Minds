@@ -15,3 +15,17 @@
 .food-row {
   margin-bottom: 60px;
 }
+
+.food-banner {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.sub-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  height: 150px;
+}

@@ -26,10 +26,10 @@ class StaffRepository:
                                  staff.name, staff.image, staff.title, staff.qualifications, staff.awards])
         return None
 
-    def delete(self, staff_id):
-        self._connection.execute('DELETE FROM staff WHERE id = %s', [staff_id])
+    def delete(self, name):
+        self._connection.execute('DELETE FROM staff WHERE name = %s', [name])
         return None
 
     def update(self, staff):
         self._connection.execute('UPDATE staff SET name = %s, image = %s, title = %s, qualifications = %s, awards = %s WHERE id = %s', [
-                                 staff.name, staff.image, staff.title, staff.qualifications, staff.awards])
+                                 staff.name, staff.image, staff.title, staff.qualifications, staff.awards, staff.id])

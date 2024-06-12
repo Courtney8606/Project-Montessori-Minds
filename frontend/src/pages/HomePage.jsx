@@ -2,14 +2,17 @@ import React from "react";
 import Banner from "../components/Banner/Banner";
 import bannerImage from "../assets/banner.jpg";
 import "./HomePage.css";
+import subImage from "../assets/awards5.webp";
 
 const HomePage = () => {
   return (
     <div>
       <Banner
         bannerImage={bannerImage}
+        style={{ backgroundImage: `url(${bannerImage})` }}
         text1="Montessori Minds Nursery"
         text2="Nurture. Enjoy. Grow. Flourish."
+        subImage={subImage}
       />
       <div className="intro">
         <p>

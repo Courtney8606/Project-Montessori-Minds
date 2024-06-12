@@ -3,14 +3,12 @@
   margin: 0 auto;
 }
 
-/* Set styles for the columns */
 .room-column {
   padding: 0;
   align-content: center;
   max-height: 534px;
 }
 
-/* Set styles for the large room image */
 .room-image-large {
   width: 100%;
   height: 100%;

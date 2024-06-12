@@ -1,11 +1,11 @@
-.banner {
+.banner-container {
   position: relative;
   width: 100%;
   background-size: cover;
   background-position: center;
 }
 
-.banner > .BannerImage {
+.BannerImage {
   width: 100%;
   display: block;
   height: auto;

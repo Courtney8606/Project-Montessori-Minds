@@ -15,6 +15,7 @@ import { LoginPage } from "./pages/LoginPage";
 import { SignupPage } from "./pages/SignupPage";
 import StaffManagementPage from "./pages/StaffManagement";
 import { AddStaffMemberPage } from "./pages/AddStaffMember";
+import { AmendStaffMemberPage } from "./pages/AmendStaffMember";
 
 function App() {
   return (
@@ -34,6 +35,10 @@ function App() {
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/staffmanagement" element={<StaffManagementPage />} />
             <Route path="/addstaffmember" element={<AddStaffMemberPage />} />
+            <Route
+              path="/amendstaffmember/:staff_id"
+              element={<AmendStaffMemberPage />}
+            />
           </Routes>
           <Footer />
         </HelmetProvider>

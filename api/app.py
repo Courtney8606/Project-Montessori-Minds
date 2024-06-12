@@ -179,6 +179,54 @@ def create_staff():
     staff_repository.create(staff)
     return jsonify({'message': 'You have successfully added a new staff member'}), 200
 
+@app.route('/delete/staff', methods=['POST'])
+@login_required
+@error_handler_decorator
+def delete_staff():
+    data = request.json  
+    staff_name = data.get('staff_name')
+    
+    if not staff_name:
+        return jsonify({'error': 'Staff name is required'}), 400
+    
+    connection = get_flask_database_connection(app)
+    staff_repository = StaffRepository(connection)
+    staff_repository.delete(staff_name)
+    staff = staff_repository.all_staff()
+    return jsonify({'message': f'You have successfully deleted {staff_name}'}, staff), 200
+
+@app.route('/update/<staff_id>', methods=['GET', 'POST'])
+@login_required
+@error_handler_decorator
+def update_staff(staff_id):
+    connection = get_flask_database_connection(app)
+    staff_repository = StaffRepository(connection)
+
+    file = request.files['file']
+    if 'file' not in request.files:
+        return jsonify({'message': "No file part"}), 400
+    if file.filename == '':
+        return jsonify({'message': "No file selected for uploading"}), 400
+    if not allowed_file(file.filename):
+        return jsonify({'message': "File type not allowed"}), 400
+    
+    if file and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
+        name = request.form.get('name')
+        title = request.form.get('title')
+        qualifications = request.form.get('qualifications')
+        awards = request.form.get('awards')
+
+        if not all([name, filename, title, qualifications, awards]):
+            return jsonify({'message': "Missing form data"}), 400
+
+    staff = Staff(staff_id, name, filename, title, qualifications, awards)
+    staff_repository.update(staff)
+    staff_all = staff_repository.all_staff()
+    return jsonify({'message': f'You have successfully updated staff member'}, staff_all), 200
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=int(os.environ.get('PORT', 5001)))

@@ -1,7 +1,7 @@
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: start;
   margin-left: 12%;
   margin-right: 12%;
 }
@@ -13,11 +13,40 @@
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-right: 20px;
 }
 
+.card-img-top {
+  height: 264px;
+}
+
+.deleteupdate {
+  display: flex;
+  align-items: end;
+  max-width: 248px;
+}
+
+.amendbutton {
+  width: 150px;
+  padding: none;
+  border: none;
+  background: white;
+  height: 20px;
+}
+
+.amendbutton:hover {
+  color: blue;
+}
+
+.cardsort {
+  max-width: 264px;
+}
 @media screen and (max-width: 768px) {
   .card {
     width: calc(50% - 20px);
+  }
+  .card-container {
+    justify-content: center;
   }
 }
 
