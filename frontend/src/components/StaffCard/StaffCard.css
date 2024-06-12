@@ -41,18 +41,35 @@
 .cardsort {
   max-width: 264px;
 }
-@media screen and (max-width: 768px) {
-  .card {
-    width: calc(50% - 20px);
-  }
+
+@media screen and (max-width: 1422px) {
   .card-container {
+    margin-left: 20%;
+  }
+}
+
+@media screen and (max-width: 1192px) {
+  .card-container {
+    margin-left: 28%;
+  }
+}
+
+@media screen and (max-width: 912px) {
+  .card-container {
+    margin-left: 12%;
     justify-content: center;
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
+  .card-container {
+    margin-left: 12%;
+  }
+}
+
+@media screen and (max-width: 650px) {
   .card {
-    width: 100%;
+    margin-right: 0;
   }
 }
 

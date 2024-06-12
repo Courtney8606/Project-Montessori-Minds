@@ -3,6 +3,14 @@ import Banner from "../components/Banner/Banner";
 import bannerImage from "../assets/banner.jpg";
 import "./HomePage.css";
 import subImage from "../assets/awards5.webp";
+import Awards1 from "../assets/awards1.webp";
+import Awards2 from "../assets/awards2.webp";
+import Awards3 from "../assets/awards3.webp";
+import Awards4 from "../assets/awards4-4.jpg";
+import Awards5 from "../assets/awards5.webp";
+import Awards6 from "../assets/awards6.webp";
+import Awards7 from "../assets/awards7.png";
+import Awards8 from "../assets/awards8.webp";
 
 const HomePage = () => {
   return (
@@ -141,6 +149,93 @@ const HomePage = () => {
         </div>
         <div className="awards-item">
           <img src="/src/assets/awards8.jpeg" />
+        </div>
+      </div>
+
+      <div className="carousel-container awards-carousel">
+        <div id="carouselExample" className="carousel slide">
+          <div className="carousel-inner carousel-inner-alignment">
+            <div className="carousel-item active">
+              <img
+                src={Awards1}
+                className="d-block w-100 carousel-image-awards"
+                alt="..."
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src={Awards2}
+                className="d-block w-100 carousel-image-awards"
+                alt="..."
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src={Awards3}
+                className="d-block w-100 carousel-image-awards"
+                alt="..."
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src={Awards4}
+                className="d-block w-100 carousel-image-awards"
+                alt="..."
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src={Awards5}
+                className="d-block w-100 carousel-image-awards"
+                alt="..."
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src={Awards6}
+                className="d-block w-100 carousel-image-awards"
+                alt="..."
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src={Awards7}
+                className="d-block w-100 carousel-image-awards"
+                alt="..."
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src={Awards8}
+                className="d-block w-100 carousel-image-awards"
+                alt="..."
+              />
+            </div>
+          </div>
+          <button
+            className="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExample"
+            data-bs-slide="prev"
+          >
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button
+            className="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExample"
+            data-bs-slide="next"
+          >
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Next</span>
+          </button>
         </div>
       </div>
     </div>

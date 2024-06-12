@@ -101,18 +101,16 @@ export const Footer = () => {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink to="#">
-                    <MainButton
-                      onClick={logout}
-                      text="Log out"
-                      style={{
-                        backgroundColor: "transparent",
-                        border: "None",
-                        color: "#00215e",
-                        textDecoration: "underline",
-                      }}
-                    />
-                  </NavLink>
+                  <MainButton
+                    onClick={logout}
+                    text="Log out"
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "None",
+                      color: "#00215e",
+                      textDecoration: "underline",
+                    }}
+                  />
                 </li>
               </ul>
             </div>

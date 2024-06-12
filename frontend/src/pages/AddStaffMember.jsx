@@ -4,8 +4,10 @@ import "./LoginPage.css";
 import { createStaff } from "../services/staff";
 import backgroundImage from "../assets/banner.jpg";
 import MainButton from "../components/Buttons/MainButton";
+import { useEffect } from "react";
 
 export const AddStaffMemberPage = () => {
+  const username = localStorage.getItem("username");
   const [name, setName] = useState("");
   const [file, setFile] = useState(null);
   const [title, setTitle] = useState("");
@@ -56,6 +58,14 @@ export const AddStaffMemberPage = () => {
   const handleAwardsChange = (event) => {
     setAwards(event.target.value);
   };
+
+  useEffect(() => {
+    if (username) {
+      navigate("/addstaffmember");
+    } else {
+      navigate("/login");
+    }
+  }, [username, navigate]);
 
   return (
     <>

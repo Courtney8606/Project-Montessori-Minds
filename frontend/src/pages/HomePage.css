@@ -58,6 +58,10 @@
   border-radius: 2%;
 }
 
+.awards-carousel {
+  display: none;
+}
+
 @media screen and (max-width: 900px) {
   .values-grid {
     grid-template-columns: 1fr;
@@ -70,6 +74,28 @@
   }
   .values-image {
     min-width: 150px;
+  }
+
+  .awards-row {
+    display: none;
+  }
+
+  .awards-carousel {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+  }
+  .carousel-item {
+    width: 100%;
+  }
+  .carousel-control-next-icon {
+    background-color: black;
+  }
+  .carousel-control-prev-icon {
+    background-color: black;
+  }
+  .carousel-image-awards {
+    height: 150px;
   }
 }
 

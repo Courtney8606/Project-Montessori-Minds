@@ -11,7 +11,7 @@
 .values-image {
   padding-top: 20px;
   padding-bottom: 20px;
-  height: 450px;
+  height: 320px;
 }
 
 .values-content {
@@ -35,6 +35,7 @@
 
   .values-image {
     height: 350px;
+    width: auto;
   }
 
   .values-content {

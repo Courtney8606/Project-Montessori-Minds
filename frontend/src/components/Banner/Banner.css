@@ -3,6 +3,7 @@
   width: 100%;
   background-size: cover;
   background-position: center;
+  z-index: 1;
 }
 
 .BannerImage {
@@ -53,10 +54,18 @@
 
 @media screen and (max-width: 800px) {
   .header-text {
-    font-size: 6vw;
+    font-size: 7vw;
   }
 
   .header-textsub {
-    font-size: 4vw;
+    font-size: 5vw;
   }
+}
+
+.sub-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  height: 100px;
 }

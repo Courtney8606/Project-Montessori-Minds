@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./LoginPage.css";
 import { updateStaff } from "../services/staff";
@@ -6,6 +6,7 @@ import backgroundImage from "../assets/banner.jpg";
 import MainButton from "../components/Buttons/MainButton";
 
 export const AmendStaffMemberPage = () => {
+  const username = localStorage.getItem("username");
   const { staff_id } = useParams();
   const [name, setName] = useState("");
   const [file, setFile] = useState(null);
@@ -64,6 +65,15 @@ export const AmendStaffMemberPage = () => {
   const handleAwardsChange = (event) => {
     setAwards(event.target.value);
   };
+
+  useEffect(() => {
+    if (username) {
+      console.log(username);
+      navigate(`/amendstaffmember/${staff_id}`);
+    } else {
+      navigate("/login");
+    }
+  }, [username, navigate, staff_id]);
 
   return (
     <>
