@@ -1,20 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoginPage.css";
 import { createStaff } from "../services/staff";
 import backgroundImage from "../assets/banner.jpg";
 import MainButton from "../components/Buttons/MainButton";
-import { useEffect } from "react";
 
 export const AddStaffMemberPage = () => {
   const username = localStorage.getItem("username");
   const [name, setName] = useState("");
   const [file, setFile] = useState(null);
   const [title, setTitle] = useState("");
+  const [fileName, setFileName] = useState("");
   const [qualifications, setQualifications] = useState("");
   const [awards, setAwards] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!username) {
+      navigate("/login");
+    }
+  }, [username, navigate]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -28,7 +34,7 @@ export const AddStaffMemberPage = () => {
 
       const response = await createStaff(formData);
       if (
-        response.message != "You have successfully added a new staff member"
+        response.message !== "You have successfully added a new staff member"
       ) {
         setErrorMessage("Error creating staff member!");
       } else {
@@ -39,33 +45,22 @@ export const AddStaffMemberPage = () => {
     }
   };
 
-  const handleNameChange = (event) => {
-    setName(event.target.value);
-  };
+  const handleNameChange = (event) => setName(event.target.value);
+  const handleTitleChange = (event) => setTitle(event.target.value);
+  const handleQualificationsChange = (event) =>
+    setQualifications(event.target.value);
+  const handleAwardsChange = (event) => setAwards(event.target.value);
 
   const handleFileChange = (event) => {
-    setFile(event.target.files[0]);
+    const selectedFile = event.target.files[0];
+    setFile(selectedFile);
+    setFileName(selectedFile.name);
   };
 
-  const handleTitleChange = (event) => {
-    setTitle(event.target.value);
+  const handleFileButtonClick = (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
+    document.getElementById("fileInput").click(); // Programmatically trigger file input
   };
-
-  const handleQualificationsChange = (event) => {
-    setQualifications(event.target.value);
-  };
-
-  const handleAwardsChange = (event) => {
-    setAwards(event.target.value);
-  };
-
-  useEffect(() => {
-    if (username) {
-      navigate("/addstaffmember");
-    } else {
-      navigate("/login");
-    }
-  }, [username, navigate]);
 
   return (
     <>
@@ -90,14 +85,9 @@ export const AddStaffMemberPage = () => {
             onChange={handleNameChange}
             className="login-input"
           />
-          <br></br>
+          <br />
           <label htmlFor="imagetitle">Upload Image</label>
-          <MainButton
-            text="Select Image"
-            onClick={() => {
-              document.getElementById("fileInput").click();
-            }}
-          />
+          <MainButton text="Select Image" onClick={handleFileButtonClick} />
           {/* Hidden file input */}
           <input
             id="fileInput"
@@ -106,7 +96,9 @@ export const AddStaffMemberPage = () => {
             style={{ display: "none" }}
             onChange={handleFileChange}
           />
-          <br></br>
+          {/* Display selected file name */}
+          {fileName && <p>{fileName}</p>}
+          <br />
           <label htmlFor="title">Title</label>
           <input
             id="title"
@@ -116,7 +108,7 @@ export const AddStaffMemberPage = () => {
             onChange={handleTitleChange}
             className="login-input"
           />
-          <br></br>
+          <br />
           <label htmlFor="qualifications">Qualifications</label>
           <input
             id="qualifications"
@@ -126,7 +118,7 @@ export const AddStaffMemberPage = () => {
             onChange={handleQualificationsChange}
             className="login-input"
           />
-          <br></br>
+          <br />
           <label htmlFor="awards">Awards</label>
           <input
             id="awards"
@@ -137,12 +129,18 @@ export const AddStaffMemberPage = () => {
             className="login-input"
           />
           {errorMessage && <p className="error-message">{errorMessage}</p>}
-          <MainButton
-            text="Add"
-            style={{
-              marginTop: "20px",
-            }}
-          />
+          <div className="staffbutton-container">
+            <MainButton
+              text=" < Back"
+              onClick={() => navigate("/staffmanagement")}
+              style={{ marginTop: "20px" }}
+            />
+            <MainButton
+              text="Add"
+              type="submit" // Submit form only on "Add" button click
+              style={{ marginTop: "20px", marginLeft: "20px" }}
+            />
+          </div>
         </form>
       </div>
     </>

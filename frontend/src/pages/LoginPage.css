@@ -35,3 +35,8 @@
 .error-message {
   color: red;
 }
+
+.staffbutton-container {
+  display: flex;
+  justify-content: center;
+}

@@ -3,7 +3,7 @@ import "./Room.css";
 export const Room = ({ heading, text, picture1, picture2, picture3 }) => {
   return (
     <div>
-      <div className="container text-center">
+      <div className="container text-center room-container">
         <div className="row rooms-row">
           <div className="col-5 room-column" id={heading}>
             <h3 className="room-heading">{heading}</h3>

@@ -1,15 +1,34 @@
-.container {
-  margin-top: 50px;
-  margin-bottom: 50px;
+#carousel-container {
+  width: 100%;
+  max-width: 1600px; /* Set the max width to 1600px */
+  margin: 0 auto; /* Center the container */
+  padding: 0;
 }
 
-.carousel-image {
-  max-height: 600px;
+.garden {
+  padding-left: 70px;
+  padding-right: 70px;
 }
-
-.col {
+.col-container {
+  padding: 0;
   text-align: center;
   align-content: center;
   min-width: 350px;
-  padding-top: 20px;
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto; /* Maintain the aspect ratio */
+}
+
+.row {
+  width: 100%;
+  margin: 0;
+}
+
+.footer.footer {
+  margin: 0;
 }

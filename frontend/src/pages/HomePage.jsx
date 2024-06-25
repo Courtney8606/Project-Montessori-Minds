@@ -4,13 +4,13 @@ import bannerImage from "../assets/banner.jpg";
 import "./HomePage.css";
 import subImage from "../assets/awards5.webp";
 import Awards1 from "../assets/awards1.webp";
-import Awards2 from "../assets/awards2.webp";
-import Awards3 from "../assets/awards3.webp";
-import Awards4 from "../assets/awards4-4.jpg";
+import Awards2 from "../assets/Nursery-world-awards.png";
+import Awards3 from "../assets/Healthy-years.png";
+import Awards4 from "../assets/NDNA-award.png";
 import Awards5 from "../assets/awards5.webp";
-import Awards6 from "../assets/awards6.webp";
+import Awards6 from "../assets/Daynurseries-award.png";
 import Awards7 from "../assets/awards7.png";
-import Awards8 from "../assets/awards8.webp";
+import Awards8 from "../assets/Millies-Mark-logo.jpg";
 
 const HomePage = () => {
   return (
@@ -56,7 +56,7 @@ const HomePage = () => {
       <div className="values-grid">
         <div className="values-wrapper">
           <a href="/values">
-            <img className="values-image" src="/src/assets/nurture.jpg" />
+            <img className="values-image" src="/src/assets/nurture.png" />
           </a>
           <h3>
             <a href="/values">Nurture</a>
@@ -65,7 +65,7 @@ const HomePage = () => {
 
         <div className="values-wrapper">
           <a href="/values">
-            <img className="values-image" src="/src/assets/enjoy.jpg" />
+            <img className="values-image" src="/src/assets/enjoy.png" />
           </a>
           <h3>
             <a href="/values">Enjoy</a>
@@ -74,7 +74,7 @@ const HomePage = () => {
 
         <div className="values-wrapper">
           <a href="/values">
-            <img className="values-image" src="/src/assets/grow.jpg" />
+            <img className="values-image" src="/src/assets/grow.png" />
           </a>
           <h3>
             <a href="/values">Grow</a>
@@ -83,7 +83,7 @@ const HomePage = () => {
 
         <div className="values-wrapper">
           <a href="/values">
-            <img className="values-image" src="/src/assets/flourish.jpg" />
+            <img className="values-image" src="/src/assets/flourish.png" />
           </a>
           <h3>
             <a href="/values">Flourish</a>
@@ -91,64 +91,78 @@ const HomePage = () => {
         </div>
       </div>
 
-      <hr />
+      <hr className="line" />
 
       <h1 className="testimonial-heading"> Testimonials </h1>
       <div className="testimonials">
         <div className="testimonial-wrapper">
-          <img className="testimonial-image" src="/src/assets/reviews4.jpg" />
+          <img
+            className="testimonial-image"
+            id="testimonial-1"
+            src="/src/assets/testimonial1.png"
+          />
           <h4>
             "A true gentle Montessori style setting with a team that is
             passionate about care. Everything is held at a high standard with
-            the children's wellbeing squarely at the centre."
+            the children's wellbeing squarely at the centre. The opening times
+            are very convenient (7am - 7pm) so the days when I need to get to
+            work earlier or am running late aren't too much of a problem."
           </h4>
         </div>
 
         <div className="testimonial-wrapper">
-          <img className="testimonial-image" src="/src/assets/reviews2.jpg" />
+          <img
+            className="testimonial-image"
+            src="/src/assets/testimonial2.png"
+          />
           <h4>
-            "The place itself is set up beautifully with wonderful Montessori
-            toys and materials.
-            <br />
-            They go that ‘extra mile’, from the wonderful home cooked food to
-            the experiences and activities they arrange."
+            "The staff are so attentive and genuinely very caring and cater for
+            your child’s individual needs. It’s home from home for our little
+            girl. They go that ‘extra mile’, from the wonderful home cooked food
+            to the experiences and activities they arrange. ​ I could not
+            recommend them more!"
           </h4>
         </div>
 
         <div className="testimonial-wrapper">
-          <img className="testimonial-image" src="/src/assets/reviews3.jpg" />
+          <img
+            className="testimonial-image"
+            src="/src/assets/testimonial3.png"
+          />
           <h4>
             "I was very nervous to start my child in the nursery but they
             understood my anxiety and they did everything to put my mind at
-            ease."
+            ease. My child has allergies but they immediately eliminated
+            everything that she is allergic to from the menu. They are truly the
+            best!"
           </h4>
         </div>
       </div>
 
       <div className="awards-row">
         <div className="awards-item">
-          <img src="/src/assets/awards1-1.jpg" />
+          <img src={Awards1} />
         </div>
         <div className="awards-item">
-          <img src="/src/assets/awards2-2.jpg" />
+          <img src={Awards2} />
         </div>
         <div className="awards-item">
-          <img src="/src/assets/awards3-3.jpg" />
+          <img src={Awards3} />
         </div>
         <div className="awards-item">
-          <img src="/src/assets/awards4-4.jpg" />
+          <img src={Awards4} />
         </div>
         <div className="awards-item">
-          <img src="/src/assets/awards5.jpeg" />
+          <img src={Awards5} />
         </div>
         <div className="awards-item">
-          <img src="/src/assets/awards6.jpeg" />
+          <img src={Awards6} />
         </div>
         <div className="awards-item">
-          <img src="/src/assets/awards7.jpeg" />
+          <img src={Awards7} />
         </div>
         <div className="awards-item">
-          <img src="/src/assets/awards8.jpeg" />
+          <img src={Awards8} />
         </div>
       </div>
 

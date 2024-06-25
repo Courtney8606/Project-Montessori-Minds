@@ -18,6 +18,12 @@ export const AmendStaffMemberPage = () => {
   const [action, setAction] = useState("");
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (!username) {
+      navigate("/login");
+    }
+  }, [username, navigate, staff_id]);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -66,14 +72,10 @@ export const AmendStaffMemberPage = () => {
     setAwards(event.target.value);
   };
 
-  useEffect(() => {
-    if (username) {
-      console.log(username);
-      navigate(`/amendstaffmember/${staff_id}`);
-    } else {
-      navigate("/login");
-    }
-  }, [username, navigate, staff_id]);
+  const handleFileButtonClick = (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
+    document.getElementById("fileInput").click(); // Programmatically trigger file input
+  };
 
   return (
     <>
@@ -100,12 +102,7 @@ export const AmendStaffMemberPage = () => {
           />
           <br></br>
           <label htmlFor="imagetitle">Upload Image</label>
-          <MainButton
-            text="Select Image"
-            onClick={() => {
-              document.getElementById("fileInput").click();
-            }}
-          />
+          <MainButton text="Select Image" onClick={handleFileButtonClick} />
           {/* Hidden file input */}
           <input
             id="fileInput"
@@ -147,15 +144,27 @@ export const AmendStaffMemberPage = () => {
             className="login-input"
           />
           {errorMessage && <p className="error-message">{errorMessage}</p>}
-          <MainButton
-            id="updateButton"
-            text="Update"
-            type="submit"
-            onClick={() => setAction("update")}
-            style={{
-              marginTop: "20px",
-            }}
-          />
+          <div className="staffbutton-container">
+            <MainButton
+              text=" < Back"
+              onClick={() => {
+                navigate("/staffmanagement");
+              }}
+              style={{
+                marginTop: "20px",
+              }}
+            />
+            <MainButton
+              id="updateButton"
+              text="Update"
+              type="submit"
+              onClick={() => setAction("update")}
+              style={{
+                marginTop: "20px",
+                marginLeft: "20px",
+              }}
+            />
+          </div>
         </form>
       </div>
     </>

@@ -41,10 +41,14 @@ const NavigationBar = () => {
                 >
                   <MainButton
                     text="Values"
+                    className="button-nav-bar"
                     style={{
                       backgroundColor: "transparent",
                       border: "None",
                       color: "#00215e",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "end",
                     }}
                   />
                 </NavLink>
@@ -63,6 +67,9 @@ const NavigationBar = () => {
                       backgroundColor: "transparent",
                       border: "None",
                       color: "#00215e",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "end",
                     }}
                   />
                 </NavLink>
@@ -81,6 +88,9 @@ const NavigationBar = () => {
                       backgroundColor: "transparent",
                       border: "None",
                       color: "#00215e",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "end",
                     }}
                   />
                 </NavLink>
@@ -99,6 +109,9 @@ const NavigationBar = () => {
                       backgroundColor: "transparent",
                       border: "None",
                       color: "#00215e",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "end",
                     }}
                   />
                 </NavLink>
@@ -112,11 +125,14 @@ const NavigationBar = () => {
                   aria-current="page"
                 >
                   <MainButton
-                    text="Outdoor"
+                    text="Outdoor Areas"
                     style={{
                       backgroundColor: "transparent",
                       border: "None",
                       color: "#00215e",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "end",
                     }}
                   />
                 </NavLink>
@@ -135,6 +151,9 @@ const NavigationBar = () => {
                       backgroundColor: "transparent",
                       border: "None",
                       color: "#00215e",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "end",
                     }}
                   />
                 </NavLink>

@@ -9,6 +9,10 @@
   max-height: 534px;
 }
 
+.room-container {
+  padding-bottom: 50px;
+  padding-top: 30px;
+}
 .room-image-large {
   width: 100%;
   height: 100%;

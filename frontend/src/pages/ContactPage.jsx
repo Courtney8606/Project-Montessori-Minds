@@ -12,7 +12,7 @@ const ContactPage = () => {
               <Map />
             </div>
           </div>
-          <div className="col">
+          <div className="col contact-details">
             <h4 className="contact-heading">Location & Contact Details</h4>
             <br></br>
             <p>You'll find us at 62-64 Eastern Rd, Romford, Essex, RM1 3QA</p>

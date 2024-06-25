@@ -1,5 +1,5 @@
 import React from "react";
-import foodImage from "../assets/child-eating.jpg";
+import foodImage from "../assets/food.png";
 import foodBanner from "../assets/foodbanner.jpg";
 import subImage from "../assets/foodhygiene.webp";
 import Banner from "../components/Banner/Banner";
@@ -36,20 +36,29 @@ const FoodPage = () => {
           <div className="col food-column">
             <h3>Breakfast</h3>
             <p>
-              Daily choice of cereal, porridge, wholemeal toast, fruit conserve
+              A choice of cereal, gluten-free porridge, or wholemeal toast with
+              fruit conserve.
             </p>
 
             <h3>Snacks</h3>
             <p>
-              Wholemeal crackers, rice cakes, fresh fruit/vegetables, organic
-              milk
+              Wholemeal crackers, rice cakes, fresh fruit/vegetables, and
+              organic milk.
             </p>
 
             <h3>Lunch</h3>
-            <p>See example menu below</p>
+            <p>
+              Please see example menu below (we are open to discuss any dietary
+              requirements)
+            </p>
 
             <h3>Tea</h3>
-            <p> Sandwiches, wraps, crumpets, soups and salads.</p>
+            <p>
+              {" "}
+              Pitta bread/wraps/crumpets served alongside bean salad including
+              peppers, tomatoes, cucumber, sweetcorn, kidney beans, and carrots,
+              with pasta in a tomato sauce
+            </p>
           </div>
         </div>
       </div>
@@ -58,29 +67,32 @@ const FoodPage = () => {
         <h1>Sample Lunch Menu</h1>
         <br></br>
         <p>
-          Monday: Cottage pie/ vegetable bake served with carrots, broccoli,
-          onion gravy and greek yoghurt with fresh berries for dessert.{" "}
+          <strong>Monday: </strong>Chickpea curry with carrots, peas, and green
+          beans, served with rice.
         </p>
         <br></br>
         <p>
-          Tuesday: Lamb biryani/ chick pea biryani served with cucumber raita,
-          chapatti and frozen yoghurt with mango for dessert
+          <strong>Tuesday: </strong>Veggie balls in a tomato garlic sauce with
+          carrots, peas, green beans, and broccoli. Served with steamed rice.
         </p>
         <br></br>
         <p>
-          Wednesday: Roast Chicken/ quorn served with roasted potatoes and fresh
-          vegetables and organic banana custard for dessert
+          <strong>Wednesday: </strong>Turkey sausages served with roast garlic
+          potatoes and broccoli.
         </p>
+        <p>Vegetarian alternative: Vegetarian sausages.</p>
         <br></br>
         <p>
-          Thursday: Turkey/ quorn meatballs with spaghetti and fresh tomato and
-          basil sauce with organic cinnamon rice pudding for dessert.{" "}
+          <strong>Thursday: </strong>Beef mince bolognese with carrots, green
+          beans, kidney beans, and sweetcorn served with tender stem broccoli.
         </p>
+        <p>Vegetarian alternative: Red lentil bolognese.</p>
         <br></br>
         <p>
-          Friday: Baked salmon/ falafel served with potato wedges, minted peas
-          and salad with apple and cinnamon crumble for dessert
+          <strong>Friday: </strong>Breaded cod fingers baked in the oven with
+          new potatoes, sweet potatoes, red onion, carrot, garlic and herbs.
         </p>
+        <p>Vegetarian alternative: Pea protein vegetarian fingers.</p>
       </div>
     </div>
   );

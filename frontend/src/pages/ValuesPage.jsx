@@ -1,5 +1,5 @@
 import React from "react";
-import bannerImage from "../assets/values.jpg";
+import bannerImage from "../assets/values-banner-new.png";
 import Banner from "../components/Banner/Banner";
 import "./ValuesPage.css";
 
@@ -13,7 +13,7 @@ const ValuesPage = () => {
       />
       <div>
         <div className="values">
-          <img className="values-image" src="/src/assets/nurture.jpg" />
+          <img className="values-image" src="/src/assets/nurture.png" />
           <div className="values-content">
             <h2>Nurture</h2>
             <h3>We welcome all with kindness, respect and love</h3>
@@ -30,7 +30,7 @@ const ValuesPage = () => {
         </div>
         <hr />
         <div className="values">
-          <img className="values-image" src="/src/assets/enjoy.jpg" />
+          <img className="values-image" src="/src/assets/enjoy.png" />
           <div className="values-content">
             <h2>Enjoy</h2>
             <h3>Fun, stimulating learning environments</h3>
@@ -45,7 +45,7 @@ const ValuesPage = () => {
         </div>
         <hr />
         <div className="values">
-          <img className="values-image" src="/src/assets/grow.jpg" />
+          <img className="values-image" src="/src/assets/grow.png" />
           <div className="values-content">
             <h2>Grow</h2>
             <h3>We inspire and support each other to grow</h3>
@@ -60,7 +60,7 @@ const ValuesPage = () => {
         </div>
         <hr />
         <div className="values">
-          <img className="values-image" src="/src/assets/flourish.jpg" />
+          <img className="values-image" src="/src/assets/flourish.png" />
           <div className="values-content">
             <h2>Flourish</h2>
             <h3>We are committed to a culture of excellence</h3>

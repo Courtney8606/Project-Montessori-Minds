@@ -57,8 +57,6 @@ export const deleteStaff = async (staff_name) => {
 };
 
 export const updateStaff = async (staff_id, formData) => {
-  console.log("SERVICE LOG", formData);
-
   const requestOptions = {
     method: "POST",
     credentials: "include",

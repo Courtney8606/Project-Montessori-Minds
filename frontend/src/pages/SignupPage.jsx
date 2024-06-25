@@ -253,12 +253,30 @@ export const SignupPage = () => {
           <label>
             <input
               className="signup-input"
-              type="text"
+              type="password"
               value={authCode}
               onChange={handleInputChange}
             />
           </label>
-          <MainButton type="submit" text="Submit" />
+          <div className="staffbutton-container">
+            <MainButton
+              text=" < Back"
+              onClick={() => {
+                navigate("/staffmanagement");
+              }}
+              style={{
+                marginTop: "20px",
+              }}
+            />
+            <MainButton
+              type="submit"
+              text="Submit"
+              style={{
+                marginTop: "20px",
+                marginLeft: "20px",
+              }}
+            />
+          </div>
         </form>
       </div>
     );

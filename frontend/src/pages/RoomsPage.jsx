@@ -9,17 +9,19 @@ import React, { useState } from "react";
 import Aria1 from "../assets/aria3.webp";
 import Aria2 from "../assets/aria1new.jpg";
 import Aria3 from "../assets/aria2.webp";
-import Sapphire1 from "../assets/sapphire1new.jpg";
+import Sapphire1 from "../assets/sapphire-room-2.png";
+import Sapphire3 from "../assets/sapphire1new.jpg";
 import Sapphire2 from "../assets/sapphire3new.jpg";
-import Sapphire3 from "../assets/sapphire2.webp";
-import Iris1 from "../assets/iris2.webp";
-import Iris2 from "../assets/iris1new.jpg";
-import Iris3 from "../assets/aria2.webp";
-import Amelia2 from "../assets/Amelia1new.jpg";
-import Avu1 from "../assets/Avu2.webp";
-import Avu3 from "../assets/Avu1new.jpg";
+import Iris1 from "../assets/iris-room-1.png";
+import Iris2 from "../assets/iris-room-2.jpg";
+import Iris3 from "../assets/iris-room-3.png";
+import Amelia1 from "../assets/Amelia1new.jpg";
+import Amelia2 from "../assets/amelia-room-2.png";
+import Avu1 from "../assets/avu-suite-2.png";
+import Avu2 from "../assets/Avu1new.jpg";
+import Avu3 from "../assets/avu-suite-3.png";
 
-const RoomsPage = ({ data }) => {
+const RoomsPage = () => {
   const [currentRoom, setCurrentRoom] = useState("Sajaan Room");
 
   const renderRoom = () => {
@@ -80,8 +82,8 @@ const RoomsPage = ({ data }) => {
               social skills. Toddlers have the opportunity to take part in messy
               play, water play and also join in on our cooking activities."
             picture1={Iris1}
-            picture2={Amelia2}
-            picture3={Iris3}
+            picture2={Amelia1}
+            picture3={Amelia2}
           />
         );
       case "Avu Suite":
@@ -95,7 +97,7 @@ const RoomsPage = ({ data }) => {
                 Montessori Teaching area, peace table to support emotional wellbeing
                 and free flow access to our garden."
             picture1={Avu1}
-            picture2={Aria2}
+            picture2={Avu2}
             picture3={Avu3}
           />
         );
