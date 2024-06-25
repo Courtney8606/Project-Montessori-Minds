@@ -1,6 +1,26 @@
-I'm currently in the process of re-building my very first coding project - an updated website for a local nursery, Montessori Minds.
+# Nursery Website Enhancement and Employee Portal
 
-This isn't your average website anymore - it's been built with Python (Flask) on the backend, Javascript (React) on the frontend, and PostgreSQL for database management. It's enhanced with a secure employee portal, to enable the nursery direct control over adding, updating and deleting staff members as required.
+## Project Overview
+
+Collaborating with a local nursery Montessori Minds to enhance their online presence by customising their website to meet specific operational needs. The project includes modernising the site and introducing an employee portal for real-time content updates.
+
+## Features
+
+- **Custom Website Design**: Tailored to the nursery's specific requirements.
+- **Employee Portal**: Allows staff to efficiently manage and update website content in real-time.
+- **Responsive Design**: Ensures a seamless user experience across all devices.
+
+## Demo
+
+In progress.
+
+## Technologies Used
+
+- **Frontend**: HTML, CSS, JavaScript, React
+- **Backend**: Python, Flask
+- **Database**: PostgreSQL
+- **Version Control**: Git, GitHub
+- **Deployment**: TBC
 
 # Installation instructions
 
@@ -35,9 +55,9 @@ The above should start the front-end server running in the terminal window. A ne
 
 - pipenv install psycopg
 
-- createdb bookclub & createdb test_bookclub
+- createdb montessoriminds & createdb test_montessoriminds
 
-- psql bookclub < seeds/bookclub.sql; psql test_bookclub < seeds/bookclub.sql
+- psql montessoriminds < seeds/montessori_data.sql; psql test_montessoriminds < seeds/montessori_data.sql
 
 - python app.py
 
