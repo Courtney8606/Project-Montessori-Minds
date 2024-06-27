@@ -12,9 +12,18 @@ from werkzeug.utils import secure_filename
 
 load_dotenv()
 
+def get_frontend_url():
+    app_env = os.getenv('APP_ENV', 'development')
+    if app_env == 'production':
+        return os.getenv('PROD_FRONTEND_URL')
+    elif app_env == 'test':
+        return os.getenv('TEST_FRONTEND_URL')
+    else:
+        return os.getenv('DEV_FRONTEND_URL')
+    
 app = Flask(__name__)
 cors = CORS(app, resources={
-            r"/*": {"origins": "http://localhost:5173", "supports_credentials": True}})
+            r"/*": {"origins": get_frontend_url(), "supports_credentials": True}})
 app.config['SECRET_KEY'] = os.getenv("SESSION_KEY")
 app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)

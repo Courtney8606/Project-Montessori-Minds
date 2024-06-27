@@ -5,22 +5,25 @@ from psycopg.rows import dict_row
 
 
 class DatabaseConnection:
-    DEV_DATABASE_NAME = "montessoriminds"
-    TEST_DATABASE_NAME = "test_montessoriminds"
+    # DEV_DATABASE_NAME = "montessoriminds"
+    # TEST_DATABASE_NAME = "test_montessoriminds"
 
     def __init__(self, test_mode=False):
         self.test_mode = test_mode
+        self.connection = None 
+        # New line above
 
     # This method connects to PostgreSQL using the psycopg library. We connect
     # to localhost and select the database name given in argument.
     def connect(self):
+        database_url = self._database_url()
+        # new line above
         try:
             self.connection = psycopg.connect(
-                f"postgresql://localhost/{self._database_name()}",
+                database_url,
                 row_factory=dict_row)
         except psycopg.OperationalError:
-            raise Exception(f"Couldn't connect to the database {self._database_name()}! "
-                            f"Did you create it using `createdb {self._database_name()}`?")
+            raise Exception(f"Couldn't connect to the database at {database_url}!")
 
     # This method seeds the database with the given SQL file.
     # We use it to set up our database ready for our tests or application.
@@ -56,11 +59,19 @@ class DatabaseConnection:
             raise Exception(self.CONNECTION_MESSAGE)
 
     # This private method returns the name of the database we should use.
-    def _database_name(self):
+    # def _database_name(self):
+    #     if self.test_mode:
+    #         return self.TEST_DATABASE_NAME
+    #     else:
+    #         return self.DEV_DATABASE_NAME
+    
+    def _database_url(self):
         if self.test_mode:
-            return self.TEST_DATABASE_NAME
+            return os.getenv('TEST_DATABASE_URL')
+        elif os.getenv('APP_ENV') == 'production':
+            return os.getenv('DATABASE_URL')
         else:
-            return self.DEV_DATABASE_NAME
+            return os.getenv('DEV_DATABASE_URL')
 
 # This function integrates with Flask to create one database connection that
 # Flask request can use.
