@@ -9,6 +9,7 @@ from functools import wraps
 from dotenv import load_dotenv
 import bcrypt
 from werkzeug.utils import secure_filename
+
 load_dotenv()
 
 app = Flask(__name__)
@@ -228,5 +229,9 @@ def update_staff(staff_id):
     return jsonify({'message': f'You have successfully updated staff member'}, staff_all), 200
 
 
+# if __name__ == "__main__":
+#     app.run(debug=True, port=int(os.environ.get('PORT', 5001)))
+
 if __name__ == "__main__":
-    app.run(debug=True, port=int(os.environ.get('PORT', 5001)))
+    port = int(os.environ.get('PORT', 5001))  # Default to port 5000 if PORT environment variable is not set
+    app.run(debug=True, host='0.0.0.0', port=port)

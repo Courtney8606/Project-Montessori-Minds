@@ -11,6 +11,13 @@ import Awards5 from "../assets/awards5.webp";
 import Awards6 from "../assets/Daynurseries-award.png";
 import Awards7 from "../assets/awards-apprenticeship-connect.png";
 import Awards8 from "../assets/Millies-Mark-logo.jpg";
+import Testimonial1 from "../assets/testimonial1.png";
+import Testimonial2 from "../assets/testimonial2.png";
+import Testimonial3 from "../assets/testimonial3.png";
+import valueNurture from "../assets/nurture.png";
+import valueEnjoy from "../assets/enjoy.png";
+import valueGrow from "../assets/grow.png";
+import valueFlourish from "../assets/flourish.png";
 
 const HomePage = () => {
   return (
@@ -56,7 +63,7 @@ const HomePage = () => {
       <div className="values-grid">
         <div className="values-wrapper">
           <a href="/values">
-            <img className="values-image" src="/src/assets/nurture.png" />
+            <img className="values-image" src={valueNurture} />
           </a>
           <h3>
             <a href="/values">Nurture</a>
@@ -65,7 +72,7 @@ const HomePage = () => {
 
         <div className="values-wrapper">
           <a href="/values">
-            <img className="values-image" src="/src/assets/enjoy.png" />
+            <img className="values-image" src={valueEnjoy} />
           </a>
           <h3>
             <a href="/values">Enjoy</a>
@@ -74,7 +81,7 @@ const HomePage = () => {
 
         <div className="values-wrapper">
           <a href="/values">
-            <img className="values-image" src="/src/assets/grow.png" />
+            <img className="values-image" src={valueGrow} />
           </a>
           <h3>
             <a href="/values">Grow</a>
@@ -83,7 +90,7 @@ const HomePage = () => {
 
         <div className="values-wrapper">
           <a href="/values">
-            <img className="values-image" src="/src/assets/flourish.png" />
+            <img className="values-image" src={valueFlourish} />
           </a>
           <h3>
             <a href="/values">Flourish</a>
@@ -99,7 +106,7 @@ const HomePage = () => {
           <img
             className="testimonial-image"
             id="testimonial-1"
-            src="/src/assets/testimonial1.png"
+            src={Testimonial1}
           />
           <h4>
             "A true gentle Montessori style setting with a team that is
@@ -111,10 +118,7 @@ const HomePage = () => {
         </div>
 
         <div className="testimonial-wrapper">
-          <img
-            className="testimonial-image"
-            src="/src/assets/testimonial2.png"
-          />
+          <img className="testimonial-image" src={Testimonial2} />
           <h4>
             "The staff are so attentive and genuinely very caring and cater for
             your child’s individual needs. It’s home from home for our little
@@ -125,10 +129,7 @@ const HomePage = () => {
         </div>
 
         <div className="testimonial-wrapper">
-          <img
-            className="testimonial-image"
-            src="/src/assets/testimonial3.png"
-          />
+          <img className="testimonial-image" src={Testimonial3} />
           <h4>
             "I was very nervous to start my child in the nursery but they
             understood my anxiety and they did everything to put my mind at
