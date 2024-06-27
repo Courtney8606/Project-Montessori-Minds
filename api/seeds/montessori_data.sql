@@ -31,10 +31,10 @@ CREATE TABLE images (
     imagetitle VARCHAR( 100 ) NOT NULL
 );
 
-INSERT INTO staff (name, image, title, qualifications, awards) VALUES ('Gill', 'Gill.webp', 'Admin & Nutrition Lead', ARRAY['Montessori Assistant Certificate', 'Food Hygiene & Safety Level 2'], ARRAY[]::text[]);
-INSERT INTO staff (name, image, title, qualifications, awards) VALUES ('Holly', 'Holly.webp', 'Deputy Manager', ARRAY['International Diploma in Montessori Pedagogy', 'Level 5 Early Years Practitioner'], ARRAY['Deputy Manager of the Year Award NMT 2023', 'Early Years Teacher of the Year Award AC 2023']);
-INSERT INTO staff (name, image, title, qualifications, awards) VALUES ('Lucy', 'Lucy.webp', 'Pedagogy Lead/ SENDco', ARRAY['Level 3 in Childcare, Education & Management', 'SEND Code of Practice'], ARRAY[]::text[]);
-INSERT INTO staff (name, image, title, qualifications, awards) VALUES ('Megan', 'Megan.webp', 'Room Lead', ARRAY['International Diploma in Montessori Pedagogy', 'Level 3 in Childcare & Education'], ARRAY['Room Leader of the Year Award NMT 2023', 'NDNA Awards Runner Up 2023', 'Nursery World Awards Finalist 2022']);
+INSERT INTO staff (name, image, title, qualifications, awards) VALUES ('Gill', 'gillcopy.png', 'Admin & Nutrition Lead', ARRAY['Montessori Assistant Certificate', 'Food Hygiene & Safety Level 2'], ARRAY[]::text[]);
+INSERT INTO staff (name, image, title, qualifications, awards) VALUES ('Holly', 'hollycopy.png', 'Deputy Manager', ARRAY['International Diploma in Montessori Pedagogy', 'Level 5 Early Years Practitioner'], ARRAY['Deputy Manager of the Year Award NMT 2023', 'Early Years Teacher of the Year Award AC 2023']);
+INSERT INTO staff (name, image, title, qualifications, awards) VALUES ('Lucy', 'lucycopy.png', 'Pedagogy Lead/ SENDco', ARRAY['Level 3 in Childcare, Education & Management', 'SEND Code of Practice'], ARRAY[]::text[]);
+INSERT INTO staff (name, image, title, qualifications, awards) VALUES ('Megan', 'megancopy.png', 'Room Lead', ARRAY['International Diploma in Montessori Pedagogy', 'Level 3 in Childcare & Education'], ARRAY['Room Leader of the Year Award NMT 2023', 'NDNA Awards Runner Up 2023', 'Nursery World Awards Finalist 2022']);
 INSERT INTO staff (name, image, title, qualifications, awards) VALUES ('Wendy', 'Wendy.webp', 'Room Lead', ARRAY['Montessori Teacher/ Forest School Teacher', 'International Diploma in Montessori Pedagogy', 'Level 3 in Teaching & Learning in Schools', 'Level 3 Forest School Lead'], ARRAY[]::text[]);
 INSERT INTO staff (name, image, title, qualifications, awards) VALUES ('Destiny', 'Destiny.webp', 'Room Lead', ARRAY['Early Years Educator', 'Level 3 in Childcare & Education'], ARRAY[]::text[]);
 INSERT INTO staff (name, image, title, qualifications, awards) VALUES ('Charlie', 'Charlie.webp', 'Room Lead', ARRAY['Early Years Educator', 'Level 3 in Childcare & Education'], ARRAY[]::text[]);

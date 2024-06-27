@@ -3,13 +3,13 @@ import Banner from "../components/Banner/Banner";
 import bannerImage from "../assets/banner.jpg";
 import "./HomePage.css";
 import subImage from "../assets/awards5.webp";
-import Awards1 from "../assets/awards1.webp";
+import Awards1 from "../assets/awards-nmt-nursery.jpeg";
 import Awards2 from "../assets/Nursery-world-awards.png";
 import Awards3 from "../assets/Healthy-years.png";
 import Awards4 from "../assets/NDNA-award.png";
 import Awards5 from "../assets/awards5.webp";
 import Awards6 from "../assets/Daynurseries-award.png";
-import Awards7 from "../assets/awards7.png";
+import Awards7 from "../assets/awards-apprenticeship-connect.png";
 import Awards8 from "../assets/Millies-Mark-logo.jpg";
 
 const HomePage = () => {

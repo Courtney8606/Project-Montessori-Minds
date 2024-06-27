@@ -1,24 +1,25 @@
 import "./RoomsPage.css";
-import bannerImage from "../assets/rooms.jpg";
+import bannerImage from "../assets/rooms-banner.jpg";
 import Banner from "../components/Banner/Banner";
 import Room from "../components/Room/Room";
-import Sajaan1 from "../assets/Sajaanroom2.webp";
-import Sajaan2 from "../assets/Sajaanroom.webp";
-import Sajaan3 from "../assets/Sajaanroom3.webp";
+import Sajaan1 from "../assets/sajaan-room.png";
+import Sajaan2 from "../assets/sajaan-room-3.png";
+import Sajaan3 from "../assets/sajaan-room-2.png";
 import React, { useState } from "react";
-import Aria1 from "../assets/aria3.webp";
-import Aria2 from "../assets/aria1new.jpg";
-import Aria3 from "../assets/aria2.webp";
-import Sapphire1 from "../assets/sapphire-room-2.png";
-import Sapphire3 from "../assets/sapphire1new.jpg";
-import Sapphire2 from "../assets/sapphire3new.jpg";
-import Iris1 from "../assets/iris-room-1.png";
-import Iris2 from "../assets/iris-room-2.jpg";
+import Aria1 from "../assets/aria-room.png";
+import Aria2 from "../assets/aria-room-2.webp";
+import Aria3 from "../assets/aria-room-3.png";
+import Sapphire1 from "../assets/sapphire-room.jpg";
+import Sapphire3 from "../assets/sapphire-room-2.png";
+import Sapphire2 from "../assets/sapphire-room-3.png";
+import Iris1 from "../assets/iris-room.png";
+import Iris2 from "../assets/iris-room-1.png";
 import Iris3 from "../assets/iris-room-3.png";
-import Amelia1 from "../assets/Amelia1new.jpg";
-import Amelia2 from "../assets/amelia-room-2.png";
-import Avu1 from "../assets/avu-suite-2.png";
-import Avu2 from "../assets/Avu1new.jpg";
+import Amelia1 from "../assets/amelia-room.png";
+import Amelia2 from "../assets/amelia-room-3.jpg";
+import Amelia3 from "../assets/amelia-room-2.png";
+import Avu1 from "../assets/avu-suite.jpg";
+import Avu2 from "../assets/avu-suite-2.png";
 import Avu3 from "../assets/avu-suite-3.png";
 
 const RoomsPage = () => {
@@ -81,9 +82,9 @@ const RoomsPage = () => {
               stimulate their gross motor skills, fine motor skills, speech and
               social skills. Toddlers have the opportunity to take part in messy
               play, water play and also join in on our cooking activities."
-            picture1={Iris1}
-            picture2={Amelia1}
-            picture3={Amelia2}
+            picture1={Amelia1}
+            picture2={Amelia2}
+            picture3={Amelia3}
           />
         );
       case "Avu Suite":
