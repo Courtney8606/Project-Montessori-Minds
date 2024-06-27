@@ -12,6 +12,7 @@ pytest-xprocess = "*"
 python-dotenv = "*"
 flask-session = "*"
 bcrypt = "*"
+gunicorn = "*"
 
 [dev-packages]
 
