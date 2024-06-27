@@ -13,17 +13,23 @@ from werkzeug.utils import secure_filename
 load_dotenv()
 
 def get_frontend_url():
-    app_env = os.getenv('APP_ENV', 'development')
-    if app_env == 'production':
-        return os.getenv('PROD_FRONTEND_URL')
-    elif app_env == 'test':
-        return os.getenv('TEST_FRONTEND_URL')
+    if os.getenv('APP_ENV') == 'production':
+        return "https://project-montessori-minds.onrender.com/"
     else:
-        return os.getenv('DEV_FRONTEND_URL')
-    
+        return "http://localhost:5173"
+
+# Set CORS based on the frontend URL
+
 app = Flask(__name__)
-cors = CORS(app, resources={
-            r"/*": {"origins": get_frontend_url(), "supports_credentials": True}})
+
+frontend_url = get_frontend_url()
+if frontend_url is not None:
+    cors = CORS(app, resources={r"/*": {"origins": frontend_url, "supports_credentials": True}})
+else:
+    cors = CORS(app)
+    
+# cors = CORS(app, resources={
+#             r"/*": {"origins": get_frontend_url(), "supports_credentials": True}})
 app.config['SECRET_KEY'] = os.getenv("SESSION_KEY")
 app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)
