@@ -1,11 +1,11 @@
 import React from "react";
-import bannerImage from "../assets/values-banner-new.png";
+import bannerImage from "/assets/values-banner-new.png";
 import Banner from "../components/Banner/Banner";
 import "./ValuesPage.css";
-import valueNurture from "../assets/nurture.png";
-import valueEnjoy from "../assets/enjoy.png";
-import valueGrow from "../assets/grow.png";
-import valueFlourish from "../assets/flourish.png";
+import valueNurture from "/assets/nurture.png";
+import valueEnjoy from "/assets/enjoy.png";
+import valueGrow from "/assets/grow.png";
+import valueFlourish from "/assets/flourish.png";
 
 const ValuesPage = () => {
   return (

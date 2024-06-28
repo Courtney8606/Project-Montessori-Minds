@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./StaffCard.css";
-import MainButton from "../Buttons/MainButton";
 import { NavLink } from "react-router-dom";
 
 const StaffCardEmployeeAccount = ({ data, onDelete }) => {

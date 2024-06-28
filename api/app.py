@@ -80,6 +80,7 @@ def error_handler_decorator(f):
 def seed_database():
     database_connection = DatabaseConnection()
     try:
+        database_connection.connect()
         database_connection.seed('seeds/montessori_data.sql') 
         print("Database seeded succesfully")
     except Exception as e:

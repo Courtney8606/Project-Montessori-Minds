@@ -1,6 +1,6 @@
 import React from "react";
 import "./TeamPage.css";
-import teamImage from "../assets/leonieholder.jpg";
+import teamImage from "/assets/leonieholder.jpg";
 import { getAllStaff } from "../services/staff";
 import StaffList from "../components/StaffCard/StaffCard";
 import { useState, useEffect } from "react";

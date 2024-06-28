@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./NavigationBar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import logoImage from "../../assets/Logo.jpeg";
+import logoImage from "/assets/Logo.jpeg";
 import MainButton from "../Buttons/MainButton";
 
 const NavigationBar = () => {

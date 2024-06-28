@@ -1,38 +1,36 @@
 import React from "react";
-import outdoorImage1 from "../assets/outdoor13.jpg";
-import outdoorImage2 from "../assets/outdoor5.png";
-import outdoorImage3 from "../assets/outdoor3.jpg";
-import outdoorImage4 from "../assets/outdoor6.png";
-import outdoorImage5 from "../assets/outdoor9.png";
-import outdoorImage6 from "../assets/outdoor10.png";
-import outdoorImage7 from "../assets/outdoor11.png";
-import outdoorImage8 from "../assets/outdoor12.png";
-import outdoorImage9 from "../assets/outdoor14.png";
-import outdoorImage10 from "../assets/outdoor15.png";
-import outdoorImage11 from "../assets/outdoor16.png";
-import outdoorImage12 from "../assets/outdoor17.png";
-import outdoorImage13 from "../assets/outdoor18.png";
-import outdoorImage14 from "../assets/outdoor19.png";
-import outdoorImage15 from "../assets/outdoor20.png";
-import chickenImage1 from "../assets/chicken6.jpg";
-import chickenImage2 from "../assets/chicken7.jpg";
-import chickenImage3 from "../assets/chicken2.png";
-import chickenImage4 from "../assets/chicken3.png";
-import chickenImage5 from "../assets/chicken4.png";
-import chickenImage6 from "../assets/chicken8.png";
-import chickenImage7 from "../assets/chicken9.png";
-import chickenImage8 from "../assets/chicken10.png";
-import beyondImage1 from "../assets/beyond12.png";
-import beyondImage2 from "../assets/beyond3.png";
-import beyondImage3 from "../assets/beyond4.png";
-import beyondImage4 from "../assets/beyond5.png";
-import beyondImage5 from "../assets/beyond7.png";
-import beyondImage6 from "../assets/beyond8.png";
-import beyondImage7 from "../assets/beyond9.png";
-import beyondImage8 from "../assets/beyond10.png";
-import beyondImage9 from "../assets/beyond11.png";
-import beyondImage10 from "../assets/beyond2.png";
-import beyondImage11 from "../assets/beyond13.png";
+import outdoorImage1 from "/assets/outdoor13.jpg";
+import outdoorImage2 from "/assets/outdoor5.png";
+import outdoorImage3 from "/assets/outdoor3.jpg";
+import outdoorImage4 from "/assets/outdoor6.png";
+import outdoorImage5 from "/assets/outdoor9.jpeg";
+import outdoorImage6 from "/assets/outdoor10.jpeg";
+import outdoorImage7 from "/assets/outdoor11.png";
+import outdoorImage9 from "/assets/outdoor14.png";
+import outdoorImage10 from "/assets/outdoor15.jpeg";
+import outdoorImage11 from "/assets/outdoor16.png";
+import outdoorImage12 from "/assets/outdoor17.png";
+import outdoorImage15 from "/assets/outdoor20.png";
+import chickenImage1 from "/assets/chicken6.jpg";
+import chickenImage2 from "/assets/chicken7.jpg";
+import chickenImage3 from "/assets/chicken2.png";
+import chickenImage4 from "/assets/chicken3.png";
+import chickenImage5 from "/assets/chicken4.png";
+import chickenImage6 from "/assets/chicken8.png";
+import chickenImage7 from "/assets/chicken9.png";
+import chickenImage8 from "/assets/chicken10.png";
+import beyondImage1 from "/assets/beyond12.png";
+import beyondImage2 from "/assets/beyond3.png";
+import beyondImage3 from "/assets/beyond4.png";
+import beyondImage4 from "/assets/beyond5.png";
+import beyondImage5 from "/assets/beyond7.png";
+import beyondImage6 from "/assets/beyond8.jpeg";
+import beyondImage7 from "/assets/beyond9.png";
+import beyondImage8 from "/assets/beyond10.png";
+import beyondImage9 from "/assets/beyond11.png";
+import beyondImage10 from "/assets/beyond2.png";
+import beyondImage11 from "/assets/beyond13.png";
+import beyondImage12 from "/assets/beyond6.jpeg";
 
 import "./OutdoorPage.css";
 
@@ -99,13 +97,6 @@ const OutdoorPage = () => {
                   </div>
                   <div className="carousel-item">
                     <img
-                      src={outdoorImage8}
-                      className="d-block w-100 carousel-image"
-                      alt="..."
-                    />
-                  </div>
-                  <div className="carousel-item">
-                    <img
                       src={outdoorImage9}
                       className="d-block w-100 carousel-image"
                       alt="..."
@@ -128,20 +119,6 @@ const OutdoorPage = () => {
                   <div className="carousel-item">
                     <img
                       src={outdoorImage12}
-                      className="d-block w-100 carousel-image"
-                      alt="..."
-                    />
-                  </div>
-                  <div className="carousel-item">
-                    <img
-                      src={outdoorImage13}
-                      className="d-block w-100 carousel-image"
-                      alt="..."
-                    />
-                  </div>
-                  <div className="carousel-item">
-                    <img
-                      src={outdoorImage14}
                       className="d-block w-100 carousel-image"
                       alt="..."
                     />
@@ -395,6 +372,13 @@ const OutdoorPage = () => {
                   <div className="carousel-item">
                     <img
                       src={beyondImage11}
+                      className="d-block w-100 carousel-image"
+                      alt="..."
+                    />
+                  </div>
+                  <div className="carousel-item">
+                    <img
+                      src={beyondImage12}
                       className="d-block w-100 carousel-image"
                       alt="..."
                     />

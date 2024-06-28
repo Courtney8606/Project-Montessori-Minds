@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./LoginPage.css";
 import { updateStaff } from "../services/staff";
-import backgroundImage from "../assets/banner.jpg";
+import backgroundImage from "/assets/banner.jpg";
 import MainButton from "../components/Buttons/MainButton";
 
 export const AmendStaffMemberPage = () => {

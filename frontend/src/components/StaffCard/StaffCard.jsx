@@ -10,7 +10,7 @@ const StaffList = ({ data }) => {
       {data.map((staff, index) => (
         <div className="card" key={index}>
           <img
-            src={`/src/assets/${staff.image}`}
+            src={`/assets/${staff.image}`}
             alt={staff.name}
             className="card-img-top"
           />

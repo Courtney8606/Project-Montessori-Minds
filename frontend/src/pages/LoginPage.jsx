@@ -2,8 +2,7 @@ import { useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import "./LoginPage.css";
 import { login } from "../services/authentification";
-import backgroundImage from "../assets/banner.jpg";
-import logoImage from "../assets/Logo.jpeg";
+import backgroundImage from "/assets/banner.jpg";
 import MainButton from "../components/Buttons/MainButton";
 
 export const LoginPage = () => {

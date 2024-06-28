@@ -1,23 +1,23 @@
 import React from "react";
 import Banner from "../components/Banner/Banner";
-import bannerImage from "../assets/banner.jpg";
+import bannerImage from "/assets/banner.jpg";
 import "./HomePage.css";
-import subImage from "../assets/awards5.webp";
-import Awards1 from "../assets/awards-nmt-nursery.jpeg";
-import Awards2 from "../assets/Nursery-world-awards.png";
-import Awards3 from "../assets/Healthy-years.png";
-import Awards4 from "../assets/NDNA-award.png";
-import Awards5 from "../assets/awards5.webp";
-import Awards6 from "../assets/Daynurseries-award.png";
-import Awards7 from "../assets/awards-apprenticeship-connect.png";
-import Awards8 from "../assets/Millies-Mark-logo.jpg";
-import Testimonial1 from "../assets/testimonial1.png";
-import Testimonial2 from "../assets/testimonial2.png";
-import Testimonial3 from "../assets/testimonial3.png";
-import valueNurture from "../assets/nurture.png";
-import valueEnjoy from "../assets/enjoy.png";
-import valueGrow from "../assets/grow.png";
-import valueFlourish from "../assets/flourish.png";
+import subImage from "/assets/awards5.webp";
+import Awards1 from "/assets/awards-nmt-nursery.jpeg";
+import Awards2 from "/assets/Nursery-world-awards.png";
+import Awards3 from "/assets/Healthy-years.png";
+import Awards4 from "/assets/NDNA-award.png";
+import Awards5 from "/assets/awards5.webp";
+import Awards6 from "/assets/Daynurseries-award.png";
+import Awards7 from "/assets/awards-apprenticeship-connect.png";
+import Awards8 from "/assets/Millies-Mark-logo.jpg";
+import Testimonial1 from "/assets/testimonial1.png";
+import Testimonial2 from "/assets/testimonial2.png";
+import Testimonial3 from "/assets/testimonial3.png";
+import valueNurture from "/assets/nurture.png";
+import valueEnjoy from "/assets/enjoy.png";
+import valueGrow from "/assets/grow.png";
+import valueFlourish from "/assets/flourish.png";
 
 const HomePage = () => {
   return (
@@ -41,6 +41,7 @@ const HomePage = () => {
           environments and educational approaches, which nurture, engage and
           stimulate.
         </p>
+        <p></p>
 
         <p>Registered: for children from 3 months - 5 years old</p>
         <p>
