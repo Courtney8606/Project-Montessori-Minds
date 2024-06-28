@@ -77,16 +77,6 @@ def error_handler_decorator(f):
 
 # ROUTES
 
-# Seed database on the first request
-def initialize_app():
-    database_connection = DatabaseConnection()
-    try:
-        database_connection.connect()  # Connect to the database
-        database_connection.seed('seeds/montessori_data.sql')  # Seed the database
-    except Exception as e:
-        # Handle seeding errors gracefully
-        print(f'Error seeding database: {str(e)}')
-
 @app.route('/team', methods=['GET'])
 def all_staff():
     connection = get_flask_database_connection(app)
@@ -257,6 +247,5 @@ def update_staff(staff_id):
 #     app.run(debug=True, port=int(os.environ.get('PORT', 5001)))
 
 if __name__ == "__main__":
-    initialize_app()
     port = int(os.environ.get('PORT', 5001))  # Default to port 5000 if PORT environment variable is not set
     app.run(debug=True, host='0.0.0.0', port=port)
