@@ -75,6 +75,17 @@ def error_handler_decorator(f):
             return jsonify({'message': "An error occurred: 500 Internal Server Error"})
     return wrapper
 
+# Seed database on initialisation
+
+def seed_database():
+    database_connection = DatabaseConnection()
+    try:
+        database_connection.seed('seeds/montessori_data.sql') 
+        print("Database seeded succesfully")
+    except Exception as e:
+        print(f"Database seeding error {e}")
+        return jsonify({'message': f'Error seeding database: {str(e)}'}), 500
+    
 # ROUTES
 
 @app.route('/team', methods=['GET'])
