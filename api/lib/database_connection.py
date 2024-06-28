@@ -17,13 +17,16 @@ class DatabaseConnection:
     # to localhost and select the database name given in argument.
     def connect(self):
         database_url = self._database_url()
-        # new line above
+        print(f"DATABASE_URL: {database_url}")
         try:
             self.connection = psycopg.connect(
                 database_url,
                 row_factory=dict_row)
-        except psycopg.OperationalError:
+            print("Database connection successful")
+        except psycopg.OperationalError as e:
+            print(f"Error connecting to database: {e}")
             raise Exception(f"Couldn't connect to the database at {database_url}!")
+        
 
     # This method seeds the database with the given SQL file.
     # We use it to set up our database ready for our tests or application.
@@ -69,6 +72,7 @@ class DatabaseConnection:
         if self.test_mode:
             return os.getenv('TEST_DATABASE_URL')
         elif os.getenv('APP_ENV') == 'production':
+            print("database_url_function", os.getenv('DATABASE_URL'))
             return os.getenv('DATABASE_URL')
         else:
             return os.getenv('DEV_DATABASE_URL')
