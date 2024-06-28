@@ -70,13 +70,18 @@ class DatabaseConnection:
     
     def _database_url(self):
         if self.test_mode:
-            return os.getenv('TEST_DATABASE_URL')
+            url = os.getenv('TEST_DATABASE_URL')
+            print(f"Using test database URL: {url}")
+            return url
         elif os.getenv('APP_ENV') == 'production':
-            print("database_url_function", os.getenv('DATABASE_URL'))
-            return os.getenv('DATABASE_URL')
+            url = os.getenv('DATABASE_URL')
+            print(f"Using production database URL: {url}")
+            return url
         else:
-            return os.getenv('DEV_DATABASE_URL')
-
+            url = os.getenv('DEV_DATABASE_URL')
+            print(f"Using development database URL: {url}")
+            return url
+    
 # This function integrates with Flask to create one database connection that
 # Flask request can use.
 
