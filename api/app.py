@@ -89,6 +89,7 @@ def seed_database():
 # ROUTES
 
 @app.route('/team', methods=['GET'])
+@cross_origin(supports_credentials=True)
 def all_staff():
     connection = get_flask_database_connection(app)
     staff_repository = StaffRepository(connection)
@@ -178,6 +179,7 @@ def check_email_availability():
 
 
 @app.route('/staffmember/new', methods=['POST'])
+@cross_origin(supports_credentials=True)
 @login_required
 @error_handler_decorator
 def create_staff():
@@ -206,6 +208,7 @@ def create_staff():
     return jsonify({'message': 'You have successfully added a new staff member'}), 200
 
 @app.route('/delete/staff', methods=['POST'])
+@cross_origin(supports_credentials=True)
 @login_required
 @error_handler_decorator
 def delete_staff():
@@ -222,6 +225,7 @@ def delete_staff():
     return jsonify({'message': f'You have successfully deleted {staff_name}'}, staff), 200
 
 @app.route('/update/<staff_id>', methods=['GET', 'POST'])
+@cross_origin(supports_credentials=True)
 @login_required
 @error_handler_decorator
 def update_staff(staff_id):
