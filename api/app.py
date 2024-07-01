@@ -50,6 +50,7 @@ def allowed_file(filename):
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
+        print("session decorator function", session.get('user'))
         if 'user' not in session:
             return jsonify({'message': 'You are not authorised to access this content'})
         return f(*args, **kwargs)
@@ -127,21 +128,26 @@ def login():
     user = user_repository.find_username(username)
     print(user)
     # Check if user exists and password is correct
-    if user['id'] <= 3:
-        # For test users (IDs 1-3), compare passwords directly
+    if user['id'] == 1:
+        # For test users (ID 1), compare passwords directly
         password_bytes = password.encode('utf-8')
         if user and password_bytes == user['password']:
             session['user'] = user['username']
-            # Return user information - removing password information
-            return jsonify({key: value for key, value in user.items() if key != 'password'}), 200
+            print("login pre check", session.get('user'))
+
+            response_data = {key: value for key, value in user.items() if key != 'password'}
+            response_data['session_user'] = session.get('user')
+            return jsonify(response_data), 200
         else:
             return jsonify({'message': 'Username or Password Incorrect'}), 401
     else:
         # For other users, use bcrypt checkpassword function for secure password comparison
         if user and bcrypt.checkpw(password.encode('utf-8'), user['password']):
             session['user'] = user['username']
-            # Return user information - removing password information
-            return jsonify({key: value for key, value in user.items() if key != 'password'}), 200
+            print("login pre check", session.get('user'))
+            response_data = {key: value for key, value in user.items() if key != 'password'}
+            response_data['session_user'] = session.get('user')
+            return jsonify(response_data), 200
         else:
             return jsonify({'message': 'Username or Password Incorrect'}), 401
 
@@ -152,10 +158,13 @@ def logout():
     connection = get_flask_database_connection(app)
     user_repository = UserRepository(connection)
     username = session.get('user')
-    print(username)
     session.pop('user', None)
-    print(session)
-    return jsonify({'message': 'You have successfully logged out'})
+    username_after_logout = session.get('user')
+    if username is not None and username_after_logout is None:
+        message = f'You have successfully logged out, there is no username in session.'
+    else:
+        message = f'You have not successfully logged out, username after logout is {username_after_logout}'
+    return jsonify({'message': message}), 200  
 
 
 @app.route('/check-username', methods=['POST'])
@@ -215,9 +224,14 @@ def create_staff():
 def delete_staff():
     data = request.json  
     staff_name = data.get('staff_name')
+    session_user = session.get('user')
+    print("session user delete", session.get('user'))
     
     if not staff_name:
         return jsonify({'error': 'Staff name is required'}), 400
+    
+    if session_user is None:
+        return jsonify({'error': 'No session username found'}), 400
     
     connection = get_flask_database_connection(app)
     staff_repository = StaffRepository(connection)
