@@ -3,8 +3,24 @@ import "./StaffCard.css";
 import { NavLink } from "react-router-dom";
 
 const StaffCardEmployeeAccount = ({ data, onDelete }) => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [hoveredAwardsIndex, setHoveredAwardsIndex] = useState(null);
+  const [clickedIndex, setClickedIndex] = useState(null);
+  const [clickedAwardsIndex, setClickedAwardsIndex] = useState(null);
+
+  const handleQualificationsClick = (index) => {
+    if (clickedIndex === index) {
+      setClickedIndex(null); // Toggle off if already clicked
+    } else {
+      setClickedIndex(index);
+    }
+  };
+
+  const handleAwardsClick = (index) => {
+    if (clickedAwardsIndex === index) {
+      setClickedAwardsIndex(null); // Toggle off if already clicked
+    } else {
+      setClickedAwardsIndex(index);
+    }
+  };
 
   return (
     <div className="card-container">
@@ -28,35 +44,33 @@ const StaffCardEmployeeAccount = ({ data, onDelete }) => {
           </div>
           <div className="card">
             <img
-              src={`/src/assets/${staff.image}`}
+              src={`/assets/${staff.image}`}
               alt={staff.name}
               className="card-img-top"
             />
             <div className="card-body">
               <h5 className="card-title">{staff.name}</h5>
               <p className="card-title">{staff.title}</p>
-              <a
+              <button
                 className="btn btn-primary team-button"
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
+                onClick={() => handleQualificationsClick(index)}
               >
                 Qualifications
-              </a>
-              {hoveredIndex === index && (
+              </button>
+              {clickedIndex === index && (
                 <p className="card-text">
                   {staff.qualifications && staff.qualifications.join(", ")}
                 </p>
               )}
               {staff.awards && staff.awards.length > 0 && (
-                <a
+                <button
                   className="btn btn-primary team-button"
-                  onMouseEnter={() => setHoveredAwardsIndex(index)}
-                  onMouseLeave={() => setHoveredAwardsIndex(null)}
+                  onClick={() => handleAwardsClick(index)}
                 >
                   Awards
-                </a>
+                </button>
               )}
-              {hoveredAwardsIndex === index &&
+              {clickedAwardsIndex === index &&
                 staff.awards &&
                 staff.awards.length > 0 && (
                   <p className="card-text">{staff.awards.join(", ")}</p>

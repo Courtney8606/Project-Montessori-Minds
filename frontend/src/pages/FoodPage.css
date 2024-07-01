@@ -8,18 +8,12 @@
 }
 
 .food-intro {
-  padding: 3% 20% 3% 20%;
+  padding: 5% 20% 3% 20%;
   text-align: center;
 }
 
 .food-row {
   margin-bottom: 60px;
-}
-
-.food-banner {
-  position: relative;
-  background-size: cover;
-  background-position: center;
 }
 
 .sub-image {
@@ -28,4 +22,21 @@
   left: 0;
   z-index: 1;
   height: 30%;
+}
+
+.food-banner {
+  padding-top: 20px;
+}
+
+@media screen and (max-width: 1000px) {
+  .food-grid-image {
+    padding-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .food-intro {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
 }

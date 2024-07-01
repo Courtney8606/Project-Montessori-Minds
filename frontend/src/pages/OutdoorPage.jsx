@@ -41,7 +41,7 @@ const OutdoorPage = () => {
         className="container-fluid text-center carousel-container"
         id="carousel-container"
       >
-        <div className="row">
+        <div className="row outdoor-row">
           <div className="col-12 col-md-6 col-container">
             <div className="column-container">
               <div id="carouselExample" className="carousel slide">
@@ -183,7 +183,7 @@ const OutdoorPage = () => {
         className="container-fluid text-center carousel-container"
         id="carousel-container"
       >
-        <div className="row">
+        <div className="row outdoor-row" id="outdoor-row-2">
           <div className="col-12 col-md-6 col-container content-container">
             <div className="garden">
               <p>
@@ -294,7 +294,7 @@ const OutdoorPage = () => {
         className="container-fluid text-center carousel-container"
         id="carousel-container"
       >
-        <div className="row">
+        <div className="row outdoor-row" id="outdoor-row-3">
           <div className="col-12 col-md-6 col-container">
             <div>
               <div id="carouselExample3" className="carousel slide">

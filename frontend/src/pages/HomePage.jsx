@@ -76,7 +76,9 @@ const HomePage = () => {
             <img className="values-image" src={valueEnjoy} />
           </a>
           <h3>
-            <a href="/values">Enjoy</a>
+            <a id="enjoy" href="/values">
+              Enjoy
+            </a>
           </h3>
         </div>
 

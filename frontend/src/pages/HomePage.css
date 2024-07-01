@@ -37,20 +37,20 @@
 
 .values-wrapper > h3 {
   position: absolute;
-  visibility: hidden;
   font-size: 1.5vw;
+  color: white;
+  top: 47%;
+  left: 35%;
+  transform: scale(2);
+  opacity: 85%;
+}
+
+.values-wrapper > h3 a:visited {
+  color: white;
 }
 
 .values-wrapper:hover {
   filter: brightness(0.75);
-}
-
-.values-wrapper:hover > h3 {
-  visibility: revert;
-  color: white;
-  top: 47%; /* not happy with this positioning but how can I get it centered?*/
-  left: 35%;
-  transform: scale(2);
 }
 
 .values-wrapper:hover > h3 a:visited {
@@ -62,18 +62,78 @@
   border-radius: 2%;
 }
 
-@media screen and (max-width: 900px) {
+#enjoy {
+  padding-left: 13%;
+}
+
+@media screen and (min-width: 1600px) {
+  .values-wrapper > h3 {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 1375px) {
   .values-grid {
-    grid-template-columns: 1fr;
-    padding-left: 0;
-    padding-right: 0;
+    grid-template-columns: 1fr 1fr;
+    padding-left: 20%;
+    padding-right: 20%;
     justify-content: center;
   }
+  .values-wrapper > h3 {
+    font-size: 2vw;
+    left: 33%;
+  }
   .values-wrapper:hover > h3 {
-    font-size: 2.5vw;
+    font-size: 2vw;
   }
   .values-image {
     min-width: 150px;
+  }
+}
+
+/* Intro text */
+
+.intro {
+  text-align: center;
+  padding-top: 40px;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+@media screen and (max-width: 900px) {
+  .intro {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .values-wrapper > h3 {
+    visibility: revert;
+    font-size: 2.5vw;
+    color: white;
+    top: 47%;
+    left: 35%;
+    transform: scale(2);
+    opacity: 85%;
+  }
+
+  .values-wrapper > h3 a,
+  .values-wrapper > h3 a:visited {
+    color: white;
+  }
+
+  .values-wrapper:hover > h3 {
+    visibility: revert;
+    font-size: 2.5vw;
+    color: white;
+    top: 47%;
+    left: 35%;
+    transform: scale(2);
+    opacity: 85%;
   }
 
   .awards-row {
@@ -83,10 +143,11 @@
   .awards-carousel {
     display: flex;
     justify-content: center;
-    padding-top: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
   .carousel-item {
-    width: 100%;
+    width: auto;
   }
   .carousel-control-next-icon {
     background-color: black;
@@ -96,6 +157,15 @@
   }
   .carousel-image-awards {
     height: 150px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .values-grid {
+    padding: 0;
+  }
+  .values-wrapper > h3 {
+    font-size: 20px;
   }
 }
 
@@ -141,19 +211,4 @@
   text-align: center;
   padding-top: 20px;
   padding-bottom: 20px;
-}
-
-/* Intro text */
-
-.intro {
-  text-align: center;
-  padding-top: 40px;
-  padding-left: 20%;
-  padding-right: 20%;
-}
-
-@media screen and (max-width: 600px) {
-  .intro {
-    font-size: 3.5vw;
-  }
 }

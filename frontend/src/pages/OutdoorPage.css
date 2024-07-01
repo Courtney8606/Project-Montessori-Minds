@@ -6,8 +6,8 @@
 }
 
 .garden {
-  padding-left: 70px;
-  padding-right: 70px;
+  padding-left: 15%;
+  padding-right: 15%;
 }
 .col-container {
   padding: 0;
@@ -16,12 +16,7 @@
   min-width: 350px;
   overflow: hidden;
   position: relative;
-  padding: 0;
-}
-
-.carousel-image {
-  width: 100%;
-  height: auto; /* Maintain the aspect ratio */
+  max-width: 100%;
 }
 
 .row {
@@ -31,4 +26,64 @@
 
 .footer.footer {
   margin: 0;
+}
+
+.carousel-control-next-icon {
+  background-color: black;
+}
+
+.carousel-control-prev-icon {
+  background-color: black;
+}
+
+@media screen and (max-width: 1000px) {
+  .garden {
+    padding-top: 8%;
+    padding-bottom: 8%;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+  .outdoor-row {
+    position: relative; /* Ensure position is relative for pseudo-element */
+    border-bottom: 2px solid transparent; /* Start with a transparent solid line */
+  }
+
+  .outdoor-row::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; /* Adjust the thickness of the gradient border */
+    background: linear-gradient(
+      to right,
+      transparent,
+      black,
+      transparent
+    ); /* Gradient definition */
+    z-index: 1; /* Ensure the pseudo-element is above the solid border */
+  }
+  #outdoor-row-2 {
+    padding-bottom: 8%;
+  }
+  #outdoor-row-3 {
+    padding-top: 8%;
+    border-bottom: none;
+  }
+  #outdoor-row-3::after {
+    display: none; /* Hide the gradient border for outdoor-row-3 */
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .carousel-item {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .garden {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
 }

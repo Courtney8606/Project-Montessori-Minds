@@ -42,3 +42,18 @@ img.LogoImage {
   height: 1px;
   background-color: #00215e;
 }
+
+@media (max-width: 991.98px) {
+  .navbar-nav .nav-item > .nav-link.active {
+    /* Remove the underline for active nav-link */
+    text-decoration: none !important; /* Important to override Bootstrap */
+  }
+
+  .navbar-nav .nav-item > .nav-link.active::after {
+    /* Remove any additional styling */
+    content: none !important;
+    background-color: transparent !important;
+    height: 0 !important;
+    width: 0 !important;
+  }
+}

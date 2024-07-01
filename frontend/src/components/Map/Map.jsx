@@ -11,10 +11,15 @@ const GoogleMap = () => {
     lng: 0.18805078588758062,
   };
 
+  if (!API_KEY || !MAP_ID) {
+    console.error("API key or Map ID not provided or incorrectly configured.");
+    return null;
+  }
+
   return (
     <APIProvider apiKey={API_KEY}>
       <div className="map">
-        <Map zoom={15.6} center={position} mapId={MAP_ID} />
+        <Map defaultZoom={15.6} center={position} mapId={MAP_ID} />
         <AdvancedMarker position={position} />
       </div>
     </APIProvider>
