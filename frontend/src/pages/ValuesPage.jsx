@@ -1,5 +1,5 @@
 import React from "react";
-import bannerImage from "/assets/values-banner-new.png";
+import bannerImage from "/assets/banner-test1.jpeg";
 import Banner from "../components/Banner/Banner";
 import "./ValuesPage.css";
 import valueNurture from "/assets/nurture.png";
@@ -16,9 +16,9 @@ const ValuesPage = () => {
         text2="Nurture. Enjoy. Grow. Flourish."
       />
       <div>
-        <div className="values">
-          <img className="values-image" src={valueNurture} />
-          <div className="values-content">
+        <div className="values-page">
+          <img className="values-page-image" src={valueNurture} />
+          <div className="values-page-content">
             <h2>Nurture</h2>
             <h3>We welcome all with kindness, respect and love</h3>
             <p>
@@ -33,9 +33,9 @@ const ValuesPage = () => {
           </div>
         </div>
         <hr />
-        <div className="values">
-          <img className="values-image" src={valueEnjoy} />
-          <div className="values-content">
+        <div className="values-page">
+          <img className="values-page-image" src={valueEnjoy} />
+          <div className="values-page-content">
             <h2>Enjoy</h2>
             <h3>Fun, stimulating learning environments</h3>
             <p>
@@ -48,9 +48,9 @@ const ValuesPage = () => {
           </div>
         </div>
         <hr />
-        <div className="values">
-          <img className="values-image" src={valueGrow} />
-          <div className="values-content">
+        <div className="values-page">
+          <img className="values-page-image" src={valueGrow} />
+          <div className="values-page-content">
             <h2>Grow</h2>
             <h3>We inspire and support each other to grow</h3>
             <p>
@@ -63,9 +63,9 @@ const ValuesPage = () => {
           </div>
         </div>
         <hr />
-        <div className="values">
-          <img className="values-image" src={valueFlourish} />
-          <div className="values-content">
+        <div className="values-page">
+          <img className="values-page-image" src={valueFlourish} />
+          <div className="values-page-content">
             <h2>Flourish</h2>
             <h3>We are committed to a culture of excellence</h3>
             <p>

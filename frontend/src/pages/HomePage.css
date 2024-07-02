@@ -12,7 +12,7 @@
 .awards-item img {
   display: block;
   width: 100%;
-  height: 150px;
+  max-height: 150px;
 }
 
 .awards-carousel {
@@ -66,6 +66,15 @@
   padding-left: 13%;
 }
 
+/* Intro text */
+
+.intro {
+  text-align: center;
+  padding-top: 40px;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
 @media screen and (min-width: 1600px) {
   .values-wrapper > h3 {
     font-size: 25px;
@@ -91,15 +100,6 @@
   }
 }
 
-/* Intro text */
-
-.intro {
-  text-align: center;
-  padding-top: 40px;
-  padding-left: 20%;
-  padding-right: 20%;
-}
-
 @media screen and (max-width: 900px) {
   .intro {
     padding-left: 10%;
@@ -113,12 +113,9 @@
 
   .values-wrapper > h3 {
     visibility: revert;
-    font-size: 2.5vw;
-    color: white;
+    font-size: 3.5vw;
     top: 47%;
-    left: 35%;
-    transform: scale(2);
-    opacity: 85%;
+    left: 40%;
   }
 
   .values-wrapper > h3 a,
@@ -128,12 +125,7 @@
 
   .values-wrapper:hover > h3 {
     visibility: revert;
-    font-size: 2.5vw;
-    color: white;
-    top: 47%;
-    left: 35%;
-    transform: scale(2);
-    opacity: 85%;
+    font-size: 3.5vw;
   }
 
   .awards-row {
@@ -156,7 +148,8 @@
     background-color: black;
   }
   .carousel-image-awards {
-    height: 150px;
+    max-height: 250px;
+    object-fit: contain;
   }
 }
 
@@ -165,7 +158,12 @@
     padding: 0;
   }
   .values-wrapper > h3 {
-    font-size: 20px;
+    font-size: 35px;
+    top: 47%;
+    left: 35%;
+  }
+  .values-wrapper:hover > h3 {
+    font-size: 35px;
   }
 }
 
@@ -188,7 +186,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 14px;
+  font-size: 15px;
+  width: 80%;
 }
 
 .testimonial-image {
@@ -204,6 +203,23 @@
 @media screen and (max-width: 900px) {
   .testimonials {
     grid-template-columns: 1fr;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .testimonial-wrapper > h4 {
+    font-size: 17px;
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .testimonials {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .testimonial-wrapper > h4 {
+    font-size: 14px;
+    width: 80%;
   }
 }
 

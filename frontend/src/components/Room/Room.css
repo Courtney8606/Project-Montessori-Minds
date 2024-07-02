@@ -65,15 +65,10 @@
   }
 }
 
-@media (max-width: 1200px) {
-  .room-column {
-    max-width: 250px;
-  }
-}
-
 @media (max-width: 1000px) {
   .room-column {
     max-width: 385px;
+    min-width: 385px;
   }
 
   .room-image-small-1 {
@@ -92,6 +87,13 @@
     max-height: 234px;
     min-height: 148.5px;
     object-fit: cover;
+  }
+  .room-heading {
+    padding: 0;
+  }
+
+  .room-text {
+    padding: 0;
   }
 }
 
@@ -124,6 +126,8 @@
   .room-column {
     padding: 1px;
     width: 100%;
+    max-width: 100%;
+    min-width: 100%;
   }
   .rooms-row {
     margin-bottom: 150px;

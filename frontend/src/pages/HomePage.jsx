@@ -1,6 +1,6 @@
 import React from "react";
 import Banner from "../components/Banner/Banner";
-import bannerImage from "/assets/banner.jpg";
+import bannerImage from "/assets/banner-test2.jpeg";
 import "./HomePage.css";
 import subImage from "/assets/awards5.webp";
 import Awards1 from "/assets/awards-nmt-nursery.jpeg";
@@ -8,7 +8,7 @@ import Awards2 from "/assets/Nursery-world-awards.png";
 import Awards3 from "/assets/Healthy-years.png";
 import Awards4 from "/assets/NDNA-award.png";
 import Awards5 from "/assets/awards5.webp";
-import Awards6 from "/assets/Daynurseries-award.png";
+import Awards6 from "/assets/Daynurseries-award2024.png";
 import Awards7 from "/assets/awards-apprenticeship-connect.png";
 import Awards8 from "/assets/Millies-Mark-logo.jpg";
 import Testimonial1 from "/assets/testimonial1.png";
@@ -145,7 +145,7 @@ const HomePage = () => {
 
       <div className="awards-row">
         <div className="awards-item">
-          <img src={Awards1} />
+          <img src={Awards6} />
         </div>
         <div className="awards-item">
           <img src={Awards2} />
@@ -160,7 +160,7 @@ const HomePage = () => {
           <img src={Awards5} />
         </div>
         <div className="awards-item">
-          <img src={Awards6} />
+          <img src={Awards1} />
         </div>
         <div className="awards-item">
           <img src={Awards7} />

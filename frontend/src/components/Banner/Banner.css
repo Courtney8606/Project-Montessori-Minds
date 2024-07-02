@@ -20,11 +20,12 @@
   position: absolute;
   width: 100%;
   text-align: center;
-  top: 35%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 4vw;
+  font-size: 5vw;
   color: white;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
 }
 
 .image {
@@ -35,16 +36,17 @@
   position: absolute;
   width: 100%;
   text-align: center;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 3vw;
   color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 @media screen and (min-width: 1601px) {
   .header-text {
-    font-size: 56px;
+    font-size: 80px;
   }
 
   .header-textsub {
@@ -55,6 +57,16 @@
 @media screen and (max-width: 800px) {
   .header-text {
     font-size: 6vw;
+  }
+
+  .header-textsub {
+    font-size: 4vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header-text {
+    font-size: 40px;
   }
 
   .header-textsub {
