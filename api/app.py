@@ -34,12 +34,20 @@ app.config['SECRET_KEY'] = os.getenv("SESSION_KEY")
 app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_PERMANENT'] = False 
 app.config['SESSION_USE_SIGNER'] = True
+app.config['SESSION_FILE_DIR'] = os.path.join(os.getcwd(), 'flask_session')
+app.config['SESSION_FILE_THRESHOLD'] = 500
 
 app.config.update(
     SESSION_COOKIE_SECURE=True, 
     SESSION_COOKIE_HTTPONLY=True,
-    SESSION_COOKIE_SAMESITE='Lax'
+    SESSION_COOKIE_SAMESITE='None'
 )
+
+session_file_dir = os.path.join(os.getcwd(), 'flask_session')
+app.config['SESSION_FILE_DIR'] = session_file_dir
+
+if not os.path.exists(session_file_dir):
+    os.makedirs(session_file_dir)
 
 Session(app)
 
