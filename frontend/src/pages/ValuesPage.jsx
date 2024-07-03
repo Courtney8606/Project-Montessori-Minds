@@ -1,5 +1,5 @@
 import React from "react";
-import bannerImage from "/assets/banner-test1.jpeg";
+import bannerImage from "/assets/banner-test1.jpg";
 import Banner from "../components/Banner/Banner";
 import "./ValuesPage.css";
 import valueNurture from "/assets/nurture.png";

@@ -9,6 +9,10 @@ from functools import wraps
 from dotenv import load_dotenv
 import bcrypt
 from werkzeug.utils import secure_filename
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
 
 load_dotenv()
 
@@ -53,9 +57,23 @@ Session(app)
 
 # File upload setup
 
-UPLOAD_FOLDER = os.getenv('UPLOAD_FOLDER_DEV') if os.getenv('APP_ENV') == 'development' else os.getenv('UPLOAD_FOLDER_PROD')
+current_script_directory = os.path.dirname(__file__)
+logging.debug(f"Current script directory: {current_script_directory}")
+
+UPLOAD_FOLDER_DEV = os.getenv('UPLOAD_FOLDER_DEV')
+if UPLOAD_FOLDER_DEV:
+    UPLOAD_FOLDER_DEV = os.path.abspath(os.path.join(current_script_directory, UPLOAD_FOLDER_DEV))
+    logging.debug(f"Resolved UPLOAD_FOLDER_DEV: {UPLOAD_FOLDER_DEV}")
+
+UPLOAD_FOLDER_PROD = os.getenv('UPLOAD_FOLDER_PROD')
+if UPLOAD_FOLDER_PROD:
+    UPLOAD_FOLDER_PROD = os.path.abspath(os.path.join(current_script_directory, UPLOAD_FOLDER_PROD))
+    logging.debug(f"Resolved UPLOAD_FOLDER_PROD: {UPLOAD_FOLDER_PROD}")
+
+UPLOAD_FOLDER = UPLOAD_FOLDER_DEV if os.getenv('APP_ENV') == 'development' else UPLOAD_FOLDER_PROD
+logging.debug(f"Resolved UPLOAD_FOLDER: {UPLOAD_FOLDER}")
+
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
@@ -81,16 +99,16 @@ def error_handler_decorator(f):
             return f(*args, **kwargs)
         except ValueError as e:
             # Handle ValueError (400 Bad Request)
-            print(f"An error occurred: {str(e)}")
-            return jsonify({'message': "An error occurred: 400 Bad Request"})
+            logger.error(f"ValueError: {str(e)}")
+            return jsonify({'message': f"An error occurred: 400 Bad Request - {str(e)}"}), 400
         except FileNotFoundError as e:
             # Handle FileNotFoundError (404 Not Found)
-            print(f"An error occurred: {str(e)}")
-            return jsonify({'message': "An error occurred: 404 Not Found"})
+            logger.error(f"FileNotFoundError: {str(e)}")
+            return jsonify({'message': f"An error occurred: 404 Not Found - {str(e)}"}), 404
         except Exception as e:
             # Handle other exceptions (500 Internal Server Error)
-            print(f"An error occurred: {str(e)}")
-            return jsonify({'message': "An error occurred: 500 Internal Server Error"})
+            logger.error(f"Exception: {str(e)}")
+            return jsonify({'message': f"An error occurred: 500 Internal Server Error - {str(e)}"}), 500
     return wrapper
 
 # Seed database on initialisation
@@ -208,31 +226,51 @@ def check_email_availability():
 @app.route('/staffmember/new', methods=['POST'])
 @cross_origin(supports_credentials=True)
 @login_required
-@error_handler_decorator
 def create_staff():
     connection = get_flask_database_connection(app)
     staff_repository = StaffRepository(connection)
 
-    file = request.files['file']
     if 'file' not in request.files:
+        logging.error("No file part in the request")
         return jsonify({'message': "No file part"}), 400
+
+    file = request.files['file']
+
     if file.filename == '':
-        return jsonify({'message': "No file selected for uploading"})
+        logging.error("No file selected for uploading")
+        return jsonify({'message': "No file selected for uploading"}), 400
+
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
 
-        name = request.form.get('name')
-        title = request.form.get('title')
-        qualifications = request.form.get('qualifications')
-        awards = request.form.get('awards')
+        logging.debug(f"File path: {file_path}")
 
-        if not all([name, filename, title, qualifications, awards]):
-            return jsonify({'message': "Missing form data"}), 400
+        try:
+            file.save(file_path)
+            logging.debug("File saved successfully")
 
-    staff = Staff(None, name, filename, title, qualifications, awards)
-    staff_repository.create(staff)
-    return jsonify({'message': 'You have successfully added a new staff member'}), 200
+            name = request.form.get('name')
+            title = request.form.get('title')
+            qualifications = request.form.get('qualifications')
+            awards = request.form.get('awards')
+
+            if not all([name, filename, title, qualifications, awards]):
+                logging.error("Missing form data")
+                return jsonify({'message': "Missing form data"}), 400
+
+            staff = Staff(None, name, filename, title, qualifications, awards)
+            staff_repository.create(staff)
+            logging.debug("Staff member created successfully")
+            return jsonify({'message': 'You have successfully added a new staff member'}), 200
+
+        except Exception as e:
+            logging.error(f"Error saving file: {str(e)}")
+            return jsonify({'message': "Error saving file"}), 500
+
+    else:
+        logging.error("File type not allowed")
+        return jsonify({'message': "File type not allowed"}), 400
 
 @app.route('/delete/staff', methods=['POST'])
 @cross_origin(supports_credentials=True)
