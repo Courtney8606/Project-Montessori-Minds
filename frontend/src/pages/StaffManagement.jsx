@@ -10,6 +10,7 @@ import { deleteStaff } from "../services/staff";
 const StaffManagementPage = () => {
   const username = localStorage.getItem("username");
   const [staff, setStaff] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   const getAllStaffTrigger = async () => {
@@ -18,13 +19,14 @@ const StaffManagementPage = () => {
       setStaff(response);
     } catch (error) {
       console.error("Failed to fetch staff data:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleDelete = async (staff_name) => {
     try {
       await deleteStaff(staff_name);
-      console.log("Staff member deleted successfully.");
       const response = await getAllStaff();
       setStaff(response);
     } catch (error) {
@@ -58,7 +60,11 @@ const StaffManagementPage = () => {
           }}
         />
       </NavLink>
-      <StaffCardEmployeeAccount data={staff} onDelete={handleDelete} />
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <StaffCardEmployeeAccount data={staff} onDelete={handleDelete} />
+      )}
     </div>
   );
 };

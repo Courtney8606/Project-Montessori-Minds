@@ -53,7 +53,7 @@ Session(app)
 
 # File upload setup
 
-UPLOAD_FOLDER = '/Users/courtneysuhr/developer/projects/MontessoriMindsV2/frontend/src/assets/'
+UPLOAD_FOLDER = os.getenv('UPLOAD_FOLDER_DEV') if os.getenv('APP_ENV') == 'development' else os.getenv('UPLOAD_FOLDER_PROD')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 

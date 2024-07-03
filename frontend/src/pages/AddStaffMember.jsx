@@ -38,7 +38,8 @@ export const AddStaffMemberPage = () => {
       ) {
         setErrorMessage("Error creating staff member!");
       } else {
-        navigate("/staffmanagement");
+        navigate("/staffmanagement", { replace: true });
+        window.location.reload();
       }
     } catch (err) {
       setErrorMessage("Unknown error: Please try again");

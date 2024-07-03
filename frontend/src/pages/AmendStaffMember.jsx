@@ -42,7 +42,8 @@ export const AmendStaffMemberPage = () => {
         ) {
           setErrorMessage("Error updating staff member!");
         } else {
-          navigate("/staffmanagement");
+          navigate("/staffmanagement", { replace: true });
+          window.location.reload();
         }
       } catch (err) {
         setErrorMessage("Unknown error: Please try again");
