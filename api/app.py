@@ -242,6 +242,8 @@ def create_staff():
 
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
+        logging.debug(f"Filename", filename)
+        logging.debug(f"app config UPLOAD FOLDER", app.config['UPLOAD_FOLDER'])
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
 
         logging.debug(f"File path: {file_path}")
