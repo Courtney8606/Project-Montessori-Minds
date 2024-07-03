@@ -6,7 +6,7 @@ import {
   checkUsername,
   checkEmail,
 } from "../services/authentification";
-import backgroundImage from "/assets/banner.jpg";
+import backgroundImage from "/assets/loginsignup.jpeg";
 import MainButton from "../components/Buttons/MainButton";
 
 export const SignupPage = () => {
