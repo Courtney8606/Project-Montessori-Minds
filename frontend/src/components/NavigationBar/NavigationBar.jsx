@@ -6,6 +6,14 @@ import logoImage from "/assets/Logo.jpeg";
 import MainButton from "../Buttons/MainButton";
 
 const NavigationBar = () => {
+  const handleNavLinkClick = () => {
+    const navbarToggler = document.querySelector(".navbar-toggler");
+    const navbarCollapse = document.getElementById("navbarSupportedContent");
+    if (navbarCollapse.classList.contains("show")) {
+      navbarToggler.click(); // Trigger the button click to collapse
+    }
+  };
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -38,6 +46,7 @@ const NavigationBar = () => {
                     isActive ? "nav-link active" : "nav-link"
                   }
                   aria-current="page"
+                  onClick={handleNavLinkClick}
                 >
                   <MainButton
                     text="Values"
@@ -60,6 +69,7 @@ const NavigationBar = () => {
                     isActive ? "nav-link active" : "nav-link"
                   }
                   aria-current="page"
+                  onClick={handleNavLinkClick}
                 >
                   <MainButton
                     text="Team"
@@ -81,6 +91,7 @@ const NavigationBar = () => {
                     isActive ? "nav-link active" : "nav-link"
                   }
                   aria-current="page"
+                  onClick={handleNavLinkClick}
                 >
                   <MainButton
                     text="Rooms"
@@ -102,6 +113,7 @@ const NavigationBar = () => {
                     isActive ? "nav-link active" : "nav-link"
                   }
                   aria-current="page"
+                  onClick={handleNavLinkClick}
                 >
                   <MainButton
                     text="Food"
@@ -123,6 +135,7 @@ const NavigationBar = () => {
                     isActive ? "nav-link active" : "nav-link"
                   }
                   aria-current="page"
+                  onClick={handleNavLinkClick}
                 >
                   <MainButton
                     text="Outdoor Areas"
@@ -144,6 +157,7 @@ const NavigationBar = () => {
                     isActive ? "nav-link active" : "nav-link"
                   }
                   aria-current="page"
+                  onClick={handleNavLinkClick}
                 >
                   <MainButton
                     text="Contact"

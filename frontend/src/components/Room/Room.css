@@ -47,6 +47,7 @@
   height: auto;
   max-width: 385px;
   max-height: 234px;
+  min-height: 234px;
   object-fit: cover;
 }
 

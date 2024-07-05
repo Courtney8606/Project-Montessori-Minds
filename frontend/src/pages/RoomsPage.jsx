@@ -13,14 +13,14 @@ import Sapphire1 from "/assets/sapphire-room.jpg";
 import Sapphire3 from "/assets/sapphire-room-2.png";
 import Sapphire2 from "/assets/sapphire-room-3.png";
 import Iris1 from "/assets/iris-room.png";
-import Iris2 from "/assets/iris.jpeg";
+import Iris2 from "/assets/iris-room-3.png";
 import Iris3 from "/assets/iris-room-3.png";
 import Amelia1 from "/assets/amelia-room.png";
 import Amelia2 from "/assets/amelia-room-3.jpg";
 import Amelia3 from "/assets/amelia-room-2.png";
 import Avu1 from "/assets/avu-suite.jpg";
-import Avu2 from "/assets/avu-suite-2.png";
-import Avu3 from "/assets/avu-suite-3.png";
+import Avu2 from "/assets/avu2.jpeg";
+import Avu3 from "/assets/avu3.jpeg";
 
 const RoomsPage = () => {
   const [currentRoom, setCurrentRoom] = useState("Sajaan Room");

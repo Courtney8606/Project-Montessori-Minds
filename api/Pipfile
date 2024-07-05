@@ -13,6 +13,7 @@ python-dotenv = "*"
 flask-session = "*"
 bcrypt = "*"
 gunicorn = "*"
+requests = "*"
 
 [dev-packages]
 
