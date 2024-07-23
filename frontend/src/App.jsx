@@ -16,6 +16,7 @@ import { SignupPage } from "./pages/SignupPage";
 import StaffManagementPage from "./pages/StaffManagement";
 import { AddStaffMemberPage } from "./pages/AddStaffMember";
 import { AmendStaffMemberPage } from "./pages/AmendStaffMember";
+import SocialMediaPage from "./pages/SocialMedia";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route path="/food" element={<FoodPage />} />
             <Route path="/outdoor" element={<OutdoorPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/socialmedia" element={<SocialMediaPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/staffmanagement" element={<StaffManagementPage />} />

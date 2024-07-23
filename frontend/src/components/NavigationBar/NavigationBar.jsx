@@ -172,6 +172,28 @@ const NavigationBar = () => {
                   />
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink
+                  to="/socialmedia"
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
+                  aria-current="page"
+                  onClick={handleNavLinkClick}
+                >
+                  <MainButton
+                    text="News & Updates"
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "None",
+                      color: "#00215e",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "end",
+                    }}
+                  />
+                </NavLink>
+              </li>
             </ul>
           </div>
         </div>
