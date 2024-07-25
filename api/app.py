@@ -29,9 +29,9 @@ app = Flask(__name__)
 
 frontend_url = get_frontend_url()
 if frontend_url:
-    cors = CORS(app, resources={r"/api/*": {"origins": frontend_url, "supports_credentials": True}})
+    cors = CORS(app, resources={r"/uploads/*": {"origins": frontend_url, "supports_credentials": True}})
 else:
-    cors = CORS(app, resources={r"/api/*": {"origins": "*", "supports_credentials": True}})
+    cors = CORS(app, resources={r"/uploads/*": {"origins": "*", "supports_credentials": True}})
 
     
 # cors = CORS(app, resources={
