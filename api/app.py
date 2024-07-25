@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, session, send_from_directory
+from flask import Flask, jsonify, request, session, send_from_directory, make_response
 from flask_cors import CORS, cross_origin
 from flask_session import Session
 import os
@@ -139,11 +139,28 @@ def seed_database():
     
 # ROUTES
 
-@app.route('/uploads/<path:filename>', methods=['GET'])
-def uploaded_file(filename):
-    print('UPLOAD FILENAME TEST', filename)
-    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+# @app.route('/uploads/<path:filename>', methods=['GET'])
+# def uploaded_file(filename):
+#     print('UPLOAD FILENAME TEST', filename)
+#     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
+@app.route('/uploads/<path:filename>', methods=['OPTIONS', 'GET'])
+def uploaded_file(filename):
+    if request.method == 'OPTIONS':
+        # Handle CORS preflight OPTIONS request
+        response = make_response()
+        response.headers.add('Access-Control-Allow-Origin', frontend_url)
+        response.headers.add('Access-Control-Allow-Methods', 'GET, OPTIONS')
+        response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+        return response
+    else:
+        # Handle actual GET request for the file
+        response = send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+        response.headers.add('Access-Control-Allow-Origin', frontend_url)
+        response.headers.add('Access-Control-Allow-Methods', 'GET')
+        response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+        return response
+    
 @app.route('/team', methods=['GET'])
 @cross_origin(supports_credentials=True)
 def all_staff():
