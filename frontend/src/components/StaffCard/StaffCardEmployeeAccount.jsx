@@ -1,10 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./StaffCard.css";
 import { NavLink } from "react-router-dom";
+import { getUploadedImage } from "../../services/staff";
 
 const StaffCardEmployeeAccount = ({ data, onDelete }) => {
   const [clickedIndex, setClickedIndex] = useState(null);
   const [clickedAwardsIndex, setClickedAwardsIndex] = useState(null);
+  const [imageUrls, setImageUrls] = useState({});
+
+  useEffect(() => {
+    const fetchImageUrls = async () => {
+      const urls = {};
+      for (const staff of data) {
+        try {
+          const url = await getUploadedImage(staff.image);
+          urls[staff.image] = url;
+        } catch (error) {
+          console.error(`Error fetching image for ${staff.image}:`, error);
+        }
+      }
+      setImageUrls(urls);
+    };
+
+    if (data.length > 0) {
+      fetchImageUrls();
+    }
+  }, [data]);
 
   const handleQualificationsClick = (index) => {
     if (clickedIndex === index) {
@@ -44,7 +65,7 @@ const StaffCardEmployeeAccount = ({ data, onDelete }) => {
           </div>
           <div className="card">
             <img
-              src={`/assets/${staff.image}`}
+              src={imageUrls[staff.image]}
               alt={staff.name}
               className="card-img-top"
             />

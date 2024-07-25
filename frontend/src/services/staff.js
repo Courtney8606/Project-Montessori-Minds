@@ -13,6 +13,25 @@ export const getAllStaff = async () => {
   return data;
 };
 
+export const getUploadedImage = async (filename) => {
+  try {
+    const response = await fetch(`${BACKEND_URL}/uploads/${filename}`, {
+      method: "GET",
+      credentials: "include",
+    });
+
+    if (response.status === 200) {
+      // Return the response as a Blob or a URL
+      return URL.createObjectURL(await response.blob());
+    } else {
+      throw new Error(`Unable to fetch image: ${response.statusText}`);
+    }
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
 export const createStaff = async (formData) => {
   console.log("SERVICE LOG", formData);
 

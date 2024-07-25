@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, session
+from flask import Flask, jsonify, request, session, send_from_directory
 from flask_cors import CORS, cross_origin
 from flask_session import Session
 import os
@@ -112,17 +112,17 @@ def error_handler_decorator(f):
             return jsonify({'message': f"An error occurred: 500 Internal Server Error - {str(e)}"}), 500
     return wrapper
 
-deploy_hook_url = os.getenv("DEPLOY_HOOK_URL")
+# deploy_hook_url = os.getenv("DEPLOY_HOOK_URL")
 
-def trigger_rebuild(deploy_hook_url):
-    try:
-        response = requests.post(deploy_hook_url)
-        if response.status_code == 200:
-            logging.info("Build triggered successfully")
-        else:
-            logging.error(f"Failed to trigger build: {response.status_code}")
-    except Exception as e:
-        logging.error(f"An error occurred while triggering build: {e}")
+# def trigger_rebuild(deploy_hook_url):
+#     try:
+#         response = requests.post(deploy_hook_url)
+#         if response.status_code == 200:
+#             logging.info("Build triggered successfully")
+#         else:
+#             logging.error(f"Failed to trigger build: {response.status_code}")
+#     except Exception as e:
+#         logging.error(f"An error occurred while triggering build: {e}")
 
 # Seed database on initialisation
 
@@ -137,6 +137,11 @@ def seed_database():
         return jsonify({'message': f'Error seeding database: {str(e)}'}), 500
     
 # ROUTES
+
+@app.route('/uploads/<path:filename>', methods=['GET'])
+def uploaded_file(filename):
+    print('UPLOAD FILENAME TEST', filename)
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 @app.route('/team', methods=['GET'])
 @cross_origin(supports_credentials=True)
@@ -277,7 +282,7 @@ def create_staff():
             staff = Staff(None, name, filename, title, qualifications, awards)
             staff_repository.create(staff)
             logging.debug("Staff member created successfully")
-            trigger_rebuild(deploy_hook_url)
+            # trigger_rebuild(deploy_hook_url)
             return jsonify({'message': 'You have successfully added a new staff member'}), 200
 
         except Exception as e:
@@ -341,7 +346,7 @@ def update_staff(staff_id):
     staff = Staff(staff_id, name, filename, title, qualifications, awards)
     staff_repository.update(staff)
     staff_all = staff_repository.all_staff()
-    trigger_rebuild(deploy_hook_url)
+    # trigger_rebuild(deploy_hook_url)
     return jsonify({'message': f'You have successfully updated staff member'}, staff_all), 200
 
 

@@ -1,9 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./StaffCard.css";
+import { getUploadedImage } from "../../services/staff";
 
 const StaffList = ({ data }) => {
   const [clickedIndex, setClickedIndex] = useState(null);
   const [clickedAwardsIndex, setClickedAwardsIndex] = useState(null);
+  const [imageUrls, setImageUrls] = useState({});
+
+  useEffect(() => {
+    const fetchImageUrls = async () => {
+      const urls = {};
+      for (const staff of data) {
+        try {
+          const url = await getUploadedImage(staff.image);
+          urls[staff.image] = url;
+        } catch (error) {
+          console.error(`Error fetching image for ${staff.image}:`, error);
+        }
+      }
+      setImageUrls(urls);
+    };
+
+    if (data.length > 0) {
+      fetchImageUrls();
+    }
+  }, [data]);
 
   const handleQualificationsClick = (index) => {
     if (clickedIndex === index) {
@@ -26,7 +47,7 @@ const StaffList = ({ data }) => {
       {data.map((staff, index) => (
         <div className="card" key={index}>
           <img
-            src={`/assets/${staff.image}`}
+            src={imageUrls[staff.image]}
             alt={staff.name}
             className="card-img-top"
           />
