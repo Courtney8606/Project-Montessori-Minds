@@ -33,7 +33,7 @@ if frontend_url:
 else:
     cors = CORS(app, resources={r"/uploads/*": {"origins": "*", "supports_credentials": True}})
 
-    
+test_frontend_url = "https://project-montessori-minds.onrender.com"
 # cors = CORS(app, resources={
 #             r"/*": {"origins": get_frontend_url(), "supports_credentials": True}})
 app.config['SECRET_KEY'] = os.getenv("SESSION_KEY")
@@ -149,14 +149,14 @@ def uploaded_file(filename):
     if request.method == 'OPTIONS':
         # Handle CORS preflight OPTIONS request
         response = make_response()
-        response.headers.add('Access-Control-Allow-Origin', frontend_url)
+        response.headers.add('Access-Control-Allow-Origin', test_frontend_url)
         response.headers.add('Access-Control-Allow-Methods', 'GET, OPTIONS')
         response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
         return response
     else:
         # Handle actual GET request for the file
         response = send_from_directory(app.config['UPLOAD_FOLDER'], filename)
-        response.headers.add('Access-Control-Allow-Origin', frontend_url)
+        response.headers.add('Access-Control-Allow-Origin', test_frontend_url)
         response.headers.add('Access-Control-Allow-Methods', 'GET')
         response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
         return response
