@@ -28,10 +28,11 @@ def get_frontend_url():
 app = Flask(__name__)
 
 frontend_url = get_frontend_url()
-if frontend_url is not None:
-    cors = CORS(app, resources={r"/*": {"origins": frontend_url, "supports_credentials": True}})
+if frontend_url:
+    cors = CORS(app, resources={r"/api/*": {"origins": frontend_url, "supports_credentials": True}})
 else:
-    cors = CORS(app)
+    cors = CORS(app, resources={r"/api/*": {"origins": "*", "supports_credentials": True}})
+
     
 # cors = CORS(app, resources={
 #             r"/*": {"origins": get_frontend_url(), "supports_credentials": True}})
