@@ -3,7 +3,7 @@ import "./StaffCard.css";
 import { getUploadedImage } from "../../services/staff";
 import Loading from "../Loading/Loading";
 
-const StaffList = ({ data }) => {
+const StaffList = React.memo(({ data }) => {
   const [clickedIndex, setClickedIndex] = useState(null);
   const [clickedAwardsIndex, setClickedAwardsIndex] = useState(null);
   const [imageUrls, setImageUrls] = useState({});
@@ -94,6 +94,6 @@ const StaffList = ({ data }) => {
       ))}
     </div>
   );
-};
+});
 
 export default StaffList;
