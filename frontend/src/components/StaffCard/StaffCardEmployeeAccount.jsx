@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import "./StaffCard.css";
 import { NavLink } from "react-router-dom";
 import { getUploadedImage } from "../../services/staff";
+import Loading from "../Loading/Loading";
 
 const StaffCardEmployeeAccount = ({ data, onDelete }) => {
   const [clickedIndex, setClickedIndex] = useState(null);
   const [clickedAwardsIndex, setClickedAwardsIndex] = useState(null);
   const [imageUrls, setImageUrls] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchImageUrls = async () => {
@@ -20,6 +22,7 @@ const StaffCardEmployeeAccount = ({ data, onDelete }) => {
         }
       }
       setImageUrls(urls);
+      setLoading(false);
     };
 
     if (data.length > 0) {
@@ -42,6 +45,14 @@ const StaffCardEmployeeAccount = ({ data, onDelete }) => {
       setClickedAwardsIndex(index);
     }
   };
+
+  if (loading) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <div className="card-container">

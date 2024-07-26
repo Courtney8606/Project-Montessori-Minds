@@ -19,11 +19,9 @@ load_dotenv()
 
 def get_frontend_url():
     if os.getenv('APP_ENV') == 'production':
-        return "https://project-montessori-minds.onrender.com/"
+        return "https://project-montessori-minds.onrender.com"
     else:
         return "http://localhost:5173"
-
-# Set CORS based on the frontend URL
 
 app = Flask(__name__)
 
@@ -31,9 +29,6 @@ frontend_url = get_frontend_url()
 if not frontend_url:
     frontend_url = "*"
 
-test_frontend_url = "https://project-montessori-minds.onrender.com"
-# cors = CORS(app, resources={
-#             r"/*": {"origins": get_frontend_url(), "supports_credentials": True}})
 app.config['SECRET_KEY'] = os.getenv("SESSION_KEY")
 app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_PERMANENT'] = False 
@@ -47,6 +42,8 @@ app.config.update(
     SESSION_COOKIE_SAMESITE='None'
 )
 
+# File upload setup
+
 session_file_dir = os.path.join(os.getcwd(), 'flask_session')
 app.config['SESSION_FILE_DIR'] = session_file_dir
 
@@ -54,8 +51,6 @@ if not os.path.exists(session_file_dir):
     os.makedirs(session_file_dir)
 
 Session(app)
-
-# File upload setup
 
 current_script_directory = os.path.dirname(__file__)
 logging.debug(f"Current script directory: {current_script_directory}")
@@ -77,10 +72,10 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
-
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+# Decorator functions
 
 def login_required(f):
     @wraps(f)
@@ -111,20 +106,6 @@ def error_handler_decorator(f):
             return jsonify({'message': f"An error occurred: 500 Internal Server Error - {str(e)}"}), 500
     return wrapper
 
-# deploy_hook_url = os.getenv("DEPLOY_HOOK_URL")
-
-# def trigger_rebuild(deploy_hook_url):
-#     try:
-#         response = requests.post(deploy_hook_url)
-#         if response.status_code == 200:
-#             logging.info("Build triggered successfully")
-#         else:
-#             logging.error(f"Failed to trigger build: {response.status_code}")
-#     except Exception as e:
-#         logging.error(f"An error occurred while triggering build: {e}")
-
-# Seed database on initialisation
-
 def seed_database():
     database_connection = DatabaseConnection()
     try:
@@ -137,23 +118,18 @@ def seed_database():
     
 # ROUTES
 
-# @app.route('/uploads/<path:filename>', methods=['GET'])
-# def uploaded_file(filename):
-#     print('UPLOAD FILENAME TEST', filename)
-#     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
-
 @app.route('/uploads/<path:filename>', methods=['GET', 'OPTIONS'])
 def uploaded_file(filename):
     if request.method == 'OPTIONS':
         response = make_response()
-        response.headers.add('Access-Control-Allow-Origin', test_frontend_url)
+        response.headers.add('Access-Control-Allow-Origin', frontend_url)
         response.headers.add('Access-Control-Allow-Methods', 'GET, OPTIONS')
         response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
         response.headers.add('Access-Control-Allow-Credentials', 'true')
         return response
     else:
         response = send_from_directory(app.config['UPLOAD_FOLDER'], filename)
-        response.headers.add('Access-Control-Allow-Origin', test_frontend_url)
+        response.headers.add('Access-Control-Allow-Origin', frontend_url)
         response.headers.add('Access-Control-Allow-Methods', 'GET, OPTIONS')
         response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
         response.headers.add('Access-Control-Allow-Credentials', 'true')
@@ -176,7 +152,6 @@ def post_user():
     username = request.json['username']
     email = request.json['email']
     password = request.json['password']
-    # take plain text password and hash using bcrypt and a randomly generated salt
     hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
     user = User(None, username, email, hashed_password)
     user_repository.create(user)

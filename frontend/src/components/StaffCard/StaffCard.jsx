@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./StaffCard.css";
 import { getUploadedImage } from "../../services/staff";
+import Loading from "../Loading/Loading";
 
 const StaffList = ({ data }) => {
   const [clickedIndex, setClickedIndex] = useState(null);
   const [clickedAwardsIndex, setClickedAwardsIndex] = useState(null);
   const [imageUrls, setImageUrls] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchImageUrls = async () => {
@@ -19,6 +21,7 @@ const StaffList = ({ data }) => {
         }
       }
       setImageUrls(urls);
+      setLoading(false);
     };
 
     if (data.length > 0) {
@@ -41,6 +44,14 @@ const StaffList = ({ data }) => {
       setClickedAwardsIndex(index);
     }
   };
+
+  if (loading) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <div className="card-container">
