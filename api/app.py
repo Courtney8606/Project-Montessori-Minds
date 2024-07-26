@@ -28,10 +28,8 @@ def get_frontend_url():
 app = Flask(__name__)
 
 frontend_url = get_frontend_url()
-if frontend_url:
-    cors = CORS(app, resources={r"/uploads/*": {"origins": frontend_url, "supports_credentials": True}})
-else:
-    cors = CORS(app, resources={r"/uploads/*": {"origins": "*", "supports_credentials": True}})
+if not frontend_url:
+    frontend_url = "*"
 
 test_frontend_url = "https://project-montessori-minds.onrender.com"
 # cors = CORS(app, resources={
@@ -144,21 +142,21 @@ def seed_database():
 #     print('UPLOAD FILENAME TEST', filename)
 #     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
-@app.route('/uploads/<path:filename>', methods=['OPTIONS', 'GET'])
+@app.route('/uploads/<path:filename>', methods=['GET', 'OPTIONS'])
 def uploaded_file(filename):
     if request.method == 'OPTIONS':
-        # Handle CORS preflight OPTIONS request
         response = make_response()
         response.headers.add('Access-Control-Allow-Origin', test_frontend_url)
         response.headers.add('Access-Control-Allow-Methods', 'GET, OPTIONS')
         response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+        response.headers.add('Access-Control-Allow-Credentials', 'true')
         return response
     else:
-        # Handle actual GET request for the file
         response = send_from_directory(app.config['UPLOAD_FOLDER'], filename)
         response.headers.add('Access-Control-Allow-Origin', test_frontend_url)
-        response.headers.add('Access-Control-Allow-Methods', 'GET')
+        response.headers.add('Access-Control-Allow-Methods', 'GET, OPTIONS')
         response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+        response.headers.add('Access-Control-Allow-Credentials', 'true')
         return response
     
 @app.route('/team', methods=['GET'])
