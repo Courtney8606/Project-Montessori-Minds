@@ -26,8 +26,14 @@ def get_frontend_url():
 app = Flask(__name__)
 
 frontend_url = get_frontend_url()
-if not frontend_url:
-    frontend_url = "*"
+if frontend_url is not None:
+    cors = CORS(app, resources={r"/*": {"origins": frontend_url, "supports_credentials": True}})
+else:
+    cors = CORS(app)
+    
+# frontend_url = get_frontend_url()
+# if not frontend_url:
+#     frontend_url = "*"
 
 app.config['SECRET_KEY'] = os.getenv("SESSION_KEY")
 app.config['SESSION_TYPE'] = 'filesystem'
@@ -118,22 +124,30 @@ def seed_database():
     
 # ROUTES
 
-@app.route('/uploads/<path:filename>', methods=['GET', 'OPTIONS'])
+@app.route('/uploads/<path:filename>', methods=['GET'])
+@cross_origin(supports_credentials=True)
 def uploaded_file(filename):
-    if request.method == 'OPTIONS':
-        response = make_response()
-        response.headers.add('Access-Control-Allow-Origin', frontend_url)
-        response.headers.add('Access-Control-Allow-Methods', 'GET, OPTIONS')
-        response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
-        response.headers.add('Access-Control-Allow-Credentials', 'true')
-        return response
-    else:
-        response = send_from_directory(app.config['UPLOAD_FOLDER'], filename)
-        response.headers.add('Access-Control-Allow-Origin', frontend_url)
-        response.headers.add('Access-Control-Allow-Methods', 'GET, OPTIONS')
-        response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
-        response.headers.add('Access-Control-Allow-Credentials', 'true')
-        return response
+    print('UPLOAD FILENAME TEST', filename)
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+
+
+# @app.route('/uploads/<path:filename>', methods=['GET', 'OPTIONS'])
+# @cross_origin(supports_credentials=True)
+# def uploaded_file(filename):
+#     if request.method == 'OPTIONS':
+#         response = make_response()
+#         response.headers.add('Access-Control-Allow-Origin', frontend_url)
+#         response.headers.add('Access-Control-Allow-Methods', 'GET, OPTIONS')
+#         response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+#         response.headers.add('Access-Control-Allow-Credentials', 'true')
+#         return response
+#     else:
+#         response = send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+#         response.headers.add('Access-Control-Allow-Origin', frontend_url)
+#         response.headers.add('Access-Control-Allow-Methods', 'GET, OPTIONS')
+#         response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+#         response.headers.add('Access-Control-Allow-Credentials', 'true')
+#         return response
     
 @app.route('/team', methods=['GET'])
 @cross_origin(supports_credentials=True)
