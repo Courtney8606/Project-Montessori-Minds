@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { getUploadedImages } from "../../services/staff";
 import Loading from "../Loading/Loading";
 import { getAllStaff, deleteStaff } from "../../services/staff";
+import { FaRegTrashCan } from "react-icons/fa6";
 
 const StaffCardEmployeeAccount = () => {
   const [clickedIndex, setClickedIndex] = useState(null);
@@ -92,9 +93,10 @@ const StaffCardEmployeeAccount = () => {
               style={{
                 border: "none",
                 backgroundColor: "white",
+                paddingBottom: "2px",
               }}
             >
-              <i className="fa fa-trash"></i>
+              <FaRegTrashCan />
             </button>
           </div>
           <div className="card">
