@@ -11,6 +11,8 @@ import bcrypt
 from werkzeug.utils import secure_filename
 import logging
 import requests
+from PIL import Image
+import io
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
@@ -271,33 +273,39 @@ def create_staff():
 
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
-        logging.debug(f"Filename", filename)
-        logging.debug(f"app config UPLOAD FOLDER", app.config['UPLOAD_FOLDER'])
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-
-        logging.debug(f"File path: {file_path}")
+        webp_filename = os.path.splitext(filename)[0] + '.webp'
+        webp_file_path = os.path.join(app.config['UPLOAD_FOLDER'], webp_filename)
 
         try:
+            # Save the uploaded file temporarily
             file.save(file_path)
-            logging.debug("File saved successfully")
+            
+            # Convert the image to WebP format
+            image = Image.open(file_path)
+            image.save(webp_file_path, format='webp', quality=100)
 
+            # Remove the original file if not needed
+            os.remove(file_path)
+
+            # Save the WebP file path in the database
             name = request.form.get('name')
             title = request.form.get('title')
             qualifications = request.form.get('qualifications')
             awards = request.form.get('awards')
 
-            if not all([name, filename, title, qualifications, awards]):
+            if not all([name, webp_filename, title, qualifications, awards]):
                 logging.error("Missing form data")
                 return jsonify({'message': "Missing form data"}), 400
 
-            staff = Staff(None, name, filename, title, qualifications, awards)
+            staff = Staff(None, name, webp_filename, title, qualifications, awards)
             staff_repository.create(staff)
             logging.debug("Staff member created successfully")
             return jsonify({'message': 'You have successfully added a new staff member'}), 200
 
         except Exception as e:
-            logging.error(f"Error saving file: {str(e)}")
-            return jsonify({'message': "Error saving file"}), 500
+            logging.error(f"Error processing file: {str(e)}")
+            return jsonify({'message': "Error processing file"}), 500
 
     else:
         logging.error("File type not allowed")
@@ -343,20 +351,44 @@ def update_staff(staff_id):
     
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        webp_filename = os.path.splitext(filename)[0] + '.webp'
+        webp_file_path = os.path.join(app.config['UPLOAD_FOLDER'], webp_filename)
 
-        name = request.form.get('name')
-        title = request.form.get('title')
-        qualifications = request.form.get('qualifications')
-        awards = request.form.get('awards')
+        try:
+            # Save the uploaded file temporarily
+            file.save(file_path)
+            
+            # Convert the image to WebP format
+            image = Image.open(file_path)
+            image.save(webp_file_path, format='webp', quality=100)
 
-        if not all([name, filename, title, qualifications, awards]):
-            return jsonify({'message': "Missing form data"}), 400
+            # Remove the original file if not needed
+            os.remove(file_path)
 
-    staff = Staff(staff_id, name, filename, title, qualifications, awards)
-    staff_repository.update(staff)
-    staff_all = staff_repository.all_staff()
-    return jsonify({'message': f'You have successfully updated staff member'}, staff_all), 200
+            # Save the WebP file path in the database
+            name = request.form.get('name')
+            title = request.form.get('title')
+            qualifications = request.form.get('qualifications')
+            awards = request.form.get('awards')
+
+            if not all([name, webp_filename, title, qualifications, awards]):
+                logging.error("Missing form data")
+                return jsonify({'message': "Missing form data"}), 400
+
+            staff = Staff(staff_id, name, webp_filename, title, qualifications, awards)
+            staff_repository.update(staff)
+            logging.debug("Staff member created successfully")
+            staff_all = staff_repository.all_staff()
+            return jsonify({'message': f'You have successfully updated staff member'}, staff_all), 200
+
+        except Exception as e:
+            logging.error(f"Error processing file: {str(e)}")
+            return jsonify({'message': "Error processing file"}), 500
+
+    else:
+        logging.error("File type not allowed")
+        return jsonify({'message': "File type not allowed"}), 400
 
 if __name__ == "__main__":
     seed_database()

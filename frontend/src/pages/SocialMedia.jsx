@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import "./SocialMedia.css";
 
 const SocialMediaPage = () => {
   useEffect(() => {
