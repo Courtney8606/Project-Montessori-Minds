@@ -3,17 +3,30 @@ from lib.user import User
 
 
 def test_get_single_user_by_username(db_connection):
-    db_connection.seed("seeds/bookclub.sql")
+    db_connection.seed("seeds/montessori_data.sql")
     repository = UserRepository(db_connection)
-    assert repository.find_username('montoya') == {'id': 2, 'username': 'montoya', 'email': 'montoya@gmail.com',
-                                                   'password': b'prepare2die', 'child': None, 'role': 'parent', 'connections': None}
+    assert repository.find_username('courtney') == {'id': 1, 'username': 'courtney', 'email': 'courtneylsuhr@gmail.com',
+                                                   'password': b'testlogin'}
 
+def test_all_users(db_connection):
+    db_connection.seed("seeds/montessori_data.sql")
+    repository = UserRepository(db_connection)
+    assert repository.find_all() == [{'id': 1, 'username': 'courtney', 'email': 'courtneylsuhr@gmail.com',
+                                                   'password': b'testlogin'}]
 
 def test_create_users(db_connection):
-    db_connection.seed("seeds/bookclub.sql")
+    db_connection.seed("seeds/montessori_data.sql")
     repository = UserRepository(db_connection)
-    user = User(None, 'mustafa', 'mustafa@my.com',
-                'topsecret', None, None, None)
+    user = User(None, 'testuser', 'testuser@my.com',
+                'topsecret')
     repository.create(user)
-    assert repository.find_id(4) == {'id': 4, 'username': 'mustafa', 'email': 'mustafa@my.com',
-                                     'password': b'topsecret', 'child': None, 'role': 'parent', 'connections': None}
+    assert repository.find_all()[-1] == {'id': 2, 'username': 'testuser', 'email': 'testuser@my.com',
+                                     'password': b'topsecret'}
+
+def test_find_user_by_email(db_connection):
+    db_connection.seed("seeds/montessori_data.sql")
+    repository = UserRepository(db_connection)
+    assert repository.find_email('courtneylsuhr@gmail.com') == {'id': 1, 'username': 'courtney', 'email': 'courtneylsuhr@gmail.com',
+                                                   'password': b'testlogin'}
+
+

@@ -33,6 +33,6 @@
   position: absolute;
   left: 20%;
   width: 60%;
-  height: 1px; /* Adjust the thickness of the underline as needed */
-  background-color: #00215e; /* Color of the underline */
+  height: 1px;
+  background-color: #00215e;
 }

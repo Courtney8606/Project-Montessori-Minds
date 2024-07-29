@@ -1,38 +1,61 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./StaffCard.css";
 import { NavLink } from "react-router-dom";
-import { getUploadedImage } from "../../services/staff";
+import { getUploadedImages } from "../../services/staff";
 import Loading from "../Loading/Loading";
+import { getAllStaff, deleteStaff } from "../../services/staff";
 
-const StaffCardEmployeeAccount = ({ data, onDelete }) => {
+const StaffCardEmployeeAccount = () => {
   const [clickedIndex, setClickedIndex] = useState(null);
   const [clickedAwardsIndex, setClickedAwardsIndex] = useState(null);
   const [imageUrls, setImageUrls] = useState({});
   const [loading, setLoading] = useState(true);
+  const [staff, setStaff] = useState([]);
+
+  const getAllStaffTrigger = useCallback(async () => {
+    try {
+      const response = await getAllStaff();
+      setStaff(response);
+    } catch (error) {
+      console.error("Failed to fetch staff data:", error);
+    }
+  }, []);
+
+  const handleDelete = async (staff_name) => {
+    try {
+      await deleteStaff(staff_name);
+      const response = await getAllStaff();
+      setStaff(response);
+    } catch (error) {
+      console.error("Error deleting:", error);
+    }
+  };
+
+  const fetchImageUrls = useCallback(async () => {
+    const filenames = staff.map((staffMember) => staffMember.image);
+    try {
+      const urls = await getUploadedImages(filenames);
+      setImageUrls(urls);
+    } catch (error) {
+      console.error("Error fetching image URLs:", error);
+    } finally {
+      setLoading(false);
+    }
+  }, [staff]);
 
   useEffect(() => {
-    const fetchImageUrls = async () => {
-      const urls = {};
-      for (const staff of data) {
-        try {
-          const url = await getUploadedImage(staff.image);
-          urls[staff.image] = url;
-        } catch (error) {
-          console.error(`Error fetching image for ${staff.image}:`, error);
-        }
-      }
-      setImageUrls(urls);
-      setLoading(false);
-    };
+    getAllStaffTrigger();
+  }, [getAllStaffTrigger]);
 
-    if (data.length > 0) {
+  useEffect(() => {
+    if (staff.length > 0) {
       fetchImageUrls();
     }
-  }, [data]);
+  }, [staff, fetchImageUrls]);
 
   const handleQualificationsClick = (index) => {
     if (clickedIndex === index) {
-      setClickedIndex(null); // Toggle off if already clicked
+      setClickedIndex(null);
     } else {
       setClickedIndex(index);
     }
@@ -40,7 +63,7 @@ const StaffCardEmployeeAccount = ({ data, onDelete }) => {
 
   const handleAwardsClick = (index) => {
     if (clickedAwardsIndex === index) {
-      setClickedAwardsIndex(null); // Toggle off if already clicked
+      setClickedAwardsIndex(null);
     } else {
       setClickedAwardsIndex(index);
     }
@@ -56,16 +79,16 @@ const StaffCardEmployeeAccount = ({ data, onDelete }) => {
 
   return (
     <div className="card-container">
-      {data.map((staff, index) => (
+      {staff.map((staffMember, index) => (
         <div className="cardsort" key={index}>
           <div className="deleteupdate">
-            <NavLink to={`/amendstaffmember/${staff.id}`}>
+            <NavLink to={`/amendstaffmember/${staffMember.id}`}>
               <button className="amendbutton"> Amend details</button>
             </NavLink>
             <button
               text="Delete"
-              staff_name={staff.name}
-              onClick={() => onDelete(staff.name)}
+              staff_name={staffMember.name}
+              onClick={() => handleDelete(staffMember.name)}
               style={{
                 border: "none",
                 backgroundColor: "white",
@@ -76,13 +99,13 @@ const StaffCardEmployeeAccount = ({ data, onDelete }) => {
           </div>
           <div className="card">
             <img
-              src={imageUrls[staff.image]}
+              src={imageUrls[staffMember.image]}
               alt={staff.name}
               className="card-img-top"
             />
             <div className="card-body">
-              <h5 className="card-title">{staff.name}</h5>
-              <p className="card-title">{staff.title}</p>
+              <h5 className="card-title">{staffMember.name}</h5>
+              <p className="card-title">{staffMember.title}</p>
               <button
                 className="btn btn-primary team-button"
                 onClick={() => handleQualificationsClick(index)}
@@ -91,10 +114,11 @@ const StaffCardEmployeeAccount = ({ data, onDelete }) => {
               </button>
               {clickedIndex === index && (
                 <p className="card-text">
-                  {staff.qualifications && staff.qualifications.join(", ")}
+                  {staffMember.qualifications &&
+                    staffMember.qualifications.join(", ")}
                 </p>
               )}
-              {staff.awards && staff.awards.length > 0 && (
+              {staffMember.awards && staffMember.awards.length > 0 && (
                 <button
                   className="btn btn-primary team-button"
                   onClick={() => handleAwardsClick(index)}
@@ -103,9 +127,9 @@ const StaffCardEmployeeAccount = ({ data, onDelete }) => {
                 </button>
               )}
               {clickedAwardsIndex === index &&
-                staff.awards &&
-                staff.awards.length > 0 && (
-                  <p className="card-text">{staff.awards.join(", ")}</p>
+                staffMember.awards &&
+                staffMember.awards.length > 0 && (
+                  <p className="card-text">{staffMember.awards.join(", ")}</p>
                 )}
             </div>
           </div>

@@ -1,33 +1,46 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./StaffCard.css";
-import { getUploadedImage } from "../../services/staff";
+import { getUploadedImages } from "../../services/staff";
 import Loading from "../Loading/Loading";
+import { getAllStaff } from "../../services/staff";
 
-const StaffList = React.memo(({ data }) => {
+const StaffList = () => {
   const [clickedIndex, setClickedIndex] = useState(null);
   const [clickedAwardsIndex, setClickedAwardsIndex] = useState(null);
   const [imageUrls, setImageUrls] = useState({});
   const [loading, setLoading] = useState(true);
+  const [staff, setStaff] = useState([]);
+
+  const getAllStaffTrigger = useCallback(async () => {
+    try {
+      const response = await getAllStaff();
+      setStaff(response);
+    } catch (error) {
+      console.error("Failed to fetch staff data:", error);
+    }
+  }, []);
+
+  const fetchImageUrls = useCallback(async () => {
+    const filenames = staff.map((staffMember) => staffMember.image);
+    try {
+      const urls = await getUploadedImages(filenames);
+      setImageUrls(urls);
+    } catch (error) {
+      console.error("Error fetching image URLs:", error);
+    } finally {
+      setLoading(false);
+    }
+  }, [staff]);
 
   useEffect(() => {
-    const fetchImageUrls = async () => {
-      const urls = {};
-      for (const staff of data) {
-        try {
-          const url = await getUploadedImage(staff.image);
-          urls[staff.image] = url;
-        } catch (error) {
-          console.error(`Error fetching image for ${staff.image}:`, error);
-        }
-      }
-      setImageUrls(urls);
-      setLoading(false);
-    };
+    getAllStaffTrigger();
+  }, [getAllStaffTrigger]);
 
-    if (data.length > 0) {
+  useEffect(() => {
+    if (staff.length > 0) {
       fetchImageUrls();
     }
-  }, [data]);
+  }, [staff, fetchImageUrls]);
 
   const handleQualificationsClick = (index) => {
     if (clickedIndex === index) {
@@ -55,16 +68,17 @@ const StaffList = React.memo(({ data }) => {
 
   return (
     <div className="card-container">
-      {data.map((staff, index) => (
+      {staff.map((staffMember, index) => (
         <div className="card" key={index}>
           <img
-            src={imageUrls[staff.image]}
-            alt={staff.name}
+            src={imageUrls[staffMember.image]}
+            alt={staffMember.name}
             className="card-img-top"
+            loading="lazy"
           />
           <div className="card-body">
-            <h5 className="card-title">{staff.name}</h5>
-            <p className="card-title">{staff.title}</p>
+            <h5 className="card-title">{staffMember.name}</h5>
+            <p className="card-title">{staffMember.title}</p>
             <button
               className="btn btn-primary team-button"
               onClick={() => handleQualificationsClick(index)}
@@ -73,10 +87,11 @@ const StaffList = React.memo(({ data }) => {
             </button>
             {clickedIndex === index && (
               <p className="card-text">
-                {staff.qualifications && staff.qualifications.join(", ")}
+                {staffMember.qualifications &&
+                  staffMember.qualifications.join(", ")}
               </p>
             )}
-            {staff.awards && staff.awards.length > 0 && (
+            {staffMember.awards && staffMember.awards.length > 0 && (
               <button
                 className="btn btn-primary team-button"
                 onClick={() => handleAwardsClick(index)}
@@ -85,15 +100,15 @@ const StaffList = React.memo(({ data }) => {
               </button>
             )}
             {clickedAwardsIndex === index &&
-              staff.awards &&
-              staff.awards.length > 0 && (
-                <p className="card-text">{staff.awards.join(", ")}</p>
+              staffMember.awards &&
+              staffMember.awards.length > 0 && (
+                <p className="card-text">{staffMember.awards.join(", ")}</p>
               )}
           </div>
         </div>
       ))}
     </div>
   );
-});
+};
 
 export default StaffList;

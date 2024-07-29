@@ -3,24 +3,9 @@ import "./TeamPage.css";
 import teamImage from "/assets/leonieholder.jpg";
 import { getAllStaff } from "../services/staff";
 import StaffList from "../components/StaffCard/StaffCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 const TeamPage = () => {
-  const [staff, setStaff] = useState([]);
-
-  const getAllStaffTrigger = async () => {
-    try {
-      const response = await getAllStaff();
-      setStaff(response);
-    } catch (error) {
-      console.error("Failed to fetch staff data:", error);
-    }
-  };
-
-  useEffect(() => {
-    getAllStaffTrigger();
-  }, []);
-
   return (
     <div>
       <div className="banner-team">
@@ -46,7 +31,7 @@ const TeamPage = () => {
           </p>
         </div>
       </div>
-      <StaffList data={staff} />
+      <StaffList />
     </div>
   );
 };

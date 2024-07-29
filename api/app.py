@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, session, send_from_directory, make_response
+from flask import Flask, jsonify, request, session, send_from_directory, make_response, url_for
 from flask_cors import CORS, cross_origin
 from flask_session import Session
 import os
@@ -23,6 +23,12 @@ def get_frontend_url():
     else:
         return "http://localhost:5173"
 
+def get_backend_url():
+    if os.getenv('APP_ENV') == 'production':
+        return "https://montessori-minds-backend.onrender.com"
+    else:
+        return "http://localhost:5001"
+
 app = Flask(__name__)
 
 frontend_url = get_frontend_url()
@@ -30,10 +36,7 @@ if frontend_url is not None:
     cors = CORS(app, resources={r"/*": {"origins": frontend_url, "supports_credentials": True}})
 else:
     cors = CORS(app)
-    
-# frontend_url = get_frontend_url()
-# if not frontend_url:
-#     frontend_url = "*"
+
 
 app.config['SECRET_KEY'] = os.getenv("SESSION_KEY")
 app.config['SESSION_TYPE'] = 'filesystem'
@@ -127,27 +130,30 @@ def seed_database():
 @app.route('/uploads/<path:filename>', methods=['GET'])
 @cross_origin(supports_credentials=True)
 def uploaded_file(filename):
-    print('UPLOAD FILENAME TEST', filename)
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
+@app.route('/uploads/batch', methods=['POST'])
+@cross_origin(supports_credentials=True)
+def batch_uploads():
+    filenames = request.json.get('filenames', [])
+    file_paths = [os.path.join(app.config['UPLOAD_FOLDER'], filename) for filename in filenames]
 
-# @app.route('/uploads/<path:filename>', methods=['GET', 'OPTIONS'])
-# @cross_origin(supports_credentials=True)
-# def uploaded_file(filename):
-#     if request.method == 'OPTIONS':
-#         response = make_response()
-#         response.headers.add('Access-Control-Allow-Origin', frontend_url)
-#         response.headers.add('Access-Control-Allow-Methods', 'GET, OPTIONS')
-#         response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
-#         response.headers.add('Access-Control-Allow-Credentials', 'true')
-#         return response
-#     else:
-#         response = send_from_directory(app.config['UPLOAD_FOLDER'], filename)
-#         response.headers.add('Access-Control-Allow-Origin', frontend_url)
-#         response.headers.add('Access-Control-Allow-Methods', 'GET, OPTIONS')
-#         response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
-#         response.headers.add('Access-Control-Allow-Credentials', 'true')
-#         return response
+    if not filenames:
+        return jsonify({'error': 'No filenames provided'}), 400
+
+    images = []
+    for file_path in file_paths:
+        if os.path.exists(file_path):
+            base_url = get_backend_url()
+            images.append({
+                'filename': os.path.basename(file_path),
+                'url': f"{base_url}/uploads/{os.path.basename(file_path)}"
+            })
+
+    if not images:
+        return jsonify({'error': 'No images found'}), 404
+
+    return jsonify(images)
     
 @app.route('/team', methods=['GET'])
 @cross_origin(supports_credentials=True)
@@ -287,7 +293,6 @@ def create_staff():
             staff = Staff(None, name, filename, title, qualifications, awards)
             staff_repository.create(staff)
             logging.debug("Staff member created successfully")
-            # trigger_rebuild(deploy_hook_url)
             return jsonify({'message': 'You have successfully added a new staff member'}), 200
 
         except Exception as e:
@@ -351,14 +356,9 @@ def update_staff(staff_id):
     staff = Staff(staff_id, name, filename, title, qualifications, awards)
     staff_repository.update(staff)
     staff_all = staff_repository.all_staff()
-    # trigger_rebuild(deploy_hook_url)
     return jsonify({'message': f'You have successfully updated staff member'}, staff_all), 200
-
-
-# if __name__ == "__main__":
-#     app.run(debug=True, port=int(os.environ.get('PORT', 5001)))
 
 if __name__ == "__main__":
     seed_database()
-    port = int(os.environ.get('PORT', 5001))  # Default to port 5000 if PORT environment variable is not set
+    port = int(os.environ.get('PORT', 5001))  
     app.run(debug=True, host='0.0.0.0', port=port)

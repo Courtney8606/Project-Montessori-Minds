@@ -13,18 +13,27 @@ export const getAllStaff = async () => {
   return data;
 };
 
-export const getUploadedImage = async (filename) => {
+export const getUploadedImages = async (filenames) => {
   try {
-    const response = await fetch(`${BACKEND_URL}/uploads/${filename}`, {
-      method: "GET",
+    const response = await fetch(`${BACKEND_URL}/uploads/batch`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ filenames }),
       credentials: "include",
     });
 
-    if (response.status === 200) {
-      // Return the response as a Blob or a URL
-      return URL.createObjectURL(await response.blob());
+    if (response.ok) {
+      const images = await response.json();
+      // Convert the list of image data into a mapping of filenames to URLs
+      const urls = images.reduce((acc, { filename, url }) => {
+        acc[filename] = url;
+        return acc;
+      }, {});
+      return urls;
     } else {
-      throw new Error(`Unable to fetch image: ${response.statusText}`);
+      throw new Error(`Unable to fetch images: ${response.statusText}`);
     }
   } catch (error) {
     console.error(error);

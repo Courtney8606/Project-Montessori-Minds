@@ -1,29 +1,10 @@
 import React from "react";
 import "./TeamPage.css";
-import { getAllStaff } from "../services/staff";
 import StaffCardEmployeeAccount from "../components/StaffCard/StaffCardEmployeeAccount";
-import { useState, useEffect } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import MainButton from "../components/Buttons/MainButton";
-import { deleteStaff } from "../services/staff";
 
 const StaffManagementPage = () => {
-  const username = localStorage.getItem("username");
-  const [staff, setStaff] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const navigate = useNavigate();
-
-  const getAllStaffTrigger = async () => {
-    try {
-      const response = await getAllStaff();
-      setStaff(response);
-    } catch (error) {
-      console.error("Failed to fetch staff data:", error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   const handleDelete = async (staff_name) => {
     try {
       await deleteStaff(staff_name);
@@ -33,15 +14,6 @@ const StaffManagementPage = () => {
       console.error("Error deleting:", error);
     }
   };
-
-  useEffect(() => {
-    if (username) {
-      navigate("/staffmanagement");
-      getAllStaffTrigger();
-    } else {
-      navigate("/login");
-    }
-  }, [username, navigate]);
 
   return (
     <div>
@@ -60,11 +32,7 @@ const StaffManagementPage = () => {
           }}
         />
       </NavLink>
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
-        <StaffCardEmployeeAccount data={staff} onDelete={handleDelete} />
-      )}
+      <StaffCardEmployeeAccount onDelete={handleDelete} />
     </div>
   );
 };
