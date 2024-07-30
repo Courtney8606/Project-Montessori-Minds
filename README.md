@@ -2,12 +2,12 @@
 
 ## Project Overview
 
-Collaborating with a local nursery Montessori Minds to enhance their online presence by customising their website to meet specific operational needs. The project includes modernising the site and introducing an employee portal for real-time content updates.
+Collaborating with a local nursery Montessori Minds to enhance their online presence by customising their website to meet specific operational needs. The project includes modernising the site and introducing an employer portal for real-time content updates.
 
 ## Features
 
 - **Custom Website Design**: Tailored to the nursery's specific requirements.
-- **Employee Portal**: Allows staff to efficiently manage and update website content in real-time.
+- **Employer Portal**: Allows staff to efficiently manage and update website content in real-time.
 - **Responsive Design**: Ensures a seamless user experience across all devices.
 
 ## Demo

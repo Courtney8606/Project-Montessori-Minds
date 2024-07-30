@@ -13,10 +13,42 @@ const StaffCardEmployeeAccount = () => {
   const [loading, setLoading] = useState(true);
   const [staff, setStaff] = useState([]);
 
+  const sortStaff = (staff) => {
+    return staff.sort((a, b) => {
+      if (a.title.includes("Manager") && !b.title.includes("Manager"))
+        return -1;
+      if (!a.title.includes("Manager") && b.title.includes("Manager")) return 1;
+      if (
+        a.title.includes("Admin & Nutrition Lead") &&
+        !b.title.includes("Admin & Nutrition Lead")
+      )
+        return -1;
+      if (
+        !a.title.includes("Admin & Nutrition Lead") &&
+        b.title.includes("Admin & Nutrition Lead")
+      )
+        return 1;
+      if (
+        a.title.includes("Pedagogy Lead") &&
+        !b.title.includes("Pedagogy Lead")
+      )
+        return -1;
+      if (
+        !a.title.includes("Pedagogy Lead") &&
+        b.title.includes("Pedagogy Lead")
+      )
+        return 1;
+      if (a.title.includes("Lead") && !b.title.includes("Lead")) return -1;
+      if (!a.title.includes("Lead") && b.title.includes("Lead")) return 1;
+      return 0; // Maintain original order if neither title is Manager or Lead
+    });
+  };
+
   const getAllStaffTrigger = useCallback(async () => {
     try {
       const response = await getAllStaff();
-      setStaff(response);
+      const sortedStaff = sortStaff(response);
+      setStaff(sortedStaff);
     } catch (error) {
       console.error("Failed to fetch staff data:", error);
     }
