@@ -148,11 +148,10 @@ def batch_uploads():
     images = []
     for file_path in file_paths:
         if os.path.exists(file_path):
-            # base_url = get_backend_url()
+            base_url = get_backend_url()
             images.append({
                 'filename': os.path.basename(file_path),
-                'url': f"/uploads/{os.path.basename(file_path)}",
-                # 'url': f"{base_url}/uploads/{os.path.basename(file_path)}"
+                'url': f"{base_url}/uploads/{os.path.basename(file_path)}"
             })
 
     if not images:
