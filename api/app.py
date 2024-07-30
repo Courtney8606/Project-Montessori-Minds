@@ -66,14 +66,14 @@ Session(app)
 current_script_directory = os.path.dirname(__file__)
 logging.debug(f"Current script directory: {current_script_directory}")
 
-UPLOAD_FOLDER_DEV = os.getenv('UPLOAD_FOLDER_DEV')
+UPLOAD_FOLDER_DEV = os.getenv('UPLOAD_FOLDER_DEV', 'uploads')
 if UPLOAD_FOLDER_DEV:
     UPLOAD_FOLDER_DEV = os.path.abspath(os.path.join(current_script_directory, UPLOAD_FOLDER_DEV))
     logging.debug(f"Resolved UPLOAD_FOLDER_DEV: {UPLOAD_FOLDER_DEV}")
 
-UPLOAD_FOLDER_PROD = os.getenv('UPLOAD_FOLDER_PROD')
+UPLOAD_FOLDER_PROD = os.getenv('UPLOAD_FOLDER_PROD', '/uploads')
 if UPLOAD_FOLDER_PROD:
-    UPLOAD_FOLDER_PROD = os.path.abspath(os.path.join(current_script_directory, UPLOAD_FOLDER_PROD))
+    # UPLOAD_FOLDER_PROD = os.path.abspath(os.path.join(current_script_directory, UPLOAD_FOLDER_PROD))
     logging.debug(f"Resolved UPLOAD_FOLDER_PROD: {UPLOAD_FOLDER_PROD}")
 
 UPLOAD_FOLDER = UPLOAD_FOLDER_DEV if os.getenv('APP_ENV') == 'development' else UPLOAD_FOLDER_PROD
