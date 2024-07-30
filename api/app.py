@@ -132,12 +132,14 @@ def seed_database():
 @app.route('/uploads/<path:filename>', methods=['GET'])
 @cross_origin(supports_credentials=True)
 def uploaded_file(filename):
+    print("RETURN SINGLE IMAGE UPLOAD FOLDER", UPLOAD_FOLDER)
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 @app.route('/uploads/batch', methods=['POST'])
 @cross_origin(supports_credentials=True)
 def batch_uploads():
     filenames = request.json.get('filenames', [])
+    print("BATCH UPLOAD FOLDER", UPLOAD_FOLDER)
     file_paths = [os.path.join(app.config['UPLOAD_FOLDER'], filename) for filename in filenames]
 
     if not filenames:
@@ -146,10 +148,11 @@ def batch_uploads():
     images = []
     for file_path in file_paths:
         if os.path.exists(file_path):
-            base_url = get_backend_url()
+            # base_url = get_backend_url()
             images.append({
                 'filename': os.path.basename(file_path),
-                'url': f"{base_url}/uploads/{os.path.basename(file_path)}"
+                'url': f"/uploads/{os.path.basename(file_path)}",
+                # 'url': f"{base_url}/uploads/{os.path.basename(file_path)}"
             })
 
     if not images:
