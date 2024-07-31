@@ -90,7 +90,7 @@ export const Footer = () => {
                 <li>
                   <NavLink to="login">
                     <MainButton
-                      text="Employee Portal"
+                      text="Staff Portal"
                       style={{
                         backgroundColor: "transparent",
                         border: "None",

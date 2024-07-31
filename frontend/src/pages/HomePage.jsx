@@ -1,23 +1,23 @@
 import React from "react";
 import Banner from "../components/Banner/Banner";
-import bannerImage from "/assets/banner-test2.jpeg";
+import bannerImage from "/assets/banner-homepage.webp";
 import "./HomePage.css";
-import subImage from "/assets/awards5.webp";
-import Awards1 from "/assets/awards-nmt-nursery.jpeg";
-import Awards2 from "/assets/Nursery-world-awards.png";
-import Awards3 from "/assets/Healthy-years.png";
-import Awards4 from "/assets/NDNA-award.png";
-import Awards5 from "/assets/awards5.webp";
-import Awards6 from "/assets/Daynurseries-award2024.png";
-import Awards7 from "/assets/awards-apprenticeship-connect.png";
-import Awards8 from "/assets/Millies-Mark-logo.jpg";
-import Testimonial1 from "/assets/testimonial1.png";
-import Testimonial2 from "/assets/testimonial2.png";
-import Testimonial3 from "/assets/testimonial3.png";
-import valueNurture from "/assets/nurture.png";
-import valueEnjoy from "/assets/enjoy.png";
-import valueGrow from "/assets/grow.png";
-import valueFlourish from "/assets/flourish.png";
+import subImage from "/assets/awards-ofsted.webp";
+import Awards1 from "/assets/awards-nmt-nursery.webp";
+import Awards2 from "/assets/awards-nurseryworld.webp";
+import Awards3 from "/assets/awards-healthyyears.webp";
+import Awards4 from "/assets/awards-NDNA.webp";
+import Awards5 from "/assets/awards-ofsted.webp";
+import Awards6 from "/assets/awards-daynurseries2024.webp";
+import Awards7 from "/assets/awards-apprenticeship-connect.webp";
+import Awards8 from "/assets/awards-milliesmark.webp";
+import Testimonial1 from "/assets/testimonial1.webp";
+import Testimonial2 from "/assets/testimonial2.webp";
+import Testimonial3 from "/assets/testimonial3.webp";
+import valueNurture from "/assets/values-nurture.webp";
+import valueEnjoy from "/assets/values-enjoy.webp";
+import valueGrow from "/assets/values-grow.webp";
+import valueFlourish from "/assets/values-flourish.webp";
 
 const HomePage = () => {
   return (

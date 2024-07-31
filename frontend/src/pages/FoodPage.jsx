@@ -1,7 +1,7 @@
 import React from "react";
-import foodImage from "/assets/food.png";
-import foodBanner from "/assets/foodbanner.jpg";
-import subImage from "/assets/foodhygiene.webp";
+import foodImage from "/assets/food.webp";
+import foodBanner from "/assets/banner-food.webp";
+import subImage from "/assets/food-hygiene.webp";
 import Banner from "../components/Banner/Banner";
 import "./FoodPage.css";
 

@@ -1,36 +1,35 @@
 import React from "react";
-import outdoorImage1 from "/assets/outdoor13.jpg";
-import outdoorImage2 from "/assets/outdoor5.png";
-import outdoorImage3 from "/assets/outdoor3.jpg";
-import outdoorImage4 from "/assets/outdoor6.png";
-import outdoorImage5 from "/assets/outdoor9.jpeg";
-import outdoorImage6 from "/assets/outdoor10.jpeg";
-import outdoorImage7 from "/assets/outdoor11.png";
-import outdoorImage9 from "/assets/outdoor14.png";
-import outdoorImage10 from "/assets/outdoor15.jpeg";
-import outdoorImage11 from "/assets/outdoor16.png";
-import outdoorImage12 from "/assets/outdoor17.png";
-import outdoorImage15 from "/assets/outdoor20.png";
-import chickenImage1 from "/assets/chicken6.jpg";
-import chickenImage2 from "/assets/chicken7.jpg";
-import chickenImage3 from "/assets/chicken2.png";
-import chickenImage4 from "/assets/chicken3.png";
-import chickenImage5 from "/assets/chicken4.png";
-import chickenImage6 from "/assets/chicken8.png";
-import chickenImage7 from "/assets/chicken9.png";
-import chickenImage8 from "/assets/chicken10.png";
-import beyondImage1 from "/assets/beyond12.png";
-import beyondImage2 from "/assets/beyond3.png";
-import beyondImage3 from "/assets/beyond4.png";
-import beyondImage4 from "/assets/beyond5.png";
-import beyondImage5 from "/assets/beyond7.png";
-import beyondImage6 from "/assets/beyond8.jpeg";
-import beyondImage7 from "/assets/beyond9.png";
-import beyondImage8 from "/assets/beyond10.png";
-import beyondImage9 from "/assets/beyond11.png";
-import beyondImage10 from "/assets/beyond2.png";
-import beyondImage11 from "/assets/beyond13.png";
-import beyondImage12 from "/assets/beyond6.jpeg";
+import outdoorImage1 from "/assets/outdoor1.webp";
+import outdoorImage2 from "/assets/outdoor2.webp";
+import outdoorImage3 from "/assets/outdoor3.webp";
+import outdoorImage4 from "/assets/outdoor4.webp";
+import outdoorImage5 from "/assets/outdoor5.webp";
+import outdoorImage6 from "/assets/outdoor6.webp";
+import outdoorImage7 from "/assets/outdoor7.webp";
+import outdoorImage9 from "/assets/outdoor8.webp";
+import outdoorImage10 from "/assets/outdoor9.webp";
+import outdoorImage11 from "/assets/outdoor10.webp";
+import outdoorImage12 from "/assets/outdoor11.webp";
+import outdoorImage15 from "/assets/outdoor12.webp";
+import chickenImage1 from "/assets/chicken1.webp";
+import chickenImage2 from "/assets/chicken2.webp";
+import chickenImage3 from "/assets/chicken3.webp";
+import chickenImage4 from "/assets/chicken4.webp";
+import chickenImage5 from "/assets/chicken5.webp";
+import chickenImage6 from "/assets/chicken6.webp";
+import chickenImage7 from "/assets/chicken7.webp";
+import chickenImage8 from "/assets/chicken8.webp";
+import beyondImage1 from "/assets/beyond1.webp";
+import beyondImage2 from "/assets/beyond2.webp";
+import beyondImage3 from "/assets/beyond3.webp";
+import beyondImage4 from "/assets/beyond4.webp";
+import beyondImage5 from "/assets/beyond5.webp";
+import beyondImage6 from "/assets/beyond6.webp";
+import beyondImage7 from "/assets/beyond7.webp";
+import beyondImage8 from "/assets/beyond8.webp";
+import beyondImage9 from "/assets/beyond9.webp";
+import beyondImage10 from "/assets/beyond10.webp";
+import beyondImage11 from "/assets/beyond11.webp";
 
 import "./OutdoorPage.css";
 
@@ -376,13 +375,6 @@ const OutdoorPage = () => {
                       alt="..."
                     />
                   </div>
-                  <div className="carousel-item">
-                    <img
-                      src={beyondImage12}
-                      className="d-block w-100 carousel-image"
-                      alt="..."
-                    />
-                  </div>
                 </div>
                 <button
                   className="carousel-control-prev"
@@ -416,7 +408,7 @@ const OutdoorPage = () => {
               <p>
                 We provide enriching activities that foster learning and
                 community engagement beyond the usual. In the past our children
-                have been delivering toys, books, and clothes to charity shops.
+                have delivered toys, books, and clothes to charity shops.
                 They've enjoyed exploring Romford Market, learning about
                 currency and healthy foods. A visit to Parkside Home allowed
                 them to connect with residents and staff, while the London Fire
