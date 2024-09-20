@@ -1,9 +1,7 @@
 import React from "react";
 import "./TeamPage.css";
-import teamImage from "/assets/leonieholder.jpg";
-import { getAllStaff } from "../services/staff";
+import teamImage from "/assets/leonie.webp";
 import StaffList from "../components/StaffCard/StaffCard";
-import { useState, useEffect, useCallback } from "react";
 
 const TeamPage = () => {
   return (

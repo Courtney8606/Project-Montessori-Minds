@@ -19,6 +19,7 @@
   max-width: 100%;
   max-height: 534px;
   object-fit: cover;
+  border: 2px solid white;
 }
 
 .rooms-row {
@@ -37,18 +38,21 @@
 .room-image-small-1 {
   width: 100%;
   height: auto;
-  max-width: 385px;
-  max-height: 289px;
+  max-width: 432px;
+  max-height: 295px;
+  min-height: 295px;
   object-fit: cover;
+  border: 2px solid white;
 }
 
 .room-image-small-2 {
   width: 100%;
   height: auto;
-  max-width: 385px;
-  max-height: 234px;
-  min-height: 234px;
+  max-width: 432px;
+  max-height: 239px;
+  min-height: 239px;
   object-fit: cover;
+  border: 2px solid white;
 }
 
 .column-break {

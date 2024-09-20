@@ -1,26 +1,26 @@
 import "./RoomsPage.css";
-import bannerImage from "/assets/rooms-banner.jpg";
-import Banner from "../components/Banner/Banner";
+// import bannerImage from "/assets/rooms-banner.jpg";
+// import Banner from "../components/Banner/Banner";
 import Room from "../components/Room/Room";
-import Sajaan1 from "/assets/sajaan-room.png";
-import Sajaan2 from "/assets/sajaan-room-3.png";
-import Sajaan3 from "/assets/sajaan-room-2.png";
+import Sajaan1 from "/assets/sajaan-room.webp";
+import Sajaan2 from "/assets/sajaan-room-2.webp";
+import Sajaan3 from "/assets/sajaan-room-3.webp";
 import React, { useState } from "react";
-import Aria1 from "/assets/aria-room.png";
+import Aria1 from "/assets/aria-room.webp";
 import Aria2 from "/assets/aria-room-2.webp";
-import Aria3 from "/assets/aria-room-3.png";
-import Sapphire1 from "/assets/sapphire-room.jpg";
-import Sapphire3 from "/assets/sapphire-room-2.png";
-import Sapphire2 from "/assets/sapphire-room-3.png";
-import Iris1 from "/assets/iris-room.png";
-import Iris2 from "/assets/iris-room-3.png";
+import Aria3 from "/assets/aria-room-3.webp";
+import Sapphire1 from "/assets/sapphire-room.webp";
+import Sapphire2 from "/assets/sapphire-room-2.webp";
+import Sapphire3 from "/assets/sapphire-room-3.webp";
+import Iris1 from "/assets/iris-room.webp";
+import Iris2 from "/assets/iris-room-2.webp";
 import Iris3 from "/assets/iris-room-3.png";
-import Amelia1 from "/assets/amelia-room.png";
-import Amelia2 from "/assets/amelia-room-3.jpg";
-import Amelia3 from "/assets/amelia-room-2.png";
-import Avu1 from "/assets/avu-suite.jpg";
-import Avu2 from "/assets/avu2.jpeg";
-import Avu3 from "/assets/avu3.jpeg";
+import Amelia1 from "/assets/amelia-room.webp";
+import Amelia2 from "/assets/amelia-room-3.webp";
+import Amelia3 from "/assets/amelia-room-2.webp";
+import Avu1 from "/assets/avu-suite.webp";
+import Avu2 from "/assets/avu-suite-2.webp";
+import Avu3 from "/assets/avu-suite-3.webp";
 
 const RoomsPage = () => {
   const [currentRoom, setCurrentRoom] = useState("Sajaan Room");
@@ -52,7 +52,7 @@ const RoomsPage = () => {
           <Room
             heading="Sapphire Room"
             text="Our Sapphire Room is a beautiful open space with free flow access to
-          our garden area for our babies to enjoy Our classroom also has its
+          our garden area for our babies to enjoy. Our classroom also has its
           own separate room where our babies enjoy heuristic play."
             picture1={Sapphire1}
             picture2={Sapphire2}
@@ -109,11 +109,11 @@ const RoomsPage = () => {
 
   return (
     <div>
-      <Banner
+      {/* <Banner
         bannerImage={bannerImage}
         text1="Our Rooms"
         text2="Nurture. Enjoy. Grow. Flourish."
-      />
+      /> */}
 
       <ul className="roomnav">
         <li>

@@ -55,9 +55,9 @@ const FoodPage = () => {
             <h3>Tea</h3>
             <p>
               {" "}
-              Pitta bread/wraps/crumpets served alongside bean salad including
-              peppers, tomatoes, cucumber, sweetcorn, kidney beans, and carrots,
-              with pasta in a tomato sauce
+              Pitta bread/wraps/crumpets and pasta served alongside bean salad
+              including peppers, tomatoes, cucumber, sweetcorn, kidney beans and
+              carrots.
             </p>
           </div>
         </div>
