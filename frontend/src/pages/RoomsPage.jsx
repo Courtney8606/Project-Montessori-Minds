@@ -1,6 +1,4 @@
 import "./RoomsPage.css";
-// import bannerImage from "/assets/rooms-banner.jpg";
-// import Banner from "../components/Banner/Banner";
 import Room from "../components/Room/Room";
 import Sajaan1 from "/assets/sajaan-room.webp";
 import Sajaan2 from "/assets/sajaan-room-2.webp";
@@ -31,7 +29,11 @@ const RoomsPage = () => {
         return (
           <Room
             heading="Sajaan Room"
-            text="Our Saajan room is a beautiful open space ideal for our youngest children. We provide our children with a variety of resources that stimulate their gross motor skills, speech and social skills. Babies have the opportunity to take part in messy play, water play and also join in on our cooking activities. Saajan room has a beautiful view of our garden which our children have access to daily."
+            text="Our Saajan room is a beautiful open space ideal for our youngest children. 
+            We provide our children with a variety of resources that stimulate their gross motor skills, 
+            speech and social skills. Babies have the opportunity to take part in messy play, water play 
+            and also participate in cooking activities. Saajan room has a beautiful view of our garden 
+            which children have access to daily."
             picture1={Sajaan1}
             picture2={Sajaan2}
             picture3={Sajaan3}
@@ -41,7 +43,12 @@ const RoomsPage = () => {
         return (
           <Room
             heading="Aria Room"
-            text="Our Aria room is a beautiful room with plenty of space for energetic and curious babies. This room is perfect for children to develop their interests and discover new ones. We provide our children with natural resources that they can explore freely. We encourage the children to be creative and use their own imaginations. This room has been designed so that the children have a cosy area where they can relax and enjoy some time to themselves. Our Aria room has a beautiful view of our garden and the trains going past. The children have access to our garden area daily."
+            text="Our Aria room is a beautiful area with plenty of space for energetic and curious children. 
+            This room is perfect to develop individual interests and discover new ones. We provide our children 
+            with natural resources so that they can explore freely, encouraging children to be creative and use 
+            their own imaginations. This room has been designed so that the children have a cosy area where they 
+            can relax and enjoy time to themselves. Our Aria room has a beautiful view of our garden and the trains 
+            going past."
             picture1={Aria1}
             picture2={Aria2}
             picture3={Aria3}
@@ -51,9 +58,10 @@ const RoomsPage = () => {
         return (
           <Room
             heading="Sapphire Room"
-            text="Our Sapphire Room is a beautiful open space with free flow access to
-          our garden area for our babies to enjoy. Our classroom also has its
-          own separate room where our babies enjoy heuristic play."
+            text="Our Sapphire Room is a beautiful open space with free flow access to our garden area for children to 
+            explore. Our classroom also has its own separate area where children are free to enjoy heuristic play and 
+            musical activities. Sapphire room is a beautiful space for children to enjoy natural resources and activities, 
+            specific to their individual interests."
             picture1={Sapphire1}
             picture2={Sapphire2}
             picture3={Sapphire3}
@@ -63,11 +71,11 @@ const RoomsPage = () => {
         return (
           <Room
             heading="Iris Room"
-            text="Our Iris room is a beautiful room with plenty of space for toddlers.
-            This room is perfect for children to develop their interests and
-            discover new ones. We provide our children with natural resources
-            that they can explore freely. We encourage the children to be
-            creative and use their own imaginations."
+            text="Our Iris room is a beautiful room with plenty of space to stay active. This room is perfect for 
+            children to develop their interests and discover new ones. We provide our children with natural 
+            resources so that they can explore freely, heightening their senses and learning opportunities. In 
+            Iris room, we encourage the children to be creative and use their own imaginations in order to spark 
+            their curiosity."
             picture1={Iris1}
             picture2={Iris2}
             picture3={Iris3}
@@ -77,11 +85,9 @@ const RoomsPage = () => {
         return (
           <Room
             heading="Amelia Room"
-            text="Our Amelia room is a beautiful open space ideal for curious
-              toddlers. We provide our children with a variety of resources that
-              stimulate their gross motor skills, fine motor skills, speech and
-              social skills. Toddlers have the opportunity to take part in messy
-              play, water play and also join in on our cooking activities."
+            text="Our Amelia room is a beautiful open space ideal for curious children. We provide our children with a 
+            variety of resources that stimulate their gross motor skills, fine motor skills, speech and social skills. 
+            Children have the opportunity to take part in messy play, water play and also join in cooking activities."
             picture1={Amelia1}
             picture2={Amelia2}
             picture3={Amelia3}
@@ -91,12 +97,10 @@ const RoomsPage = () => {
         return (
           <Room
             heading="Avu Suite"
-            text="Our Avu suite is a beautiful open space ideal for preschool
-                children. We provide our children with a variety of resources and
-                implement specific teaching methods related to our Montessori
-                integrated Curriculum. The Avu suite includes an additional
-                Montessori Teaching area, peace table to support emotional wellbeing
-                and free flow access to our garden."
+            text="Our Avu suite is a beautiful open space ideal for children preparing for their next stage in education. 
+            We provide our children with a variety of resources and implement specific teaching methods related to our 
+            Montessori integrated curriculum. The Avu suite includes an additional Montessori Teaching area, peace table 
+            to support emotional wellbeing and free flow access to our garden and atelier."
             picture1={Avu1}
             picture2={Avu2}
             picture3={Avu3}
@@ -109,12 +113,6 @@ const RoomsPage = () => {
 
   return (
     <div>
-      {/* <Banner
-        bannerImage={bannerImage}
-        text1="Our Rooms"
-        text2="Nurture. Enjoy. Grow. Flourish."
-      /> */}
-
       <ul className="roomnav">
         <li>
           <a href="#sajaanroom" onClick={() => setCurrentRoom("Sajaan Room")}>

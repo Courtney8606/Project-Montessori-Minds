@@ -10,7 +10,7 @@ const NavigationBar = () => {
     const navbarToggler = document.querySelector(".navbar-toggler");
     const navbarCollapse = document.getElementById("navbarSupportedContent");
     if (navbarCollapse.classList.contains("show")) {
-      navbarToggler.click(); // Trigger the button click to collapse
+      navbarToggler.click();
     }
   };
 

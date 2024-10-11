@@ -1,6 +1,6 @@
 import React from "react";
-import Banner from "../components/Banner/Banner";
-import bannerImage from "/assets/banner-homepage.webp";
+import VideoBanner from "../components/Banner/VideoBanner";
+import bannerVideo from "/assets/Homepage-Banner.mp4";
 import "./HomePage.css";
 import subImage from "/assets/awards-ofsted.webp";
 import Awards1 from "/assets/awards-nmt-nursery.webp";
@@ -22,16 +22,14 @@ import valueFlourish from "/assets/values-flourish.webp";
 const HomePage = () => {
   return (
     <div>
-      <Banner
-        bannerImage={bannerImage}
-        style={{ backgroundImage: `url(${bannerImage})` }}
-        text1="Montessori Minds Nursery"
-        text2="Nurture. Enjoy. Grow. Flourish."
+      <VideoBanner
+        videoSource={bannerVideo}
+        text1="Montessori Minds Nursery School"
         subImage={subImage}
       />
       <div className="intro">
         <p>
-          At Montessori Minds children's nursery, we specialise in exceptionally
+          At Montessori Minds nursery school, we specialise in exceptionally
           high quality education for your little ones!
         </p>
 
@@ -55,7 +53,7 @@ const HomePage = () => {
         <h1>Our Vision, Mission & Values </h1>
         <p>
           Nurture. Enjoy. Grow. Flourish. <br /> To nurture and ignite
-          children's love for learning; achieving their fullest potential
+          children&apos;s love for learning; achieving their fullest potential
           through a Montessori integrated philosophy alongside the EYFS. <br />{" "}
           Please click through below for more detail.{" "}
         </p>
@@ -112,40 +110,41 @@ const HomePage = () => {
             src={Testimonial1}
           />
           <h4>
-            "A true gentle Montessori style setting with a team that is
+            &quot;A true gentle Montessori style setting with a team that is
             passionate about care. Everything is held at a high standard with
-            the children's wellbeing squarely at the centre. The opening times
-            are very convenient (7am - 7pm) so the days when I need to get to
-            work earlier or am running late aren't too much of a problem."
+            the children&apos;s wellbeing squarely at the centre. The opening
+            times are very convenient (7am - 7pm) so the days when I need to get
+            to work earlier or am running late aren&apos;t too much of a
+            problem.&quot;
           </h4>
         </div>
 
         <div className="testimonial-wrapper">
           <img className="testimonial-image" src={Testimonial2} />
           <h4>
-            "The staff are so attentive and genuinely very caring and cater for
-            your child’s individual needs. It’s home from home for our little
-            girl. They go that ‘extra mile’, from the wonderful home cooked food
-            to the experiences and activities they arrange. ​ I could not
-            recommend them more!"
+            &quot;The staff are so attentive and genuinely very caring and cater
+            for your child&apos;s individual needs. It&apos;s home from home for
+            our little girl. They go that extra mile, from the wonderful home
+            cooked food to the experiences and activities they arrange. I could
+            not recommend them more!&quot;
           </h4>
         </div>
 
         <div className="testimonial-wrapper">
           <img className="testimonial-image" src={Testimonial3} />
           <h4>
-            "I was very nervous to start my child in the nursery but they
+            &quot;I was very nervous to start my child in the nursery but they
             understood my anxiety and they did everything to put my mind at
             ease. My child has allergies but they immediately eliminated
             everything that she is allergic to from the menu. They are truly the
-            best!"
+            best!&quot;
           </h4>
         </div>
       </div>
 
       <div className="awards-row">
         <div className="awards-item">
-          <img src={Awards6} />
+          <img src={Awards5} />
         </div>
         <div className="awards-item">
           <img src={Awards2} />
@@ -157,7 +156,7 @@ const HomePage = () => {
           <img src={Awards4} />
         </div>
         <div className="awards-item">
-          <img src={Awards5} />
+          <img src={Awards6} />
         </div>
         <div className="awards-item">
           <img src={Awards1} />

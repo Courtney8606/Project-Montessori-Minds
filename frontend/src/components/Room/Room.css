@@ -6,6 +6,7 @@
 .room-column {
   padding: 0;
   align-content: center;
+  align-self: center;
   max-height: 534px;
 }
 
@@ -16,7 +17,8 @@
 .room-image-large {
   width: 100%;
   height: 100%;
-  max-width: 100%;
+  max-width: 432px;
+  min-height: 534px;
   max-height: 534px;
   object-fit: cover;
   border: 2px solid white;
@@ -62,7 +64,7 @@
 @media (max-width: 1400px) {
   .room-image-large {
     height: 100%;
-    width: auto;
+    max-width: 432px;
     object-fit: cover;
   }
   .room-column {
