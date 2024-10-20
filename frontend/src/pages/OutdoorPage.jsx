@@ -6,7 +6,7 @@ import outdoorImage4 from "/assets/outdoor4.webp";
 import outdoorImage5 from "/assets/outdoor5.webp";
 import outdoorImage6 from "/assets/outdoor6.webp";
 import outdoorImage7 from "/assets/outdoor7.webp";
-import outdoorImage8 from "/assets/outdoor8.webp";
+import outdoorImage8 from "/assets/outdoor8.jpeg";
 import outdoorImage9 from "/assets/outdoor9.webp";
 import outdoorImage10 from "/assets/outdoor10.webp";
 import outdoorImage11 from "/assets/outdoor11.webp";
