@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import bannerImage from "/assets/banner-homepage.webp";
+import bannerImage from "/assets/bannerhomepage2.webp";
 import bannerVideo from "/assets/Homepage-Banner.mp4";
 import "./VideoBanner.css";
 

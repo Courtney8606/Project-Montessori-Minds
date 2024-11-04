@@ -66,6 +66,9 @@
   .video-header-text h1 {
     font-size: 8vw;
   }
+  .video-header-text {
+    padding-top: 20vh;
+  }
 }
 
 @media screen and (max-width: 600px) {
