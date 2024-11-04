@@ -9,7 +9,7 @@ const TeamPage = () => {
       <div className="banner-team">
         <img className="banner-image-team" src={teamImage} />
         <div className="banner-team-content">
-          <h3>Dr Leonie Butler</h3>
+          <h3>Dr. Leonie Butler</h3>
           <h3>Managing Director</h3>
           <p>
             Safeguarding Lead
