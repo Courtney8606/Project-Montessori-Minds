@@ -113,6 +113,7 @@ const RoomsPage = () => {
 
   return (
     <div>
+      <h1 className="room-heading">Our Rooms</h1>
       <ul className="roomnav">
         <li>
           <a href="#sajaanroom" onClick={() => setCurrentRoom("Sajaan Room")}>

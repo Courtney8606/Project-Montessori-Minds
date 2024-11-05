@@ -15,6 +15,11 @@
   font-size: 14px;
 }
 
+.room-heading {
+  padding-top: 30px;
+  text-align: center;
+}
+
 .roomnav > li > a {
   text-decoration: none;
   color: #212f3c;
