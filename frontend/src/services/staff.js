@@ -54,11 +54,7 @@ export const createStaff = async (formData) => {
     requestOptions
   );
 
-  if (response.status !== 200) {
-    throw new Error("Unable to create staff");
-  }
-  const data = await response.json();
-  return data;
+  return response;
 };
 
 export const deleteStaff = async (staff_name) => {
@@ -96,9 +92,5 @@ export const updateStaff = async (staff_id, formData) => {
     requestOptions
   );
 
-  if (response.status !== 200) {
-    throw new Error("Unable to update staff");
-  }
-  const data = await response.json();
-  return data;
+  return response;
 };

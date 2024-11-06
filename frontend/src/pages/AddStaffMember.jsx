@@ -24,25 +24,34 @@ export const AddStaffMemberPage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    try {
-      const formData = new FormData();
-      formData.append("name", name);
-      formData.append("file", file);
-      formData.append("title", title);
-      formData.append("qualifications", `{${qualifications.split(",")}}`);
-      formData.append("awards", `{${awards.split(",")}}`);
 
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("file", file);
+    formData.append("title", title);
+    formData.append("qualifications", `{${qualifications.split(",")}}`);
+    formData.append("awards", `{${awards.split(",")}}`);
+
+    try {
       const response = await createStaff(formData);
-      if (
-        response.message !== "You have successfully added a new staff member"
-      ) {
-        setErrorMessage("Error creating staff member!");
-      } else {
+      // Check if the response is OK
+      if (response.status === 200) {
+        // Handle successful update
         navigate("/staffmanagement", { replace: true });
         window.location.reload();
+      } else {
+        // Extract the error message from the response
+        const errorData = await response.json();
+        if (errorData && errorData.message) {
+          setErrorMessage(errorData.message);
+        } else {
+          setErrorMessage("An unexpected error occurred.");
+        }
       }
     } catch (err) {
-      setErrorMessage("Unknown error: Please try again");
+      // Handle unexpected errors (like network issues)
+      console.error("Error:", err);
+      setErrorMessage("An unexpected error occurred. Please try again later.");
     }
   };
 

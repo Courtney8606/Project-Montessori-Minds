@@ -37,16 +37,26 @@ export const AmendStaffMemberPage = () => {
 
       try {
         const response = await updateStaff(staff_id, formData);
-        if (
-          response[0].message != "You have successfully updated staff member"
-        ) {
-          setErrorMessage("Error updating staff member!");
-        } else {
+        // Check if the response is OK
+        if (response.status === 200) {
+          // Handle successful update
           navigate("/staffmanagement", { replace: true });
           window.location.reload();
+        } else {
+          // Extract the error message from the response
+          const errorData = await response.json();
+          if (errorData && errorData.message) {
+            setErrorMessage(errorData.message);
+          } else {
+            setErrorMessage("An unexpected error occurred.");
+          }
         }
       } catch (err) {
-        setErrorMessage("Unknown error: Please try again");
+        // Handle unexpected errors (like network issues)
+        console.error("Error:", err);
+        setErrorMessage(
+          "An unexpected error occurred. Please try again later."
+        );
       }
     }
   };
