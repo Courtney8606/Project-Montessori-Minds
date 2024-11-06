@@ -281,6 +281,7 @@ def create_staff():
 
         try:
             # Save the uploaded file temporarily
+            print("FILE", file)
             file.save(file_path)
             
             # Convert the image to WebP format
@@ -296,11 +297,33 @@ def create_staff():
             name = request.form.get('name')
             title = request.form.get('title')
             qualifications = request.form.get('qualifications')
-            awards = request.form.get('awards')
+            awards = request.form.get('awards') or ""
 
-            if not all([name, webp_filename, title, qualifications, awards]):
-                logging.error("Missing form data")
-                return jsonify({'message': "Missing form data"}), 400
+            logging.debug(f"name: {name}, title: {title}, qualifications: {qualifications}, awards: {awards}")
+
+            def is_valid_qualifications(qualifications):
+            # Check if qualifications is a non-empty string and does not just contain "{}" or only spaces
+                return (
+                    qualifications 
+                    and qualifications.strip() 
+                    and qualifications.strip() != "{}" 
+                    and qualifications.strip() != "{,}"
+                )
+
+            # Check that all mandatory fields are provided and not empty (strip spaces)
+            if not all([
+                name and name.strip(),
+                webp_filename and webp_filename.strip(),
+                title and title.strip(),
+                is_valid_qualifications(qualifications)
+            ]):
+                logging.error("Missing or empty mandatory form data")
+                return jsonify({'message': "Missing or empty mandatory form data"}), 400
+            
+            # # Check that all mandatory fields are provided and not empty (strip spaces)
+            # if not all(field and field.strip() for field in [name, webp_filename, title, qualifications]):
+            #     logging.error("Missing or empty mandatory form data")
+            #     return jsonify({'message': "Missing or empty mandatory form data"}), 400
 
             staff = Staff(None, name, webp_filename, title, qualifications, awards)
             staff_repository.create(staff)
@@ -379,11 +402,33 @@ def update_staff(staff_id):
             name = request.form.get('name')
             title = request.form.get('title')
             qualifications = request.form.get('qualifications')
-            awards = request.form.get('awards')
+            awards = request.form.get('awards') or ""
 
-            if not all([name, webp_filename, title, qualifications, awards]):
-                logging.error("Missing form data")
-                return jsonify({'message': "Missing form data"}), 400
+            logging.debug(f"name: {name}, title: {title}, qualifications: {qualifications}, awards: {awards}")
+
+            def is_valid_qualifications(qualifications):
+            # Check if qualifications is a non-empty string and does not just contain "{}" or only spaces
+                return (
+                    qualifications 
+                    and qualifications.strip() 
+                    and qualifications.strip() != "{}" 
+                    and qualifications.strip() != "{,}"
+                )
+
+            # Check that all mandatory fields are provided and not empty (strip spaces)
+            if not all([
+                name and name.strip(),
+                webp_filename and webp_filename.strip(),
+                title and title.strip(),
+                is_valid_qualifications(qualifications)
+            ]):
+                logging.error("Missing or empty mandatory form data")
+                return jsonify({'message': "Missing or empty mandatory form data"}), 400
+
+            # # Check that all mandatory fields are provided and not empty (strip spaces)
+            # if not all(field and field.strip() for field in [name, webp_filename, title, qualifications]):
+            #     logging.error("Missing or empty mandatory form data")
+            #     return jsonify({'message': "Missing or empty mandatory form data"}), 400
 
             try:
                 staff = Staff(staff_id, name, webp_filename, title, qualifications, awards)
