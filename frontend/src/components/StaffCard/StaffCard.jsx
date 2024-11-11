@@ -16,6 +16,10 @@ const StaffList = () => {
       if (a.title.includes("Manager") && !b.title.includes("Manager"))
         return -1;
       if (!a.title.includes("Manager") && b.title.includes("Manager")) return 1;
+      if (a.title.includes("Management") && !b.title.includes("Management"))
+        return -1;
+      if (!a.title.includes("Management") && b.title.includes("Management"))
+        return 1;
       if (
         a.title.includes("Admin & Nutrition Lead") &&
         !b.title.includes("Admin & Nutrition Lead")
