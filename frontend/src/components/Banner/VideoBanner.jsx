@@ -34,7 +34,7 @@ const VideoBanner = ({ text1, subImage }) => {
       <div className="video-header-text">
         <h1>{text1}</h1>
       </div>
-      <img src={subImage} alt="SubImage" className="video-sub-image" />
+      {/* <img src={subImage} alt="SubImage" className="video-sub-image" /> */}
     </div>
   );
 };

@@ -7,7 +7,7 @@ import Awards1 from "/assets/awards-nmt-nursery.webp";
 import Awards2 from "/assets/awards-nurseryworld.webp";
 import Awards3 from "/assets/awards-healthyyears.webp";
 import Awards4 from "/assets/awards-NDNA.webp";
-import Awards5 from "/assets/awards-ofsted.webp";
+// import Awards5 from "/assets/awards-ofsted.webp";
 import Awards6 from "/assets/awards-daynurseries2024.webp";
 import Awards7 from "/assets/awards-apprenticeship-connect.webp";
 import Awards8 from "/assets/awards-milliesmark.webp";
@@ -143,9 +143,9 @@ const HomePage = () => {
       </div>
 
       <div className="awards-row">
-        <div className="awards-item">
+        {/* <div className="awards-item">
           <img src={Awards5} />
-        </div>
+        </div> */}
         <div className="awards-item">
           <img src={Awards2} />
         </div>
@@ -200,13 +200,13 @@ const HomePage = () => {
                 alt="..."
               />
             </div>
-            <div className="carousel-item">
+            {/* <div className="carousel-item">
               <img
                 src={Awards5}
                 className="d-block w-100 carousel-image-awards"
                 alt="..."
               />
-            </div>
+            </div> */}
             <div className="carousel-item">
               <img
                 src={Awards6}
