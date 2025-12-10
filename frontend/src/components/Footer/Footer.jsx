@@ -80,8 +80,8 @@ export const Footer = () => {
               </a>
               <p>62-64 Eastern Rd, Romford, Essex, RM1 3QA</p>
               <p>01708 935695</p>
-              <a className="contact" href="mailto:montessori.minds@gmx.com">
-                montessori.minds@gmx.com
+              <a className="contact" href="mailto:info@montessori-minds.com">
+                info@montessori-minds.com
               </a>
             </div>
 
