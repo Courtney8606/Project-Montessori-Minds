@@ -18,8 +18,8 @@ const ContactPage = () => {
             <p>You'll find us at 62-64 Eastern Rd, Romford, Essex, RM1 3QA</p>
             <p>You can contact us via -</p>
             <p>
-              <a className="contact" href="mailto:montessori.minds@gmx.com">
-                montessori.minds@gmx.com
+              <a className="contact" href="mailto:info@montessori-minds.com">
+                info@montessori-minds.com
               </a>
             </p>
             <p>Phone: 01708 935695</p>
