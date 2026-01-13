@@ -1,4 +1,3 @@
-import React from "react";
 import "./TeamPage.css";
 import teamImage from "/assets/leonie.webp";
 import StaffList from "../components/StaffCard/StaffCard";

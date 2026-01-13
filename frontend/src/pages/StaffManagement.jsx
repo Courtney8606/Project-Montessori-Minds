@@ -1,8 +1,8 @@
-import React from "react";
 import "./TeamPage.css";
 import StaffCardEmployeeAccount from "../components/StaffCard/StaffCardEmployeeAccount";
 import { NavLink } from "react-router-dom";
 import MainButton from "../components/Buttons/MainButton";
+import { deleteStaff, getAllStaff } from "../services/staff";
 
 const StaffManagementPage = () => {
   const handleDelete = async (staff_name) => {

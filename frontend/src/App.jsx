@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/Homepage";
 import Layout from "./components/Layout";
 import ValuesPage from "./pages/ValuesPage";
 import TeamPage from "./pages/TeamPage";
@@ -17,6 +17,7 @@ import StaffManagementPage from "./pages/StaffManagement";
 import { AddStaffMemberPage } from "./pages/AddStaffMember";
 import { AmendStaffMemberPage } from "./pages/AmendStaffMember";
 import SocialMediaPage from "./pages/SocialMedia";
+import FundingPage from "./pages/Funding";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path="/outdoor" element={<OutdoorPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/socialmedia" element={<SocialMediaPage />} />
+            <Route path="/funding" element={<FundingPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/staffmanagement" element={<StaffManagementPage />} />

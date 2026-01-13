@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import "./StaffCard.css";
 import { getUploadedImages } from "../../services/staff";
 import Loading from "../Loading/Loading";

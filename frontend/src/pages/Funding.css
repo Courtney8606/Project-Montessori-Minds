@@ -1,0 +1,127 @@
+.funding-page {
+  display: inline-flex;
+  text-align: left;
+  padding: 0px 50px 0px 50px;
+  object-fit: cover;
+  align-items: center;
+  margin-left: 8%;
+  margin-right: 8%;
+}
+
+.funding-page-content {
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.funding-page .funding-link {
+  color: #1a73e8;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+.funding-page .funding-link:hover {
+  color: #0b5ed7;
+}
+
+.funding-table {
+  width: 100%;
+  max-width: 600px;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+.funding-table th,
+.funding-table td {
+  border: 1px solid #ddd;
+  padding: 12px 14px;
+  text-align: left;
+}
+
+.funding-table th {
+  background-color: #f4f7f6; /* soft neutral */
+  font-weight: 600;
+}
+
+.funding-table td:last-child,
+.funding-table th:last-child {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.funding-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* Callout boxes for key info */
+.funding-callout {
+  background-color: #f4f7f6;
+  border-left: 4px solid black;
+  padding: 16px 20px;
+  margin: 24px 0;
+  border-radius: 4px;
+}
+
+/* Section headings */
+.funding-page-content h3 {
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-size: 1.5rem;
+  color: black;
+}
+
+.funding-page-content h4 {
+  margin-top: 24px;
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+  color: black;
+}
+
+/* Lists inside callouts */
+.funding-callout ul {
+  margin: 8px 0;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.starting-paragraph {
+  margin-top: 30px;
+}
+
+/* Table spacing adjustment for small screens */
+@media screen and (max-width: 600px) {
+  .funding-table th,
+  .funding-table td {
+    padding: 8px 10px;
+  }
+
+  .funding-page-content h3 {
+    font-size: 1.25rem;
+  }
+
+  .funding-page-content h4 {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .funding-page {
+    flex-direction: column;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .funding-page {
+    font-size: 4vw;
+  }
+
+  .funding-page-content {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 0;
+  }
+}

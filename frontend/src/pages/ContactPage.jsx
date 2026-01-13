@@ -1,4 +1,3 @@
-import React from "react";
 import Map from "../components/Map/Map";
 import "./ContactPage.css";
 
@@ -15,7 +14,9 @@ const ContactPage = () => {
           <div className="col contact-details">
             <h4 className="contact-heading">Location & Contact Details</h4>
             <br></br>
-            <p>You'll find us at 62-64 Eastern Rd, Romford, Essex, RM1 3QA</p>
+            <p>
+              You&apos;ll find us at 62-64 Eastern Rd, Romford, Essex, RM1 3QA
+            </p>
             <p>You can contact us via -</p>
             <p>
               <a className="contact" href="mailto:info@montessori-minds.com">

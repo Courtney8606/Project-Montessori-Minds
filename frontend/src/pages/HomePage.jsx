@@ -1,4 +1,3 @@
-import React from "react";
 import VideoBanner from "../components/Banner/VideoBanner";
 import bannerVideo from "/assets/Homepage-Banner.mp4";
 import "./HomePage.css";

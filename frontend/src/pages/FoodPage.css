@@ -1,10 +1,19 @@
 .food-grid-image {
   width: 100%;
+  max-width: 420px;
   height: auto;
+  border-radius: 24px;
 }
 
 .food-column {
   min-width: 350px;
+  text-align: left;
+}
+
+.food-column h4 {
+  margin-bottom: 16px;
+  font-size: 1.4rem;
+  color: #00215e;
 }
 
 .food-intro {
@@ -13,7 +22,12 @@
 }
 
 .food-row {
-  margin-bottom: 60px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #eee;
+}
+
+.food-row:last-child {
+  border-bottom: none;
 }
 
 .sub-image {
@@ -28,9 +42,31 @@
   padding-top: 20px;
 }
 
+.food-column ul {
+  padding-left: 20px;
+  margin-top: 12px;
+}
+
+.food-column li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+.food-column ul ul {
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+.food-section {
+  max-width: 1100px;
+  margin: 0 auto 80px auto;
+  padding: 50px 60px;
+  background-color: #eef7fb;
+  border-radius: 20px;
+}
+
 @media screen and (max-width: 1000px) {
   .food-grid-image {
-    padding-bottom: 40px;
+    padding-bottom: 24px;
   }
 }
 

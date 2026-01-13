@@ -1,4 +1,3 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import "./NavigationBar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -183,6 +182,28 @@ const NavigationBar = () => {
                 >
                   <MainButton
                     text="News & Updates"
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "None",
+                      color: "#00215e",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "end",
+                    }}
+                  />
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to="/funding"
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
+                  aria-current="page"
+                  onClick={handleNavLinkClick}
+                >
+                  <MainButton
+                    text="Funding"
                     style={{
                       backgroundColor: "transparent",
                       border: "None",

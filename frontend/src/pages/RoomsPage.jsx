@@ -3,7 +3,7 @@ import Room from "../components/Room/Room";
 import Sajaan1 from "/assets/sajaan-room.webp";
 import Sajaan2 from "/assets/sajaan-room-2.webp";
 import Sajaan3 from "/assets/sajaan.jpeg";
-import React, { useState } from "react";
+import { useState } from "react";
 import Aria1 from "/assets/aria-room.webp";
 import Aria2 from "/assets/aria-room-2.webp";
 import Aria3 from "/assets/aria-room-3.webp";

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import "./StaffCard.css";
 import { NavLink } from "react-router-dom";
 import { getUploadedImages } from "../../services/staff";

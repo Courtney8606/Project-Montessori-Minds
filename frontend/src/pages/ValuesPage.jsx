@@ -1,4 +1,3 @@
-import React from "react";
 import bannerImage from "/assets/banner-values.webp";
 import Banner from "../components/Banner/Banner";
 import "./ValuesPage.css";
@@ -23,7 +22,7 @@ const ValuesPage = () => {
             <h3>We welcome all with kindness, respect and love</h3>
             <p>
               Our Nursery offers a homely, safe space which we tailor to our
-              childrens' individual needs and interests. We build secure,
+              childrens&apos; individual needs and interests. We build secure,
               nurturing relationships with our children; essential for all to
               enjoy, grow and flourish. We ensure our children and staff are
               happy, loved, safe and feel at home. Our Montessori Minds family

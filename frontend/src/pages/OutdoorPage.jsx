@@ -1,4 +1,3 @@
-import React from "react";
 import outdoorImage1 from "/assets/outdoor1.webp";
 import outdoorImage2 from "/assets/outdoor2.webp";
 import outdoorImage3 from "/assets/outdoor3.webp";
@@ -417,10 +416,10 @@ const OutdoorPage = () => {
                 We provide enriching activities that foster learning and
                 community engagement beyond the usual. In the past our children
                 have delivered toys, books, and clothes to charity shops.
-                They've enjoyed exploring Romford Market, learning about
+                They&apos;ve enjoyed exploring Romford Market, learning about
                 currency and healthy foods. A visit to Parkside Home allowed
                 them to connect with residents and staff, while the London Fire
-                Brigade taught them about firefighting. We've celebrated
+                Brigade taught them about firefighting. We&apos;ve celebrated
                 cultural events, fostering a deep appreciation for diversity and
                 inclusivity in children. Exotic Explorers introduced fascinating
                 creatures like snakes and owls, while a farm visit got the
