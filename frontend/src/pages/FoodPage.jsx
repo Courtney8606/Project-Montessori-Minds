@@ -29,7 +29,7 @@ const FoodPage = () => {
       <div className="container text-center">
         <div className="food-section">
           <div className="row align-items-center food-row">
-            <div className="col food-column">
+            <div className="col food-column food-img-column">
               <img className="food-grid-image" src={breakfastImage} />
             </div>
             <div className="col food-column">
@@ -108,7 +108,7 @@ const FoodPage = () => {
                 </ul>
               </p>
             </div>
-            <div className="col food-column">
+            <div className="col food-column food-img-column">
               <img className="food-grid-image" src={lunchImage} />
             </div>
           </div>
@@ -117,7 +117,7 @@ const FoodPage = () => {
       <div className="container text-center">
         <div className="food-section">
           <div className="row align-items-center food-row">
-            <div className="col food-column">
+            <div className="col food-column food-img-column">
               <img className="food-grid-image" src={afternoonImage} />
             </div>
             <div className="col food-column">
@@ -191,7 +191,7 @@ const FoodPage = () => {
                 </li>
               </ul>
             </div>
-            <div className="col food-column">
+            <div className="col food-column food-img-column">
               <img className="food-grid-image" src={snackImage} />
             </div>
           </div>
