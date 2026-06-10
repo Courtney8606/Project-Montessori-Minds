@@ -1,112 +1,139 @@
 .funding-page {
   display: inline-flex;
   text-align: left;
-  padding: 0px 50px 0px 50px;
-  object-fit: cover;
+  padding: 0px 50px;
   align-items: center;
   margin-left: 8%;
   margin-right: 8%;
 }
 
 .funding-page-content {
-  padding-left: 80px;
-  padding-right: 80px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 20px 80px;
 }
 
 .funding-page .funding-link {
   color: #1a73e8;
-  font-weight: 400;
   text-decoration: underline;
 }
 
-.funding-page .funding-link:hover {
-  color: #0b5ed7;
-}
-
+/* =========================
+   TABLE BASE
+========================= */
 .funding-table {
   width: 100%;
-  max-width: 600px;
+  max-width: 820px;
+  margin-left: 0;
+  margin-right: auto;
+
   border-collapse: collapse;
   margin-top: 20px;
-  font-size: 1rem;
   margin-bottom: 30px;
+
+  font-size: 1rem;
 }
 
 .funding-table th,
 .funding-table td {
-  border: 1px solid #ddd;
+  border: 1px solid #e2e6e5;
   padding: 12px 14px;
+
   text-align: left;
+  vertical-align: top;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
-.funding-table th {
-  background-color: #f4f7f6; /* soft neutral */
-  font-weight: 600;
+/* =========================
+   COLUMN WIDTHS
+========================= */
+.funding-table--entitlements td:first-child,
+.funding-table--entitlements th:first-child {
+  width: 40%;
 }
 
-.funding-table td:last-child,
-.funding-table th:last-child {
+.funding-table--entitlements td:last-child,
+.funding-table--entitlements th:last-child {
+  width: 60%;
+}
+
+.funding-table--extras td:first-child,
+.funding-table--extras th:first-child {
+  width: 80%;
+}
+
+.funding-table--extras td:last-child,
+.funding-table--extras th:last-child {
+  width: 20%;
   text-align: right;
   white-space: nowrap;
 }
 
-.funding-table tr:nth-child(even) {
-  background-color: #fafafa;
+/* =========================
+   SECTION HEADINGS
+========================= */
+.section-heading th {
+  background-color: #e6ecea;
+  font-weight: 800;
+  font-size: 1.05rem;
+  padding: 14px;
+  text-align: left;
 }
 
-/* Callout boxes for key info */
-.funding-callout {
-  background-color: #f4f7f6;
-  border-left: 4px solid black;
-  padding: 16px 20px;
-  margin: 24px 0;
-  border-radius: 4px;
+/* =========================
+   SUBHEADINGS
+========================= */
+.sub-heading td {
+  font-weight: 700;
+  background-color: #f0f2f1;
+  padding: 12px 14px;
+  text-align: left;
 }
 
-/* Section headings */
-.funding-page-content h3 {
-  margin-top: 32px;
-  margin-bottom: 16px;
-  font-size: 1.5rem;
-  color: black;
+/* =========================
+   CRITICAL FIX: FULL WIDTH ROW ALIGNMENT
+   (fixes unwanted right alignment drift)
+========================= */
+.funding-table tr td[colspan="2"],
+.funding-table tr th[colspan="2"] {
+  text-align: left !important;
 }
 
-.funding-page-content h4 {
-  margin-top: 24px;
-  margin-bottom: 12px;
-  font-size: 1.25rem;
-  color: black;
+/* =========================
+   CHARGEABLE HEADER
+========================= */
+.chargeable-header th {
+  background-color: #dde6e3;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
 }
 
-/* Lists inside callouts */
-.funding-callout ul {
-  margin: 8px 0;
-  padding-left: 20px;
-  list-style-type: disc;
+/* =========================
+   DEFAULT COST COLUMN ALIGNMENT
+========================= */
+.funding-table--extras td:last-child {
+  text-align: right;
+  white-space: nowrap;
 }
 
-.starting-paragraph {
-  margin-top: 30px;
+/* =========================
+   ACTIVITIES LIST
+========================= */
+.activities-list {
+  margin: 12px 0 0 18px;
+  padding: 0;
 }
 
-/* Table spacing adjustment for small screens */
-@media screen and (max-width: 600px) {
-  .funding-table th,
-  .funding-table td {
-    padding: 8px 10px;
-  }
-
-  .funding-page-content h3 {
-    font-size: 1.25rem;
-  }
-
-  .funding-page-content h4 {
-    font-size: 1.1rem;
-  }
+.activities-list li {
+  margin-bottom: 6px;
+  line-height: 1.5;
+  font-size: 0.95rem;
 }
 
+/* =========================
+   RESPONSIVE
+========================= */
 @media screen and (max-width: 900px) {
   .funding-page {
     flex-direction: column;
@@ -115,13 +142,12 @@
 }
 
 @media screen and (max-width: 600px) {
-  .funding-page {
-    font-size: 4vw;
+  .funding-table th,
+  .funding-table td {
+    padding: 8px 10px;
   }
 
   .funding-page-content {
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 0;
+    padding: 10px;
   }
 }

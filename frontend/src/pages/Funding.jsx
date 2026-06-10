@@ -119,40 +119,211 @@ const FundingPage = () => {
           </div>
 
           <p>
-            Our funded hours include small additional charges for essential
-            items that are not covered by government funding. These include
-            freshly prepared meals by our in-house chefs and resources required
-            for our Montessori Curriculum.
+            Our funded hours include a small additional charge to cover meals
+            and activities that are not included within government funding.
+            These include freshly prepared meals made by our in-house chefs and
+            a range of extra-curricular experiences carefully selected to
+            complement our Montessori curriculum.
           </p>
 
           <p>
-            Government funding does not cover the cost of these items, nor is it
-            intended to. Our inclusive approach ensures every child at
-            Montessori Minds enjoys the same experiences, opportunities, and
-            high-quality Montessori teaching.
+            Government funding is designed to support core childcare provision
+            and does not cover the cost of these additional services. Our
+            inclusive approach ensures that every child at Montessori Minds can
+            enjoy the same high-quality experiences, opportunities, nutritious
+            meals, and authentic Montessori education throughout their time with
+            us.
           </p>
 
           {/* Food and Consumables Table */}
-          <h3>Breakdown of Daily Food and Consumable Charges</h3>
-
-          <table className="funding-table">
-            <thead>
-              <tr>
-                <th>Item</th>
-                <th>Daily Cost</th>
-              </tr>
-            </thead>
+          <table className="funding-table funding-table--entitlements">
             <tbody>
+              <tr className="section-heading">
+                <th colSpan="2">Access to the early years entitlements</th>
+              </tr>
+
+              <tr className="sub-heading">
+                <td colSpan="2">
+                  You can access the following early years entitlements at our
+                  setting:
+                </td>
+              </tr>
+
+              <tr>
+                <td>✓ Two year old entitlement</td>
+                <td>
+                  For families receiving additional support (families on low
+                  income, children in or left care/EHC/DLA)
+                </td>
+              </tr>
+
+              <tr>
+                <td>✓ Universal entitlement</td>
+                <td>For children aged 3 to 4 years</td>
+              </tr>
+
+              <tr>
+                <td>✓ Working parent entitlement</td>
+                <td>For children aged 3 to 4 years</td>
+              </tr>
+
+              <tr>
+                <td>✓ Working parent entitlement</td>
+                <td>For children aged 2 years</td>
+              </tr>
+
+              <tr>
+                <td>✓ Working parent entitlement</td>
+                <td>For children from 9 months and under 2 years</td>
+              </tr>
+
+              <tr className="sub-heading">
+                <td colSpan="2">
+                  The number of weeks we offer the entitlements at our setting:
+                </td>
+              </tr>
+
+              <tr>
+                <td>✓ Stretched offer places</td>
+                <td>Up to 51 weeks a year</td>
+              </tr>
+
+              <tr className="sub-heading">
+                <td colSpan="2">
+                  How you can access entitlement places at our setting:
+                </td>
+              </tr>
+
+              <tr>
+                <td>✓ Entitlement availability</td>
+                <td>Between 8am and 6pm</td>
+              </tr>
+
+              <tr>
+                <td>✓ Funded hours</td>
+                <td>
+                  You can access entitlement hours between 8am and 6pm at no
+                  charge
+                </td>
+              </tr>
+
+              <tr>
+                <td>✓ Stretched offer</td>
+                <td>Available 51 weeks of the year</td>
+              </tr>
+
+              <tr className="sub-heading">
+                <td colSpan="2">
+                  Other forms of financial support you can access at our
+                  setting:
+                </td>
+              </tr>
+
+              <tr>
+                <td>✓ Tax-Free Childcare</td>
+                <td>Available</td>
+              </tr>
+
+              <tr>
+                <td>✓ Universal Credit for Childcare</td>
+                <td>Available</td>
+              </tr>
+
+              <tr>
+                <td>✓ Study Support</td>
+                <td>Available</td>
+              </tr>
+            </tbody>
+          </table>
+          <table className="funding-table funding-table--extras">
+            <tbody>
+              <tr className="section-heading">
+                <th colSpan="2">Chargeable extras</th>
+              </tr>
+
+              <tr className="chargeable-header">
+                <th>Item</th>
+                <th>Cost</th>
+              </tr>
+
+              <tr className="sub-heading">
+                <td colSpan="2">Additional hours</td>
+              </tr>
+
               <tr>
                 <td>
-                  Freshly prepared breakfast, mid-day meal, desserts, afternoon
-                  meal and snacks
+                  We are open Monday to Friday, between the hours of 7am and
+                  7pm. Parents/carers accessing early years entitlements can
+                  access additional hours, chargeable as follows (for all age
+                  groups):
                 </td>
-                <td>£18</td>
+                <td>£8.50 per hour</td>
               </tr>
+
+              <tr className="sub-heading">
+                <td colSpan="2">Meals</td>
+              </tr>
+
               <tr>
-                <td>Montessori consumables</td>
-                <td>£2</td>
+                <td>Breakfast</td>
+                <td>£3.12</td>
+              </tr>
+
+              <tr>
+                <td>Morning snack</td>
+                <td>£2.08</td>
+              </tr>
+
+              <tr>
+                <td>Mid-day meal and pudding</td>
+                <td>£7.27</td>
+              </tr>
+
+              <tr>
+                <td>Afternoon meal</td>
+                <td>£5.19</td>
+              </tr>
+
+              <tr>
+                <td>Evening snack</td>
+                <td>£3.12</td>
+              </tr>
+
+              <tr className="sub-heading">
+                <td colSpan="2">Additional services</td>
+              </tr>
+
+              <tr>
+                <td>
+                  We offer the following extra-curricular activities, and these
+                  are chargeable as follows per funded day:
+                  <ul className="activities-list">
+                    <li>Specialised 1:1 Montessori teaching</li>
+                    <li>Forest school sessions</li>
+                    <li>Language classes</li>
+                    <li>Atelier sessions</li>
+                    <li>Athletics and movement sessions</li>
+                    <li>Bhangra dancing / dhol drumming</li>
+                    <li>Yoga sessions</li>
+                    <li>Animal care</li>
+                    <li>Drumming sessions</li>
+                    <li>Wellness sessions</li>
+                    <li>Animal visits</li>
+                    <li>Carnival events</li>
+                    <li>Zoo lab visits</li>
+                    <li>Farm visits</li>
+                    <li>Seasonal events</li>
+                    <li>Entertainers</li>
+                    <li>Animal therapy</li>
+                    <li>Creative workshops</li>
+                  </ul>
+                </td>
+
+                <td className="activities-cost">
+                  £6.63
+                  <br />
+                  <small>per funded day</small>
+                </td>
               </tr>
             </tbody>
           </table>
